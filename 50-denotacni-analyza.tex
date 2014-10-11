@@ -1,0 +1,136 @@
+%\documentclass[10pt,a4paper]{article}
+%\usepackage[utf8]{inputenc}
+%\usepackage[czech]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{fancyvrb}
+%\usepackage{url}
+%\usepackage{amsmath}
+%\usepackage[left=3cm,right=2cm,top=3cm,bottom=2.5cm]{geometry}
+%\author{Jan Šlahora}
+%\begin{document}
+\documentclass[dp.tex]{subfiles}
+\begin{document}
+\chapter{Denotační analýza}
+
+Denotační analýza zkoumá text z hlediska sémantiky. Je to technika, při níž je zkoumaný text nejprve rozdělen do skupin. Tyto skupiny jsou  nazývány \textbf{hřeby}. Jednotlivá slova jsou do patřičného hřebu zařazena na základě svého významu v textu. Hřeb tedy sdružuje všechna slova, která se vztahují k jednomu a tomu samému. Například při analýze jakéhokoliv překladu básně Havran by byl při denotační analýze nalezen hřeb, který by sdružoval slova související s havranem.
+
+\section{Rozdělení textu do hřebů}
+
+Aby bylo možné text podrobit denotační analýze, je potřeba jej nejprve rozdělit do hřebů. Slova je třeba rozdělovat na základě kritérií, dle kterých bude dané slovo zařazeno do příslušného hřebu. Tato kritéria nejsou doposud pevně určena. Vytvoření kritérií tak, aby pokryla všechny případy, které mohou nastat, je velmi komplexní úkol. Je však vhodné vytvořit si vlastní soubor těchto kritérií tak, aby pokrýval případy, které se vyskytují ve zkoumaných textech. Tím bude zachována stejná metodika pro všechny texty a následné porovnávání výsledků tak nebude zkresleno rozdílnými pravidly, jež byly při rozdělování použity.
+
+Při tvorbě kritérií je možné inspirovat se pravidly, které uvádí Altman v [1]:
+\begin{quote}
+\begin{itemize}
+\item Podstatná jména:
+\begin{enumerate}
+\item deklinace nemění denotaci, proto je ignorována,
+\item zdrobněliny se přiřazují k původnímu substantivu.
+\end{enumerate}
+\item Slovesa:
+\begin{enumerate}
+\item osobní koncovky, jednotné a množné číslo jsou relevantní, odkazují-li na entitu v textu. Sloveso v množném čísle odkazuje na všechny hřeby, jichž se sloveso týká.
+\item Čas je irelevantní: \uv{pravím}/\uv{pravil jsem}/\uv{budu pravit} vytváří hřeby \uv{pravit} a \uv{já}. Je však možné vytvářet i hřeby pro různé časy.
+\item Sloveso a zvratná forma jsou identické: \uv{X}/\uv{X se}.
+\item Slovesný vid je irelevantní.
+\item Nedokonavé a dokonavé sloveso s předponou je možno rozlišovat nebo nerozlišovat v závislosti na významu.
+\item Analytické formy tvoří jeden celek, i když jsou od sebe oddělené.
+\item Pozitivní a negativní tvar slovesa jsou identické.
+\end{enumerate}
+\item Přídavná jména:
+\begin{enumerate}
+\item rod a pád jsou ignorovány.
+\end{enumerate}
+\item Zájmena:
+\begin{enumerate}
+\item rod a pád jsou ignorovány.
+\end{enumerate}
+\item Všeobecná pravidla:
+\begin{enumerate}
+\item V případě nejistoty platí, že je lepší vytvořit méně hřebů než více.
+\item Je možné (uznáme-li to za vhodné) sloučit do jednoho hřebu různé slovní druhy (např. \uv{klepot} a \uv{klepá}).
+\end{enumerate}
+\item Některé fráze mohou tvořit jeden element (např.\uv{nikdy víc}), jiné zase mohou odkazovat ne jiný nesložený element (např. \uv{černý pták} znamená vlastně \uv{havran}).
+\end{itemize}
+\end{quote}
+
+V případě ručního dělení textu do hřebů je vhodné připravit text tak, že každému denotačnímu elementu je přiděleno pořadové číslo. Obsahuje-li slovo více denotačních elementů, jsou jejich pořadová čísla oddělena svislou čarou \uv{|}. Tato úprava je znázorněna na první sloce překladu Havrana od Ivana Slavíka.
+
+\begin{samepage}
+\begin{Verbatim}[commandchars=+\[\]]
+ 1|2   3   4    5       6   7|8   9|10   11   12
+Bylo pusto o půlnoci, když jsem hloubal bez pomoci,
+
+ 13|14   15    16   17   18     19     20
+luštil marně živou mocí staré svazky kajícné,
+
+ 21|22   23|24  25|26   27   28  29 30  30     31
+nedřímal jsem, nebděl  ani, když tu ťuk ťuk znenadání
+
+ 32|33       34         35     36  37  38
+ozvalo se zaklepání, zaklepání a  víc  ne.
+
+ 39  40  41|42 43 44|45  46     47       48
+„Kdo mě shání, co chce  toto zaklepání kajícné?
+
+49|50  51  52  53  54  55 56
+Je     to host a  nic víc ne.“
+\end{Verbatim}
+\end{samepage}
+
+Pokud by analyzovaný text obsahoval denotační element složený z více slov (například výše vzpomínané \uv{nikdy víc}), bylo by tomuto denotačnímu elementu v upraveném textu přiřazeno pouze jedno pořadové číslo a celý denotační element by byl podtrhnut:
+\begin{Verbatim}[commandchars=+\[\]]
+50|51   52        53
+Praví havran +underline[+uv[Nikdy víc.]]
+\end{Verbatim}
+
+V první sloce se nachází 56 denotačních elementů, které je třeba rozdělit do jednotlivých hřebů. Při ručním dělení je vhodné psát jednotlivé hřeby pod sebe v pořadí, v jakém se vyskytly v textu včetně jejich pořadového čísla. Nutno podotknout, že dělení textu do hřebů je časově náročná činnost, jejíž složitost narůstá s délkou analyzovaného textu.
+
+Software, který vznikl v rámci této diplomové práce, obsahuje snadno ovladatelné uživatelské rozhraní, které dělení textu do hřebů co možná nejvíce usnadňuje.
+
+\subsection{Další typy hřebů}
+Hřeby, které vznikly analýzou textu, je možné transformovat na
+\begin{enumerate}
+\item \textbf{Množinový hřeb}\\
+Množinový hřeb je takový hřeb, v němž se uvedou pouze unikátní denotační elementy. Vyskytují-li se v hřebu denotační elementy související s deklinací, jsou seskupeny do kategorie např. \uv{1. osoba singuláru}, \uv{2. osoba singuláru} atd.
+\item \textbf{Poziční hřeb}\\
+V pozičním hřebu jsou denotační elementy znázorněny pouze svým pořadovým číslem.
+\end{enumerate}
+
+\section{Charakteristiky}
+
+Texty zachycují určitou skutečnost, kterou čtenář při jejich čtení \uv{rekonstruuje}. Skutečnost je v textu zachycena formou pojmů. Aby čtenář text pochopil tak, jak autor zamýšlel, je třeba, aby byl v textu zachycen vztah mezi různými pojmy.
+
+Denotační analýza zkoumá text právě z tohoto hlediska -- jak spolu jednotlivé v textu se vyskytující elementy souvisí. Na základě denotační analýzy lze odvodit následující charakteristiky textu.
+
+\subsection{Jádro textu}
+Jádro textu obsahuje ty hřeby, v nichž se vyskytují nejméně dva odlišné kmeny\footnote{Kmenem se v lingvistice označuje ta část slova, která se v různých tvarech téhož slova (u flektivních slovních druhů) nemění. Mnohdy bývá totožná s kořenem (morfémem nesoucím základní významovou (lexikální) část slova. \url{http://cs.wikipedia.org/wiki/Kmen_(mluvnice)} }.
+
+\subsection{Kardinální číslo jádra}
+Kardinální číslo jádra se značí |.|. Je dáno součtem velikostí hřebů, které jsou součástí jádra textu.
+
+\subsection{\uv{Lokálnost} jádrových hřebů}
+\uv{Lokálnost} jádrových hřebů (značena \textit{T}) zobrazuje dominantnost určitých hřebů v textu.  Jedná se o poměr velikosti hřebu ke kardiálnímu číslo jádra:
+\begin{equation}
+T_\text{(hřeb)}=\frac{\text{velikost hřebu}}{|.|}
+\end{equation}
+
+\subsection{Deterministické jádro}
+Do deterministického jádra patří všechny hřeby, které na sebe odkazují. Například vidíme, že se ve hřebu \uv{zaklepání} nachází slovo \uv{(ozva)lo}. V deterministickém jádru proto bude obsažen jak hřeb \uv{zaklepání}, tak hřeb \uv{ozvat}.
+
+\subsection{Kompaktnost textu}
+Kompaktnost textu určuje, jak moc je text zaměřen na jeden (hlavní) motiv. Kompaktnost textu \textit{K} je číslo ležící v intervalu $<0,1>$. Čím je vyšší, tím je text kompaktnější. Naopak čím nižší je hodnota \textit{K}, tím více je text rozvětven. Hodnota \textit{K} se spočítá jako
+\begin{equation}
+K=\frac{1-\frac{N}{L}}{1-\frac{1}{L}}
+\end{equation}
+kde 
+\begin{align*}
+      & N\text{ je počet v textu nalezených hřebů,}\\
+      & L\text{ je počet denotačních pozic v textu.}
+\end{align*}     
+
+\subsection{Centralizovanost textu}
+
+\end{document}
