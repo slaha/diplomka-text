@@ -20,7 +20,7 @@ Při tvorbě kritérií je možné inspirovat se pravidly, které uvádí Altman
 \begin{enumerate}
 \item osobní koncovky, jednotné a množné číslo jsou relevantní, odkazují-li na entitu v textu. Sloveso v množném čísle odkazuje na všechny hřeby, jichž se sloveso týká.
 \item Čas je irelevantní: \uv{pravím}/\uv{pravil jsem}/\uv{budu pravit} vytváří hřeby \uv{pravit} a \uv{já}. Je však možné vytvářet i hřeby pro různé časy.
-\item Sloveso a zvratná forma jsou identické: \uv{X}/\uv{X se}.
+\item Sloveso a zvratná forma jsou identické: \uv{ozvalo}/\uv{ozvalo se}.
 \item Slovesný vid je irelevantní.
 \item Nedokonavé a dokonavé sloveso s předponou je možno rozlišovat nebo nerozlišovat v závislosti na významu.
 \item Analytické formy tvoří jeden celek, i když jsou od sebe oddělené.
@@ -99,7 +99,7 @@ Jádro textu obsahuje ty hřeby, v nichž se vyskytují nejméně dva odlišné 
 Kardinální číslo jádra se značí |.|. Je dáno součtem velikostí hřebů, které jsou součástí jádra textu.
 
 \subsection{\uv{Lokálnost} jádrových hřebů}
-\uv{Lokálnost} jádrových hřebů (značena \textit{T}) zobrazuje dominantnost určitých hřebů v textu.  Jedná se o poměr velikosti hřebu ke kardiálnímu číslo jádra:
+\uv{Lokálnost} jádrových hřebů (značena $T$) zobrazuje dominantnost určitých hřebů v textu.  Jedná se o poměr velikosti hřebu ke kardiálnímu číslo jádra:
 \begin{equation}
 T_\text{(hřeb)}=\frac{\text{velikost hřebu}}{|.|}
 \end{equation}
@@ -108,16 +108,31 @@ T_\text{(hřeb)}=\frac{\text{velikost hřebu}}{|.|}
 Do deterministického jádra patří všechny hřeby, které na sebe odkazují. Například vidíme, že se ve hřebu \uv{zaklepání} nachází slovo \uv{(ozva)lo}. V deterministickém jádru proto bude obsažen jak hřeb \uv{zaklepání}, tak hřeb \uv{ozvat}.
 
 \subsection{Kompaktnost textu}
-Kompaktnost textu určuje, jak moc je text zaměřen na jeden (hlavní) motiv. Kompaktnost textu \textit{K} je číslo ležící v intervalu $<0,1>$. Čím je vyšší, tím je text kompaktnější. Naopak čím nižší je hodnota \textit{K}, tím více je text rozvětven. Hodnota \textit{K} se spočítá jako
+Kompaktnost textu určuje, jak moc je text zaměřen na jeden (hlavní) motiv. Kompaktnost textu $K$ je číslo ležící v intervalu $<0,1>$. Čím je vyšší, tím je text kompaktnější. Naopak čím nižší je hodnota $K$, tím více je text rozvětven. Hodnota $K$ se spočítá jako
 \begin{equation}
 K=\frac{1-\frac{N}{L}}{1-\frac{1}{L}}
 \end{equation}
 kde 
 \begin{align*}
-      & N\text{ je počet v textu nalezených hřebů,}\\
-      & L\text{ je počet denotačních pozic v textu.}
+      N & \text{ je počet v textu nalezených hřebů,}\\
+      L & \text{ je počet denotačních pozic v textu.}
 \end{align*}     
 
 \subsection{Centralizovanost textu}
+Centralizovanost textu ($R$) vyjadřuje sílu, jakou se denotace koncentruje na centrální hřeby. Je závislá na počtu výskytů jednotlivých hřebů. Spočítá se jako
+\begin{equation}
+R=\frac{1}{n^2}\sum{ \abs{H_i}^2 \times f_i}
+\end{equation}
+kde 
+\begin{align*}
+      \abs{H_i} & \text{ je velikost hřebu,}\\
+      f_i & \text{ je počet hřebů s velikostí \abs{H_i},}\\
+      n&=\abs{H_i}\times f_i.
+\end{align*}     
+
+Pomocí MacIntoshova indexu je možné spočítat relativní centralizovanost textu. MacIntoshův index se vypočítá jako
+\begin{equation}
+R_{rel}=\frac{1-\sqrt{R}}{1-\frac{1}{\sqrt{n}}}
+\end{equation}
 
 \end{document}
