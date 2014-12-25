@@ -1,0 +1,32 @@
+\documentclass[dp.tex]{subfiles}
+\begin{document}
+\chapter{Aplikace}
+
+V rámci této diplomové práce byla vytvořena aplikace umožňující uživateli snadné provádění dříve zmíněných testů a analýz. Aplikace je tvořena dvěma nezávislými moduly:
+\begin{itemize}
+\item knihovnou \texttt{compLing},
+\item modulem obsahujícím grafické uživatelské rozhraní -- GUI.
+\end{itemize}
+
+Oba moduly jsou naprogramovány v programovacím jazyce Java. Pro spuštění aplikace je proto potřeba nejprve nainstalovat běhové prostředí Java Virtual Machine \footnote{Dostupné \url {https://java.com/en/download}}. Součástí přílohy této diplomové práce je CD, na kterém je mimo jiné i spustitelná verze aplikace ve formátu JAR.
+
+Velkou výhodu Javy, jak napovídá i její motto \enq{write once, run anywhere}, je její multiplatformnost. To znamená, že v Javě napsaná aplikace bude bez úprav spustitelná na všech platformách, pro něž je dostupná Java Virtual Machine. 
+
+\section{Architektura aplikace}
+
+Na začátku vývoje bylo třeba zvolit architekturu budoucí aplikace. Po předešlých zkušenostech z oblasti vývoje softwaru jsem se rozhodl pro dva relativně nezávislé moduly, neboť čím je program jednodušší, tím méně je náchylný k chybám. 
+
+Prvním z těchto modulů měla být knihovna, která bude provádět samotnou analýzu textu. Tato knihovna musela být z důvodu co nejvyšší spolehlivosti důkladně otestována. Dalšími požadavky byly:
+\begin{itemize}
+\item rychlost,
+\item multiplatformnost,
+\item snadná rozšiřitelnost (např. v rámci jiné závěrečné práce).
+\end{itemize}
+
+Druhý modul měl tuto knihovnu využívat a poskytnout k ní uživatelsky přívětivé grafické rozhraní (tzv. GUI -- Graphical User Interface). Grafické rozhraní mělo umožnit uživateli otevřít textový soubor (případně více souborů), provést na něm za pomoci modulu knihovny požadovanou analýzu a zobrazit uživateli její výsledky. Důležitou vlastností grafického rozhraní byla možnost exportu vstupních dat do souboru CSV\footnote{Comma-separated values, hodnoty oddělené čárkami}. V rámci tohoto modulu pro mě zůstala stěžejní multiplatformnost a snadná rozšiřitelnost. Vzhledem k tomu, že se mělo jednat o jednoduchý frontend, bral jsem rychlost jako samozřejmost. Od automatizovaného testování jsem upustil, počítal jsem pouze s testováním uživatelským.
+
+\section{Knihovna \texttt{compLing}}
+
+\section{Grafické uživatelské rozhraní}
+
+\end{document}
