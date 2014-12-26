@@ -1,5 +1,8 @@
 \documentclass[11pt,a4paper,fleqn,titlepage,twoside,openany]{book}
 \usepackage{style}
+\clubpenalty 10000
+\widowpenalty 10000
+\subfile{05-slovnik-pojmu}
 
 \begin{document}
 \makeatletter
@@ -66,19 +69,30 @@ Název bakalářské práce v anglickém jazyce.
 
 \vspace*{0.8cm}\subsubsection*{Annotation}
 
-Morbi fringilla risus ut arcu dapibus viverra ultricies dolor consequat. Fusce tempus ipsum congue sem blandit in suscipit turpis fermentum. Aliquam vel feugiat nisi. Donec mattis, purus eget sodales condimentum, sapien nunc vestibulum est, ac vehicula sem leo nec mi. Sed id luctus nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed condimentum aliquet lorem in aliquet. Aliquam sed erat mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam eu dui in ante posuere pulvinar at vel purus. Phasellus consequat sollicitudin tempus. Ut nec elit nisi. 
+Morbi fringilla risus ut arcu dapibus viverra ultricies dolor consequat. Fusce tempus ipsum congue sem blandit in suscipit turpis fermentum. Aliquam vel feugiat nisi. Donec mattis, purus eget sodales condimentum, sapien nunc vestibulum est, ac vehicula sem leo nec mi. Sed id luctus nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed condimentum aliquet lorem in aliquet. Aliquam sed erat mauris. Pellentesque habitant morbi tristiqěue senectus et netus et malesuada fames ac turpis egestas. Nam eu dui in ante posuere pulvinar at vel purus. Phasellus consequat sollicitudin tempus. Ut nec elit nisi. 
 
 \vspace*{0.8cm}\subsubsection*{Keywords}
 
 Morbi, fringilla, risus, dapibus, viverra, ultricies, dolor
 
 \tableofcontents
+
+\let\cleardoublepage\clearpage % vymazání prázdné stránky http://stackoverflow.com/questions/491904/latex-how-to-remove-blank-pages-coming-between-two-chapters-in-appendix
+
+\chapter*{Seznam pojmů a zkratek}
+\addcontentsline{toc}{chapter}{Seznam pojmů a zkratek}  
+
+\printglossary[title=Slovník pojmů]
+
+\printglossary[type=acronym, title=Slovník zkratek]
+
 \thispagestyle{empty}
 
 \chapter {Úvod}
 První kapitola. Obsahuje úvod.
 
 \subfile{50-denotacni-analyza}
+\subfile{60-aplikace}
 
 \chapter{Závěr}
 

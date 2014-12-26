@@ -23,7 +23,11 @@ Prvním z těchto modulů měla být knihovna, která bude provádět samotnou a
 \item snadná rozšiřitelnost (např. v rámci jiné závěrečné práce).
 \end{itemize}
 
-Druhý modul měl tuto knihovnu využívat a poskytnout k ní uživatelsky přívětivé grafické rozhraní (tzv. GUI -- Graphical User Interface). Grafické rozhraní mělo umožnit uživateli otevřít textový soubor (případně více souborů), provést na něm za pomoci modulu knihovny požadovanou analýzu a zobrazit uživateli její výsledky. Důležitou vlastností grafického rozhraní byla možnost exportu vstupních dat do souboru CSV\footnote{Comma-separated values, hodnoty oddělené čárkami}. V rámci tohoto modulu pro mě zůstala stěžejní multiplatformnost a snadná rozšiřitelnost. Vzhledem k tomu, že se mělo jednat o jednoduchý frontend, bral jsem rychlost jako samozřejmost. Od automatizovaného testování jsem upustil, počítal jsem pouze s testováním uživatelským.
+Druhý modul měl tuto knihovnu využívat a poskytnout k ní uživatelsky přívětivé grafické rozhraní (tzv. \acrshort{gui}). Grafické rozhraní mělo umožnit uživateli otevřít textový soubor (případně více souborů), provést na něm za pomoci modulu knihovny požadovanou analýzu a zobrazit její výsledky. Důležitým požadavkem na modul grafického rozhraní byla možnost exportu vstupních dat do souboru \acrshort{csv}. 
+
+V rámci tohoto modulu pro mě zůstala stěžejní multiplatformnost a snadná rozšiřitelnost. Vzhledem k tomu, že cílem bylo vytvořit jednoduchý frontend, nepředpokládal jsem, že by aplikace mohla být pomalá. Od automatizovaného testování jsem upustil, počítal jsem pouze s testováním uživatelským.
+
+
 
 \section{Knihovna \texttt{compLing}}
 
