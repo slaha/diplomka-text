@@ -15,6 +15,8 @@
 \usepackage{url}
 \usepackage[normalem]{ulem}
 \usepackage[acronym,section]{glossaries}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}% http://ctan.org/pkg/adjustbox
 \usepackage[left=3cm,right=2cm,top=3cm,bottom=2.5cm]{geometry}
 
 \author{Jan Šlahora}
@@ -33,4 +35,9 @@
 
 \newcommand{\enq}[1]{
 	\textit{\enquote{#1}}
+}
+
+\DeclareTextFontCommand{\ttt}
+{
+	\ttfamily\hyphenchar\font=45\relax
 }
