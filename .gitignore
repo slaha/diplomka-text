@@ -23,6 +23,6 @@
 *.synctex.gz
 *.bak
 build/
-*.pdf
+/*.pdf
 *.dvi
 *.xdy
