@@ -42,7 +42,7 @@ Postupně jsem však od této idei upustil a to z následujících důvodů:
 
 Po zavrhnutí výše popsaného návrhu jsem se rozhodl oba moduly naprogramovat v jednom jazyce. To znamenalo zvolit takový jazyk, který umožní napsat jak dostatečně rychlou a otestovatelnou knihovnu, tak vytvořit grafické uživatelské rozhraní. Ve výběru zůstaly dříve zmíněné jazyky Python a Ruby a přibyly do něj jazyky C\# (Mono) a Java.
 
-Vzhledem ke svým zkušenostem s jednotlivými jazyky rozhodl jsem se nakonec pro implementaci v jazyce Java, který splnil veškeré požadavky. 
+Vzhledem ke svým zkušenostem s jednotlivými jazyky jsem se nakonec rozhodl pro implementaci v jazyce Java, který splnil veškeré požadavky. 
 
 \section{Knihovna \texttt{compLing}}
 
@@ -74,12 +74,28 @@ Modul grafického uživatelského rozhraní vznikl jako nutná nadstavba nad kni
 
 Cílem bylo vytvořit co možná nejjednodušší rozhraní, které uživateli umožní otevřít libovolný počet textů a následně nad těmito texty provádět analýzy podporované knihovnou \texttt{compLing}. Uživatelské rozhraní programu s 18 otevřenými překlady básně Havran je zobrazeno na následujícím obrázku:
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-main-window}
 	\caption{Hlavní okno programu s otevřenými překlady básně Havran.}
 \end{figure}
 
+Hlavní okno je rozděleno do čtyř částí:
+
+\begin{enumerate}
+	\item menu,
+	\item panel nástrojů
+	\item panely otevřených textů,
+	\item aktuální text.
+\end{enumerate}
+
+Menu aplikace obsahuje tři položky -- Soubor, Analýza a Aplikace. V menu Soubor se nacházejí položky pro otevření souboru a ukončení aplikace. Menu Analýza zpřístupňuje jednotlivé type analýz (kvantitativní, fonické, denotační). V případě, že není otevřen žádný text, je tato položka neaktivní. V menu Aplikace se skrývají dvě položky -- Nastavení a O aplikaci. Položka Nastavení vyvolá dialog, který umožňuje upravit velikost písma v aplikaci.
+
+Panel nástrojů poskytuje rychlý přístup k nejčastěji využívaným funkcím. Těmi jsou otevírání textů, analýza aktuálního textu a analýza všech otevřených textů. Po kliknutí na tlačítko \enquote{Analýza jednoho textu} nebo \enquote{Hromadná analýza} je zobrazeno menu pro výběr konkrétního typu analýzy. Obě tato tlačítka jsou neaktivní, není-li otevřen žádný text.
+
+Pod panelem nástrojů vlevo jsou ve sloupci umístěny panely pro otevřené texty. Na vrcholu panelů se nachází tlačítko pro vytvoření nového prázdného panelu. Po kliknutí pravým tlačítkem myši na panel se zobrazí kontextové menu, přes které je možné panel přejmenovat nebo uzavřít.
+
+Nalevo od těchto panelů je zobrazen právě aktivní text. Nad i pod textem jsou umístěny dva informační panely. Vrchní zobrazuje jméno aktivního textu. Kliknutím na tlačítko vpravo (ikonka tužky) je možné text přejmenovat. Na panelu umístěném pod textem je zobrazena informace o délce aktuálního textu, a to jak v počtu znaků, tak v počtu slov.
 
 
 

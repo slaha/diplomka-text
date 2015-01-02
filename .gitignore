@@ -26,3 +26,7 @@ build/
 /*.pdf
 *.dvi
 *.xdy
+*.bcf
+*.run.xml
+*.bst
+*.bib

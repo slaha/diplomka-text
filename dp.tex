@@ -1,9 +1,9 @@
 \documentclass[11pt,a4paper,fleqn,titlepage,twoside,openany]{book}
 \usepackage{style}
-\clubpenalty 10000
-\widowpenalty 10000
-\makeglossaries
+
 \subfile{05-slovnik-pojmu}
+
+\bibliography{bibliography}
 
 \begin{document}
 \makeatletter
@@ -83,9 +83,9 @@ Morbi, fringilla, risus, dapibus, viverra, ultricies, dolor
 \chapter*{Seznam pojmů a zkratek}
 \addcontentsline{toc}{chapter}{Seznam pojmů a zkratek}  
 
-\printglossary[title=Slovník pojmů]
+\printglossary[title=Slovník pojmů, nonumberlist]
 
-\printglossary[type=acronym, title=Slovník zkratek]
+\printglossary[type=acronym, title=Slovník zkratek, nonumberlist]   
 
 \listoffigures
 \addcontentsline{toc}{chapter}{\listfigurename} 
@@ -102,4 +102,5 @@ První kapitola. Obsahuje úvod.
 
 Závěr spolu s úvodem jsou nejvíce exponované kapitoly, které se píší až na závěr práce. Úvodní kapitola uvádí čtenáře do problematiky práce. V závěru naopak autor zhodnotí výsledky práce, míru splnění zadání, případně výhled do budoucna. Úvod i závěr by měl mít rozsah min. jedné strany.
 
+\printbibliography[title={Seznam použité literatury},heading=bibintoc]
 \end{document}

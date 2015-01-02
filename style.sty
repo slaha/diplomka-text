@@ -17,7 +17,18 @@
 \usepackage[acronym,section]{glossaries}
 \usepackage{graphicx}
 \usepackage[export]{adjustbox}% http://ctan.org/pkg/adjustbox
+\usepackage{float}
 \usepackage[left=3cm,right=2cm,top=3cm,bottom=2.5cm]{geometry}
+%\usepackage[bibstyle=verbose-trad1,backend=biber,babel=other,sorting=none,maxbibnames=99]{biblatex}
+
+\usepackage[
+	backend=biber
+	,style=iso-numeric
+	,sortlocale=cs_CZ
+	,babel=other
+	,bibencoding=UTF8
+]{biblatex}
+
 
 \author{Jan Šlahora}
 \title{Matematická lingvistika a překlady básně\\E.A. Poea Havran}
@@ -37,7 +48,19 @@
 	\textit{\enquote{#1}}
 }
 
-\DeclareTextFontCommand{\ttt}
-{
-	\ttfamily\hyphenchar\font=45\relax
-}
+% ozávorkovat číslo v bibliografii
+\renewcommand\MethodFormat{%
+	 \printtext[labelnumberwidth]{%
+	 	\mkbibbrackets{% 
+	 	 	\printfield{labelnumber}%
+ 	 	} 
+	 }% 
+}%
+
+% nastavit odsazení 
+\setlength{\bibhang}{0pt}
+
+
+\clubpenalty 10000
+\widowpenalty 10000
+\makeglossaries
