@@ -79,6 +79,14 @@ Cílem bylo vytvořit co možná nejjednodušší rozhraní, které uživateli u
 	\centering
 	\includegraphics[max width=\textwidth,keepaspectratio=true] {imgs-60-aplikace/gui-main-window}
 	\caption{Hlavní okno programu s otevřenými překlady básně Havran.}
+
+	\medskip % induce some separation between caption and explanatory material
+	\begin{minipage}{\textwidth} % choose width suitably
+		\begin{center}
+			{\footnotesize \textit{Pozn.: v závislosti na operačním systému se vzhled může lišit.}\par}
+		\end{center}
+	\end{minipage}
+		
 	\label{fig:gui-main-window}
 \end{figure}
 
@@ -138,5 +146,130 @@ Další možností je otevřít již existující textový soubor (soubor s př�
 
 Je-li text změněn, objeví se za jeho jménem na panelu znak \texttt{*}. Změněný text je možné uložit (buď v kontextovém menu vyvolaném kliknutím pravého tlačítka myši na panel nebo v menu \menu{Soubor}), případně jej lze, je-li text načten ze souboru, znovu načíst a vrátit jej tak do původní podoby. Tato možnost je přístupná přes kontextové menu příslušného panelu (\menu[,]{klik pravým tlačítkem na panel,Nahrát znovu}).
 
-Otevřené texty je možné uzavřít buď kliknutím na uzavírací tlačítko \menu{\ding{54}}, které se nachází na panelu vpravo, nebo přes \menu[,]{kontextové menu, Zavřít}. Aplikace zobrazí varování v případě, že byl text před uzavřením změněn a není uložen. Stejně tak je varování zobrazeno, pokud je aplikace ukončena a jsou v ní otevřené texty, které byly změněny a dosud nejsou uloženy.
+Otevřené texty je možné uzavřít buď kliknutím na uzavírací tlačítko \menu{\ding{54}}, které se nachází na panelu vpravo, nebo přes \menu[,]{kontextové menu panelu, Zavřít}. Aplikace zobrazí varování v případě, že byl text před uzavřením změněn a není uložen. Stejně tak je varování zobrazeno, pokud je aplikace ukončena a jsou v ní otevřené texty, které byly změněny a dosud nejsou uloženy.
+
+\subsection{Analyzování textu obecně}
+
+Analýza textu vyžaduje, aby byl otevřen alespoň jeden panel s textem. Tím se zpřístupní menu \menu{Analýza} i tlačítka pro rychlý přístup \keys{Analýza jednoho textu} a \keys{Hromadná analýza}.  Některé analýzy je možno provádět jak nad jedním tak nad všemi otevřenými texty. Jiné typy analýz (aliterace, denotační analýza) je možné vykonat pouze nad jedním textem, některé naopak vyžadují více otevřených textů (asonance).
+
+Je-li otevřen pouze jeden text, chová se hromadná analýza stejně jako analýza jednoho textu.
+
+\subsection{Analýza četnosti znaků}
+
+Analýzu četnosti znaků je možné provést jak pro jeden tak pro všechny otevřené texty. V závislosti na množině analyzovaných textů je analýzu četnosti znaků dostupná:
+\begin{description}
+  \item[Analýza jednoho textu] \hfill \\
+	Přes menu \menu[,]{Analýza,Četnost znaků,Pro aktuální text} nebo přes tlačítko \menu[,]{Analýza jednoho textu,Četnost znaků}.
+  \item[Analýza všech otevřených textů] \hfill \\
+	Přes menu \menu[,]{Analýza,Četnost znaků,Pro všechny texty} nebo přes tlačítko \menu[,]{Hromadná analýza,Četnost znaků}.
+\end{description}
+
+Po zvolení požadovaného typu analýzy je zobrazen dialog, ve kterém je možné upřesnit nastavení:
+
+\begin{figure}[H]
+\centering
+\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-character-analysis-dialog}
+\caption{Nastavení analýzy četnosti znaků.}
+\label{fig:gui-character-analysis-dialog}
+\end{figure}
+
+Dialog obsahuje dvě zaškrtávací políčka a tabulku pravidel, která mohou být aplikována na analyzované texty před samotnou analýzou. Pro názornost	budou funkce jednotlivých voleb demonstrovány na větě 
+
+\begin{center}
+\textit{\enquote{Pan Novák se chechtal 10$\times$ denně.}}
+\end{center}
+
+Pokud v dialogu není nic změněno, je text převeden na velká písmena a analyzovány jsou všechny znaky. Výsledkem analýzy je tabulka obsahující četnosti jednotlivých znaků:
+\begin{table}[H]
+\caption {Četnost znaků ve výchozím nastavení} 
+\label{tab:title} 
+\centering
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+
+
+	\hline \textbf{Znak} & ' ' & N & E & A & C & H & D & L & Ě & O & . & Á & K & T & 1 & 0 & V & P & S & $\times$ \\ 
+	\hline \textbf{Výskytů} & 5 & 4 & 3 & 2 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
+	\hline 
+	\end{tabular} 
+\end{table} 
+
+Zaškrtnutím možnosti \enquote{Analyzova pouze písmena} budou z textu před analýzou odstraněny znaky, které nejsou písmeny (číslice, interpunkce, \ldots). Výsledná tabulka četností by tomto případě vypadala takto:
+\begin{table}[H]
+\caption {Četnost znaků s volbou \enquote{Analyzovat pouze písmena}} 
+\label{tab:title} 
+\centering
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+
+
+	\hline \textbf{Znak} & N & E & A & C & H & D & T & V & P & S & L & Ě & O & Á & K  \\ 
+	\hline \textbf{Výskytů} & 4 & 3 & 2 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
+	\hline 
+	\end{tabular} 
+\end{table} 
+
+Další volbou je možnost \enquote{Rozlišovat malá a VELKÁ písmena}. Zaškrtnutím této volby nebude text před začátkem analýzy převeden na velká písmena, takže v tabulce četností budou zvlášť zobrazeny výskyty pro malá i velká písmena nalezená v textu:
+
+\begin{table}[H]
+\caption {Četnost znaků s volbou \enquote{Rozlišovat malá a VELKÁ písmena}} 
+\label{tab:title} 
+\centering
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+
+
+	\hline \textbf{Znak} & ' ' & e & n & c & a & h & d & ě & o & N & l & . & k & á & v & 1 & 0 & t & s & P & $\times$ \\ 
+	\hline \textbf{Výskytů} & 5 & 3 & 3 & 2 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
+	\hline 
+	\end{tabular} 
+\end{table} 
+
+Tyto dvě volby je možné zkombinovat (tj. analyzovat pouze písmena a rozlišovat jejich velikost).
+
+Další možností, jak ovlivnit analýzu, je definování pravidel. Pravidla je možné definovat po kliknutí na tlačítko \menu{\ding{58}} na pravém okraji okna. Objeví se nový dialog.
+
+\begin{figure}[H]
+\centering
+\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-character-analysis-rules-dialog}
+\caption{Nastavení pravidel analýzy četnosti znaků.}
+\label{fig:gui-character-analysis-rules-dialog}
+\end{figure}
+
+Pokud by analýza měla fungovat tak, že
+\begin{itemize}
+\item budou ignorovány mezery,
+\item sousedící znaky \enquote{c} a \enquote{h} budou považovány za jedno písmeno \enquote{ch},
+\item znak \enquote{$\times$} bude považován za písmeno \enquote{x},
+\end{itemize}
+
+je třeba vytvořit tato pravidla:
+
+\begin{figure}[H]
+\centering
+\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-character-analysis-dialog-with-rules}
+\caption{Nastavení pravidel analýzy četnosti znaků.}
+\label{fig:gui-character-analysis-dialog-with-rules}
+\end{figure}
+
+Výsledkem takto nastavené analýzy bude tato tabulka četnosti znaků:
+
+\begin{table}[H]
+\caption {Četnost znaků s aplikovanými pravidly} 
+\label{tab:title} 
+\centering
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+
+
+	\hline \textbf{Znak} & N & E & A & CH & D & L & Ě & O & Á & K & T & 1 & 0 & V & P & S & x \\
+	\hline \textbf{Výskytů} & 4 & 3 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
+	\hline 
+	\end{tabular} 
+\end{table} 
+
+Výsledek analýzy je zobrazen v novém okně. Obsahuje informace o analýze, jako je seznam analyzovaných textů, počet všech znaků, počet unikátních znaků, nejčastěji se vyskytující znak a informaci o tom, zda je analyzovaný výběr se zvolenou směrodatnou odchylkou reprezentativní (na základě Kubáčkova vzorce%TODO odkaz na vzorec
+). 
+
+Pod souhrnem se nachází tabulka četností znaků. Ta obsahuje jednak sloupec s relativními četnostmi každého znaku a jednak sloupec s absolutními četnostmi pro každý analyzovaný text. Tabulku je možné seřadit dle libovolného sloupce kliknutím na jeho název.
+
+Výsledek analýzy dále obsahuje dva grafy. První z nich zobrazuje četnosti jednotlivých znaků. Výchozím typem grafu je graf koláčový. Po kliknutí levým tlačítkem se typ grafu změní na sloupcový, který zobrazuje absolutní četnosti výskytu znaků. Dalším kliknutím levým tlačítkem myši se změní zobrazované hodnoty z absolutních na relativní. Další kliknutím je opět zobrazen koláčový graf.
+
+Druhý graf má smysl zejména při analýze více textů. Zobrazuje porovnání výskytů zvolených znaků v analyzovaných textech. Do porovnání je možné přidat všechny nalezené znaky.
 \end{document}
