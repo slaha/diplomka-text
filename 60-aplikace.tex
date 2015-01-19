@@ -272,4 +272,52 @@ Pod souhrnem se nachází tabulka četností znaků. Ta obsahuje jednak sloupec 
 Výsledek analýzy dále obsahuje dva grafy. První z nich zobrazuje četnosti jednotlivých znaků. Výchozím typem grafu je graf koláčový. Po kliknutí levým tlačítkem se typ grafu změní na sloupcový, který zobrazuje absolutní četnosti výskytu znaků. Dalším kliknutím levým tlačítkem myši se změní zobrazované hodnoty z absolutních na relativní. Další kliknutím je opět zobrazen koláčový graf.
 
 Druhý graf má smysl zejména při analýze více textů. Zobrazuje porovnání výskytů zvolených znaků v analyzovaných textech. Do porovnání je možné přidat všechny nalezené znaky.
+
+\subsection{Denotační analýza}
+
+Denotační analýza je prováděna vždy pouze na jednom (aktivním) textu. Je možné ji vyvolat dvěma způsoby:
+
+\begin{enumerate}
+\item v menu aplikace \menu[,]{Analýza,Denotační analýza},
+\item v panelu nástrojů zvolit \menu[,]{Analýza jednoho textu,Denotační analýza}.
+\end{enumerate}
+
+Po zvolení jedné z možností se otevře nové okno. Jak bylo popsáno v kapitole \hyperref[chap:denotacni_analyza]{Denotační analýza}, je třeba nejprve zkoumaný text rozdělit do hřebů. K tomuto účelu slouží právě nově otevřené okno:
+\begin{figure}[H]
+\centering
+\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-denotation-window}
+\caption{Okno pro dělení textu do hřebů.}
+\label{fig:gui-denotation-window}
+\end{figure}
+
+Na horním okraji okna je umístěn nástrojový panel, který obsahuje tlačítka pro nahrání dříve uloženého rozdělení textu (tlačítko \keys{Import}) a tlačítko \keys{Export} pro uložení rozpracovaného rozdělení. 
+
+Prostřední část okna je rozdělena na dva sloupce, z nichž levý obsahuje analyzovaný text včetně očíslovaných denotačních elementů a v pravém sloupci je umístěna tabulka s vytvořenými hřeby (na obrázku \ref{fig:gui-denotation-window} nejsou zatím žádné hřeby vytvořeny). Nad tabulkou se nachází tlačítka pro vytvoření nového hřebu a smazání vybraného hřebu. 
+
+V pravém dolním rohu se nachází tlačítka \keys{Cancel} a \keys{Hotovo}. Tlačítkem \keys{Cancel} je možné zavřít okno pro dělení textu (přitom je uživatel upozorněn, že zavřením okna přijde o rozdělanou práci a je mu nabídnuta možnost rozpracované rozdělení uložit). Tlačítko \keys{Hotovo} je neaktivní, dokud nejsou všechny denotační elementy roztříděny do hřebů. Po kliknutí na něj je zobrazen dialog, ve kterém uživatel může hotové rozdělení uložit (aby jej příště mohl opět otevřít a použít). Nakonec je okno pro dělení textu do hřebů uzavřeno a místo něj se zobrazí okno s výsledky denotační analýzy na základě vytvořeného rozdělení.
+
+\subsubsection{Dělení do hřebů}
+
+Rozdělení slov do hřebů se program snaží co možná nejvíce usnadnit. Správa hřebů je soustředěna do pravé části okna. Po spuštění je tato oblast prázdná, neboť zatím nebyl vytvořen žádný hřeb. Nový hřeb se vytvoří kliknutím na tlačítko \keys{Nový hřeb}. Nově vytvořený hřeb je zobrazen jako řádek v tabulce. Kliknutím na právě vytvořený hřeb se hřeb označí a aktivuje se tlačítko \keys{Odstranit hřeb}. Po kliknutí na něj jsou ze hřebu odstraněny všechny denotační elementy a hřeb je smazán.
+
+Levá část okna obsahuje text analyzované básně, který je doplněn o čísla denotačních elementů. Manipulace s denotačními elementy probíhá přes kontextové menu, které je vyvoláno kliknutím pravým tlačítkem myši na příslušný denotační element.
+
+\begin{figure}[H]
+\centering
+\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-denotation-element-menu}
+\caption{Kontextové menu denotačního elementu \enquote{Bylo}.}
+\label{fig:gui-denotation-menu}
+\end{figure}
+
+Kontextové menu obsahuje celkem šest položek, z nichž první dvě obsahují další podmenu. Ne všechny položky musí být vždy viditelné.
+
+\begin{description}[style=nextline]
+	\item[\keys{Přidat do hřebu $\kern 10pt\triangleright$}] Tato volba je zobrazena pouze v případě, že již byl vytvořen alespoň jeden hřeb. Obsahuje podmenu, v němž je možné zvolit hřeb, do nějž má být denotační element přidán. Denotační elementy jsou kvůli přehlednosti rozděleny do skupin po dvaceti.
+
+	\item[\keys{Přidat do jiného hřebu}] Tato volba je viditelná pouze, pokud již byly všechny denotační elementy daného slova zařazeny do hřebů a současně existuje hřeb, v němž se žádný z denotačních elementů tohoto slova nenachází (tzn. bylo vytvořeno více hřebů, než má dané slovo elementů). Touto volbou je možné zařazení jednoho denotačního elementu do více hřebů.
+
+	\item[\keys{Odebrat z hřebu $\kern 10pt\triangleright$}] Volba je viditelná pouze u slov, která již byla přidána do nějakého hřebu. Pomocí této volby je možné denotační element z hřebu odstranit. V podmenu jsou zobrazeny všechny hřeby, do nichž byly denotační elementy zvoleného slova zařazeny. Kliknutím na položku je příslušný element odstraněn z vybraného hřebu.
+
+	\item[\keys{Ignorovat} / \keys{Brát v potaz}] Tyto dvě volby umožňují dané slovo vyřadit z analýzy (případně zařadit zpět). Ignorovaná slova jsou v textu zašedlá a nejsou nad nimi zobrazena čísla denotačních elementů. Volby \keys{Ignorovat} a \keys{Brát v potaz} jsou zobrazeny v závislosti na tom, zda je dané slovo  ignorováno, či nikoliv.
+\end{description}
 \end{document}
