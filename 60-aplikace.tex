@@ -155,6 +155,7 @@ Analýza textu vyžaduje, aby byl otevřen alespoň jeden panel s textem. Tím s
 Je-li otevřen pouze jeden text, chová se hromadná analýza stejně jako analýza jednoho textu.
 
 \subsection{Analýza četnosti znaků}
+\label{chap:analyza-cetnosti-znaku}
 
 Analýzu četnosti znaků je možné provést jak pro jeden tak pro všechny otevřené texty. V závislosti na množině analyzovaných textů je analýzu četnosti znaků dostupná:
 \begin{description}
@@ -273,6 +274,67 @@ Výsledek analýzy dále obsahuje dva grafy. První z nich zobrazuje četnosti j
 
 Druhý graf má smysl zejména při analýze více textů. Zobrazuje porovnání výskytů zvolených znaků v analyzovaných textech. Do porovnání je možné přidat všechny nalezené znaky.
 
+\subsection{Analýza četnosti slov}
+
+Stejně jako analýza četnosti znaků může být i analýza četnosti slov prováděna jak na jednom, tak více textech najednou. Analyzovat četnost slov lze buď z menu \menu[,]{Analýza,Analýza četnosti slov} nebo z nástrojového panelu pomocí tlačítek \menu[,]{Analýza jednoho textu}, případně \menu[,]{Hromadná analýza}.
+
+Před tím, než analýza začne, je možné nastavit její parametry pomocí dialogu \ref{fig:gui-word-analysis-dialog}:
+\begin{figure}[H]
+\centering
+\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-word-analysis-dialog}
+\caption{Nastavení analýzy četnosti slov.}
+\label{fig:gui-word-analysis-dialog}
+\end{figure}
+
+Aplikace podporuje dva způsoby, jak počítat četnost slov:
+
+\begin{enumerate}
+\item dle obsahu slova (tedy dvě slova jsou stejná, pokud obsahují stejná písmena ve stejném pořadí),
+\item dle délky slova (ve znacích).
+\end{enumerate}
+
+To, jaký způsob má být použit je možné zvolit v nabídce \keys{Typ analýzy}. Další volbou je možnost ignorovat rozdílnou velikost písmen. Ve výchozím nastavení je tato volba vypnuta, což znamená, že například ve verši
+
+\begin{verse}
+\enquote{Sám a sám tak havran sedí,\ldots}
+\begin{flushright}
+\textit{(Havran -- překlad Rudolf Havel)}
+\end{flushright}
+\end{verse}
+
+by slova \enquote{Sám} a \enquote{sám} byla brána jako dvě různá slova. Zaškrtnutím volby \keys{Ignorovat rozdílnou velikost písmen} bude text před analýzou převeden na malá písmena, takže obě slova budou považována za jedno. Tato volba nijak neovlivní výsledek v případě, že je jako typ analýzy zvolena analýza dle délky slova.
+
+Poslední možností, jak ovlivnit výsledek analýzy četnosti znaků, je vytvoření pravidel podobných těm z kapitoly \hyperref[chap:analyza-cetnosti-znaku]{Analýza četnosti znaků}. Pravidla je možné vytvořit v dialogu, který se zobrazí po kliknutí na tlačítko \menu{\ding{58}}:
+
+\begin{figure}[H]
+\centering
+\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-word-analysis-rules-dialog}
+\caption{Nastavení pravidel analýzy četnosti slov.}
+\label{fig:gui-word-analysis-rules-dialog}
+\end{figure}
+
+Dialog umožňuje vytvoření pravidel dvou typů. Hledané slovo (\enquote{pták}) je možné buď ignorovat (tzn., že je při analýze přeskočeno a výsledcích se vůbec neobjeví), nebo nahradit slovem jiným. V tomto případě bude výskyt slova \enquote{pták} přičten k počtu výskytů slova \enquote{havran}.
+
+Zaškrtávací tlačítko \keys{Pouze přesné shody} umožňuje ovlivnit, jak bude analýza probíhat v případě, že hledané slovo je prefixem právě analyzovaného slova (například slovo \enquote{\textbf{pták}u} začíná hledaným slovem \enquote{pták}). V případě, kdy nebude zaškrtnuto tlačítko \keys{Pouze přesné shody}, bude ve slově \enquote{\textbf{pták}u} část \enquote{pták} nahrazena slovem \enquote{havran}. Do zpracování analýzy tedy vstoupí slovo \enquote{\textbf{havran}u}. Pokud by byla zvolena volba \keys{Pouze přesné shody}, nebylo by nahrazení na slovo \enquote{ptáku} aplikováno a do analýzy by vstoupilo nezměněné slovo \enquote{ptáku}.
+
+
+Výsledkem analýzy četnosti slov je report obsahující jednak souhrnné informace o analyzovaných textech a jednak detailní přehled zobrazený buď formou tabulky, nebo grafu. Souhrn obsahuje informace jako celkový počet nalezených slov, nejčastěji se vyskytující slovo (délka slova) atd. V reportu je dále uvedena tabulka četností jednotlivých znaků (resp. jejich délek). Tato tabulka je ve výchozím stavu sbalena, což indikuje ikona za nadpisem \enquote{Tabulka četností výskytu slov} (příp. \enquote{Výskyt slov dle délky slova}):
+
+\begin{figure}[H]
+\centering
+\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-toggle-healine}
+\caption{Ikona rozbalitelných nadpisů ve stavu \enquote{sbaleno}}
+\label{fig:gui-toggle-healine}
+\end{figure}
+
+Kliknutím na nadpis se tabulka rozbalí. Tabulku je možné řadit dle libovolného sloupce kliknutím levým tlačítkem myši na hlavičku příslušného sloupce.
+
+V případě analýzy dle délky slova, je pod tabulkou četností zobrazena další tabulky, která přísluší k $\chi^2$ testu. Hypotéza $H_0$ tohoto testu zní \enquote{Rozdělení četností slov dle délky odpovídá Poissonovu rozdělení}. V tabulce jsou zobrazeny naměřené počty a četnosti daných délek spolu s jejich očekávanými hodnotami. Pod tabulkou je zobrazen výsledek testu na zvolené hladině významnosti včetně kritických hodnot. Hodnotu hladiny významnosti  $\alpha$ je možné změnit.
+
+V reportu je dále zobrazen graf zastoupení jednotlivých slov (resp. délek slov). Výchozí je graf koláčový, který se kliknutím levým tlačítkem myši změní na graf sloupcový, v němž jsou zobrazeny absolutní četnosti výskytů. Dalším kliknutím se na osu $y$ vynesou relativní četnosti. Vzhledem k tomu, že slov v textu bývá obsaženo mnoho, mohou být grafy nepřehledné. Proto je možné zredukovat počet zobrazených dat pouze na ta slova, která se vyskytla alespoň $n\text{krát}$. Program umožňuje graf zvětšovat nebo zmenšovat dle potřeby. K tomu slouží tlačítka \keys{Zvětšit graf} respektive \keys{Zmenšit graf}. Kliknutím pravým tlačítkem myši na graf je vyvoláno kontextové menu, které umožňuje graf zkopírovat do schránky, uložit nebo vytisknout. Dále je možné graf přiblížit nebo oddálit. To znamená, že velikost grafu zůstane zachována, ale zmenší (resp. zvětší) se viditelný rozsah na ose $y$.
+
+Posledním grafem v reportu je sloupcový graf \enquote{Srovnání četností}. V něm je možné zobrazit zvolená slova (délky slov) a porovnat tak četnost daných slov ve všech analyzovaných textech. I u tohoto grafu je přes pravé tlačítko myši přístupné kontextové menu, které umožňuje s grafem dále manipulovat.
+	
 \subsection{Denotační analýza}
 
 Denotační analýza je prováděna vždy pouze na jednom (aktivním) textu. Je možné ji vyvolat dvěma způsoby:
@@ -280,6 +342,7 @@ Denotační analýza je prováděna vždy pouze na jednom (aktivním) textu. Je 
 \begin{enumerate}
 \item v menu aplikace \menu[,]{Analýza,Denotační analýza},
 \item v panelu nástrojů zvolit \menu[,]{Analýza jednoho textu,Denotační analýza}.
+\\
 \end{enumerate}
 
 Po zvolení jedné z možností se otevře nové okno. Jak bylo popsáno v kapitole \hyperref[chap:denotacni_analyza]{Denotační analýza}, je třeba nejprve zkoumaný text rozdělit do hřebů. K tomuto účelu slouží právě nově otevřené okno:
@@ -300,7 +363,7 @@ V pravém dolním rohu se nachází tlačítka \keys{Cancel} a \keys{Hotovo}. Tl
 
 Rozdělení slov do hřebů se program snaží co možná nejvíce usnadnit. Správa hřebů je soustředěna do pravé části okna. Po spuštění je tato oblast prázdná, neboť zatím nebyl vytvořen žádný hřeb. Nový hřeb se vytvoří kliknutím na tlačítko \keys{Nový hřeb}. Nově vytvořený hřeb je zobrazen jako řádek v tabulce. Kliknutím na právě vytvořený hřeb se hřeb označí a aktivuje se tlačítko \keys{Odstranit hřeb}. Po kliknutí na něj jsou ze hřebu odstraněny všechny denotační elementy a hřeb je smazán.
 
-Levá část okna obsahuje text analyzované básně, který je doplněn o čísla denotačních elementů. Manipulace s denotačními elementy probíhá přes kontextové menu, které je vyvoláno kliknutím pravým tlačítkem myši na příslušný denotační element.
+Levá část okna obsahuje text analyzované básně, který je doplněn o čísla denotačních elementů. Manipulace s denotačními elementy probíhá přes kontextové menu, které je vyvoláno kliknutím pravým tlačítkem myši na příslušné slovo básně.
 
 \begin{figure}[H]
 \centering
@@ -309,7 +372,7 @@ Levá část okna obsahuje text analyzované básně, který je doplněn o čís
 \label{fig:gui-denotation-menu}
 \end{figure}
 
-Kontextové menu obsahuje celkem šest položek, z nichž první dvě obsahují další podmenu. Ne všechny položky musí být vždy viditelné.
+Kontextové menu obsahuje různý počet položek v závislosti na aktuálním stavu daného slova. 
 
 \begin{description}[style=nextline]
 	\item[\keys{Přidat do hřebu $\kern 10pt\triangleright$}] Tato volba je zobrazena pouze v případě, že již byl vytvořen alespoň jeden hřeb. Obsahuje podmenu, v němž je možné zvolit hřeb, do nějž má být denotační element přidán. Denotační elementy jsou kvůli přehlednosti rozděleny do skupin po dvaceti.
@@ -319,5 +382,40 @@ Kontextové menu obsahuje celkem šest položek, z nichž první dvě obsahují 
 	\item[\keys{Odebrat z hřebu $\kern 10pt\triangleright$}] Volba je viditelná pouze u slov, která již byla přidána do nějakého hřebu. Pomocí této volby je možné denotační element z hřebu odstranit. V podmenu jsou zobrazeny všechny hřeby, do nichž byly denotační elementy zvoleného slova zařazeny. Kliknutím na položku je příslušný element odstraněn z vybraného hřebu.
 
 	\item[\keys{Ignorovat} / \keys{Brát v potaz}] Tyto dvě volby umožňují dané slovo vyřadit z analýzy (případně zařadit zpět). Ignorovaná slova jsou v textu zašedlá a nejsou nad nimi zobrazena čísla denotačních elementů. Volby \keys{Ignorovat} a \keys{Brát v potaz} jsou zobrazeny v závislosti na tom, zda je dané slovo  ignorováno, či nikoliv.
+
+	\item[\keys{Přidat denotační element}] Tato volba přidá k danému slovu nový denotační element, jehož číslo bude o jedna vyšší, než nejvyšší číslo z elementů, které již jsou slovu přiřazeny. 
+
+	\item[\keys{Odebrat denotační element}] Tato volba he dostupná pouze pro slova, která mají alespoň dva denotační elementy. Použitím této volby je denotační element s nejvyšším číslem smazán.
+
+	\item[\keys{Sloučit s [\ldots]}] Tato volba umožňuje z více slov vytvořit jeden denotační element (např. složená slovesa jako \enquote{nedřímal jsem}). K dispozici je vždy sloučení s následujícím slovem, což v některých případech nemusí vyhovovat. Například na obrázku \ref{fig:gui-denotation-window} je v devátém verši
+
+		\begin{verse}
+		\enquote{Už aby se rozednilo; marně bych tu hledal dílo,}
+		\end{verse}
+
+	složené sloveso \enquote{hledal bych}. V tomto případě program nabídne sloučení \enquote{bych} se slovem \enquote{tu}, což není požadovaný výsledek. Řešením je proto slovo \enquote{bych} ignorovat a chovat se, jako by se o složené sloveso nejednalo (jak je vidět i na obrázku \ref{fig:gui-denotation-window}). Obdobná situace nastala i ve verši desátém.
 \end{description}
+
+Pomocí kontextového menu je třeba rozdělit do hřebů všechny denotační elementy, které jsou v básni vytvořeny. Dokud není každý denotační element zařazen do hřebu, nedovolí aplikace pokračovat. Výhodné je průběžně ukládat stav rozdělování, aplikace sama rozdělanou práci periodicky neukládá.
+
+Poté, co je rozdělování dokončeno, je zpřístupněno tlačítko \keys{Hotovo}. Kliknutím na něj se okno s dělením uzavře a otevře se okno s výsledky denotační analýzy. Jako první jsou zobrazeny souhrnné informace jako kompaktnost textu $K$, centralizovanost textu $R$ a hodnota MacIntoshova indexu.
+
+Analýza dále obsahuje sekci, v níž je zobrazena difuze hřebů a poziční hřeby. Tyto sekce jsou ve výchozím stavu sbaleny.
+
+Níže je zobrazena sekce \enquote{Jádro textu}. Aplikace sama vytvořila jádro textu ze hřebů, které obsahují alespoň dva denotační elementy. Pokud některý z vybraných hřebů do jádra textu nepatří, je možné jej z jádra odstranit kliknutím na něj levým tlačítkem myši. Tím se hřeb přesune do podsekce \enquote{Hřeby mimo jádro}. V případě, že by do jádra patřil hřeb nacházející se v podsekci \enquote{Hřeby mimo jádro}, lze ho jej mezi jaderné hřeby zařadit opět kliknutím levým tlačítkem myši. Poslední podsekce je \enquote{Topikálnost jádrových hřebů}, v níž je pro každý jádrový hřeb zobrazena jeho topikálnost. 
+
+Další sekcí je sekce \enquote{Rozšířené jádro textu}. V té jsou na základě vytvořeného jádra textu zobrazeny hřeby patřící do rozšířeného jádra.
+
+Výsledný report denotační analýzy uzavírají sekce týkající se grafů -- \enquote{Koincidence} a \enquote{Graf}. Aplikace pracuje s rámcem koincidence stanoveným jako verš. Sekce \enquote{Koincidence} zahrnuje dvě podsekce:
+\begin{enumerate}
+\item \enquote{Báseň jako pořadová čísla hřebů} obsahuje přepis básně, kde jsou namísto slov zobrazena pořadová čísla hřebů. 
+\item \enquote{Tabulka koincdence} zobrazuje v tabulce koincidence pro všechny páry veršů. Nad tabulkou je umístěn výběr základního verše.
+\end{enumerate}
+
+Poslední sekcí je sekce \enquote{Graf}. V té se, jak název napovídá, nachází graf sestavený na základě vypočítaných koincidencí a zvolené kritické hodnoty $\alpha$. Výchozí hodnota $\alpha = 0,1$. Kritickou hodnotu je možné měnit v ovládacím panelu nad grafem.
+
+Panel dále obsahuje zaškrtávací volbu \enquote{Povolit automatické rozmístění grafu}. Je-li automatické rozmístění povoleno, jsou vrcholy grafu rozmístěny automaticky tak, aby se hrany co nejméně překrývaly. Protože výsledky automatického rozmístění nebývají 100\%, je vhodné volbu povolit při změně kritické hodnoty $\alpha$, poté zakázat a rozmístění vrcholů dokončit ručně. Při povolení funkce jsou vrcholy vždy rozmístěny znovu.
+
+Třetí a poslední funkcionalita, kterou panel nabízí, je uložení grafu do souboru PNG.
+
 \end{document}
