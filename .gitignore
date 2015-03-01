@@ -30,3 +30,5 @@ build/
 *.run.xml
 *.bst
 *.bib
+compling-class-diagram/
+
