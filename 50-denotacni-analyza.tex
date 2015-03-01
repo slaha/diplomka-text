@@ -112,7 +112,7 @@ Viz \cite[str. 302]{Wimmer2003}.
 
 \subsection{Deterministické jádro}
 %TODO sem dát hřeb "zaklepání"
-Deterministické jádro souvisí s problematikou  \glslink{tema_rema}{témy a rémy}. Do deterministického jádra patří všechny hřeby, které na sebe odkazují. Například vidíme, že se ve hřebu \uv{zaklepání} nachází slovo \uv{(ozva)lo}. V deterministickém jádru proto bude obsažen jak hřeb \uv{zaklepání}, tak hřeb \uv{ozvat}.
+Deterministické jádro souvisí s problematikou  \glslink{tema_rema}{tématu a rématu}. Do deterministického jádra patří všechny hřeby, které na sebe odkazují. Například vidíme, že se ve hřebu \uv{zaklepání} nachází slovo \uv{(ozva)lo}. V deterministickém jádru proto bude obsažen jak hřeb \uv{zaklepání}, tak hřeb \uv{ozvat}.
 
 
 \subsection{Kompaktnost textu}
@@ -177,7 +177,7 @@ kde
 
 vypočítá kumulativní pravděpodobnost hypergeometrického rozdělení. Koincidence je \textit{signifikantní}, pokud platí $P(X \geq x)\leq \alpha$. Čím je zvolená hladina $\alpha$ menší číslo, tím méně hřebů je vzájemně \textit{signifikantních}.
 
-Z vypočítaných pravděpodobností $P(X \geq x)$ je možné sestrojit $\alpha$-graf. V $\alpha$-grafu jsou hřeby zakresleny jako vrcholy, přičemž sousedními se stanou ty vrcholy (=hřeby), jejichž vzájemná pravděpodobnost $P(X \geq x)$ je menší nebo rovna $\alpha$ (tzn. jsou \textit{signifikantní}).
+Z vypočítaných pravděpodobností $P(X \geq x)$ je možné sestrojit $\alpha$-graf. V $\alpha$-grafu jsou hřeby zakresleny jako vrcholy, přičemž sousedními se stanou ty vrcholy (=hřeby), jejichž vzájemná pravděpodobnost $P(X \geq x)$ je menší nebo rovna $\alpha$ (tzn., jsou \textit{signifikantní}).
 
 Z toho vyplývá, že volba velikosti hladiny $\alpha$ má vliv na počet hran a komponent ve výsledném $\alpha$-grafu. 
 
@@ -187,4 +187,72 @@ Charakteristikami, které jsou spojeny s koincidencí, jsou:
 	\item[Index neizolovanosti] je pravděpodobnost zaručující, že žádný z vrcholů v $\alpha$-grafu nebude izolovaný. Pokud je hladina $\alpha$ stanovena nad \textit{index neizolovanosti}, každý vrchol $\alpha$-grafu bude incidentní s alespoň jednou hranou.
 	\item[Index dosažitelnosti] je taková hodnota $\alpha$, při které je celý $\alpha$-graf tvořen pouze jednou komponentou. To znamená, že $\alpha$-graf je souvislý a tudíž existuje cesta mezi jeho libovolnými dvěma vrcholy.
 \end{description}
+
+\subsection{Souvislost}
+V teorii grafů je za souvislý považován takový graf, ve kterém pro každé jeho dva vrcholy $x$ a $y$ existuje v $G$ cesta z $x$ do $y$. Souvislost grafu vyjadřuje, je-li možné dostat se z každého vrcholu do jiného, nebo zda jde o více na sebe nenavazujících komponent.
+
+Souvislost charakterizuje, jak hustá je síť hran v grafu. Z lingvistického hlediska naznačuje míru koncentrace zachycené reality. Ziegler a Altman používají v \cite{ZieglerAltmann2002} dvě míry souvislosti:
+
+\textit{Relativní míra souvislost}, která se vypočítá jako
+\begin{equation}
+\kappa_\textit{rel}^\alpha=\frac{n-k}{n-1},
+\end{equation}
+
+kde
+\begin{align*}
+	n & \text{ je počet hřebů,}\\
+	k & \text{ je počet komponent grafu.}\\
+\end{align*}  
+\textit{Relativní cyklomatické číslo}, které bere v potaz také počet hran $m$. Vypočítá se jako
+\begin{equation}
+\mu_\textit{rel}^\alpha=\frac{2(m-n+k)}{(n-1)(n-2)}.
+\end{equation}
+
+\subsection{Stupeň vrcholu}
+Stupeň vrcholu je definován jako počet hran, které z vrcholu vycházejí. V případě koincidenčních grafů mívají jádrové hřeby poměrně nízké stupně. To je dáno tím, že s ostatními (nejádrovými) hřeby koincidují většinou náhodně.
+
+Pro získání grafu s lépe odpovídajícími asociacemi, je třeba zkombinovat graf koincidenční s grafem deterministickým. V tom případě jsou hranou propojeny i vrcholy, které reprezentují vzájemně na sebe odkazující hřeby. Tyto odkazy jsou v textu dané, proto jsou označeny jako deterministické.
+
+Text je možné charakterizovat mírou konotativní koncentrace. Jedná se o poměr mezi pozorovaným a možným počtem hran:
+\begin{equation}
+d_\textit{rel}=\frac{2m}{n(n-1)}.
+\end{equation}
+
+\subsection{Vzdálenost v grafu}
+Vzdálenost mezi dvěma vrcholy $x$ a $y$ (označena jako $d(x,y)$) je v teorii grafů vyjádřena jako nejmenší počet hran, po nichž je možné přejít z $x$ do $y$. Nejsou-li vrcholy $x$ a $y$ vůbec spojeny, je $d(x,y)=\infty$.
+
+V jednotlivých komponentách grafu je možné vypočítat vzdálenosti mezi všemi dvojicemi vrcholů v dané komponentě. Největší vzdálenost, kterou je možné z  vrcholu $x$ dosáhnout v rámci jeho komponenty, je nazývána \textit{excentricita vrcholu}. Je dána jako
+\begin{equation}
+e(x)=\max_{y \in K} d(x,y).
+\end{equation}
+
+Diametrem komponenty $K$ nazýváme nejvyšší excentricitu vrcholu v rámci dané komponenty:
+\begin{equation}
+dm(G)=\max_{x \in K} e(x).
+\end{equation}
+
+Diametr komponenty vyjadřuje denotační šířku -- šířku úseku reality, kterou autor konstruoval jako souvislý celek. Vrcholy s nejmenší excentricitou jsou nazývány centrem komponenty. V jedné komponentě se může nacházet více center.
+Centrální index udává sílu asociace mezi hřeby. Je dán jako
+\begin{equation}
+\bar{d}=\frac{z(K)}{n_K (n_K-1)},
+\end{equation}
+
+kde
+\begin{align*}
+	z(K) & \text{ je součet všech vzdáleností v dané komponentě: 
+$z(K)=\sum_{(x,y \in K)} d(x,y)$,}\\
+	n_k & \text{ je počet vrcholů v komponentě $K$.}\\
+\end{align*}  
+
+Nevýhodou centrálního indexu je, že asociativita roste rychleji, než přibývají nové hřeby. Staré hřeby nabývají více asociací a vytváření nových hřebů je stále méně časté, což vede ke zkracování vzdáleností.
+
+
+\subsection{Relativní míra centrality}
+Relativní míru centrality definují Ziegler a Altman v \cite{ZieglerAltmann2002}. Její výhodou je eliminování výše popsaného nedostatku centrálního indexu. Je definována jako
+\begin{equation}
+Z(K)=\frac{z_{max}-z(K)}{z_{max}-z_{min}}=
+\frac{(n_K+1) n_K (n_K-1)-3z(K)}{n_K (n_K-1)(n_K-2)} .
+\end{equation}
+
+
 \end{document}
