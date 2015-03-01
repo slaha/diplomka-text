@@ -213,7 +213,7 @@ Stupeň vrcholu je definován jako počet hran, které z vrcholu vycházejí. V 
 
 Pro získání grafu s lépe odpovídajícími asociacemi, je třeba zkombinovat graf koincidenční s grafem deterministickým. V tom případě jsou hranou propojeny i vrcholy, které reprezentují vzájemně na sebe odkazující hřeby. Tyto odkazy jsou v textu dané, proto jsou označeny jako deterministické.
 
-Text je možné charakterizovat mírou konotativní koncentrace. Jedná se o poměr mezi pozorovaným a možným počtem hran:
+Text je možné charakterizovat mírou konotativní koncentrace. Jedná se o poměr mezi pozorovaným a možným počtem hran (\cite[str. 312]{Wimmer2003}):
 \begin{equation}
 d_\textit{rel}=\frac{2m}{n(n-1)}.
 \end{equation}
@@ -221,18 +221,20 @@ d_\textit{rel}=\frac{2m}{n(n-1)}.
 \subsection{Vzdálenost v grafu}
 Vzdálenost mezi dvěma vrcholy $x$ a $y$ (označena jako $d(x,y)$) je v teorii grafů vyjádřena jako nejmenší počet hran, po nichž je možné přejít z $x$ do $y$. Nejsou-li vrcholy $x$ a $y$ vůbec spojeny, je $d(x,y)=\infty$.
 
-V jednotlivých komponentách grafu je možné vypočítat vzdálenosti mezi všemi dvojicemi vrcholů v dané komponentě. Největší vzdálenost, kterou je možné z  vrcholu $x$ dosáhnout v rámci jeho komponenty, je nazývána \textit{excentricita vrcholu}. Je dána jako
+V jednotlivých komponentách grafu je možné vypočítat vzdálenosti mezi všemi dvojicemi vrcholů v dané komponentě. Největší vzdálenost, kterou je možné z  vrcholu $x$ dosáhnout v rámci jeho komponenty, je nazývána \textit{excentricita vrcholu}. Je definována na straně 313 v \cite{Wimmer2003} jako
 \begin{equation}
 e(x)=\max_{y \in K} d(x,y).
 \end{equation}
 
 Diametrem komponenty $K$ nazýváme nejvyšší excentricitu vrcholu v rámci dané komponenty:
 \begin{equation}
-dm(G)=\max_{x \in K} e(x).
+dm(G)=\max_{x \in K} e(x),
 \end{equation}
 
+viz \cite[str. 315]{Wimmer2003}.
+
 Diametr komponenty vyjadřuje denotační šířku -- šířku úseku reality, kterou autor konstruoval jako souvislý celek. Vrcholy s nejmenší excentricitou jsou nazývány centrem komponenty. V jedné komponentě se může nacházet více center.
-Centrální index udává sílu asociace mezi hřeby. Je dán jako
+Centrální index udává sílu asociace mezi hřeby. Je dán v \cite[str. 315]{Wimmer2003} jako
 \begin{equation}
 \bar{d}=\frac{z(K)}{n_K (n_K-1)},
 \end{equation}
@@ -242,7 +244,7 @@ kde
 	z(K) & \text{ je součet všech vzdáleností v dané komponentě: 
 $z(K)=\sum_{(x,y \in K)} d(x,y)$,}\\
 	n_k & \text{ je počet vrcholů v komponentě $K$.}\\
-\end{align*}  
+\end{align*} 
 
 Nevýhodou centrálního indexu je, že asociativita roste rychleji, než přibývají nové hřeby. Staré hřeby nabývají více asociací a vytváření nových hřebů je stále méně časté, což vede ke zkracování vzdáleností.
 
