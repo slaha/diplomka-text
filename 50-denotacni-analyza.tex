@@ -163,7 +163,7 @@ Koincidence je definována jako výskyt dvou hřebů v jedné vymezené části 
 
 Hranice mezi \textit{náhodnou} a \textit{signifikantní} koincidencí je označena $\alpha $. Je-li vypočítaná pravděpodobnost dané koincidence menší nebo rovna $\alpha $, je tato koincidence nazývána \textit{signifikantní koincidence na hladině $\alpha $}. Hodnotu $\alpha $ je třeba volit v závislosti na typech textu a velikosti vymezené části textu, v níž je koincidence zkoumána.
 
-Pro výpočet koincidence je třeba upravit zkoumaný text, a to tak, že se slova v textu nahradí pořadovým číslem hřebu. Pro každou dvojici hřebů $A$ a $B$ se pomocí vzorce
+Pro výpočet koincidence je třeba upravit zkoumaný text, a to tak, že se slova v textu nahradí pořadovým číslem hřebu. Pro každou dvojici hřebů $A$ a $B$ se poté pomocí vzorce
 \begin{equation}
 P(X \geq x)=\sum_{i=x}^{min{\left(  M, n \right) }} \frac{\binom{M}{i}\binom{N-M}{n-i}}{\binom{N}{n}},
 \end{equation}
@@ -175,7 +175,7 @@ kde
 	x & \text{ je počet vymezených částí, v nichž se vyskytuje jak hřeb  $A$, tak hřeb $B$,}
 \end{align*}  
 
-vypočítá kumulativní pravděpodobnost hypergeometrického rozdělení. Koincidence je \textit{signifikantní}, pokud platí $P(X \geq x)\leq \alpha$. Čím je zvolená hladina $\alpha$ menší číslo, tím méně hřebů je vzájemně \textit{signifikantních}.
+vypočítá kumulativní pravděpodobnost hypergeometrického rozdělení (viz \cite[str. 307]{Wimmer2003}). Koincidence je \textit{signifikantní}, pokud platí $P(X \geq x)\leq \alpha$. Čím je zvolená hladina $\alpha$ menší číslo, tím méně hřebů je vzájemně \textit{signifikantních}.
 
 Z vypočítaných pravděpodobností $P(X \geq x)$ je možné sestrojit $\alpha$-graf. V $\alpha$-grafu jsou hřeby zakresleny jako vrcholy, přičemž sousedními se stanou ty vrcholy (=hřeby), jejichž vzájemná pravděpodobnost $P(X \geq x)$ je menší nebo rovna $\alpha$ (tzn., jsou \textit{signifikantní}).
 
