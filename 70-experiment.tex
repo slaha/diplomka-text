@@ -1,0 +1,106 @@
+\documentclass[dp.tex]{subfiles}
+\begin{document}
+\chapter{Praktická část}
+\label{chap:experiment} 
+
+Cílem diplomové práce je porovnání sledovaných charakteristik na různých českých překladech básně Havran. České překlady byly vydány nakladatelstvím Odeon v knize \citetitle{Poe1990}. Pro realizaci praktické části této diplomové práce budou použity překlady uvedené v knize, a to včetně dvou překladů (Vrchlického překlad vydaný roku 1881 v časopisu Lumír a čtvrté vydání překladu Kamilla Reslera vydaném Josefem Ciprou roku 1956) uvedených v komentáři Rudolfa Havla.
+
+\section{Porovnání četností znaků}
+
+Prvním porovnáním, které bylo v rámci praktické části realizováno, je srovnání četnosti znaků. Jak uvádí Jan Králík v \cite[str.~109]{Tesitelova1987}, \textit{\enquote{znalost míry užívání (frekvence) písmen stála u zrodu těsnopisných a telegrafních značek a dodnes tak úzce souvisí s ekonomikou záznamu a přenosu textových informací. Znalost frekvence písmen výrazně zasáhla i do uspořádání klávesnic u prvních psacích strojů sériově vyráběných; dodnes jsou proto psací stroje s latinkou vhodnější pro angličtinu, pro niž byly původně konstruovány, než pro kterýkoli jiný jazyk. Znalost frekvencí písmen se osvědčila i ve vojenství při dešifrování kódovaných zpráv: stačilo znát frekvence písmen v daném jazyce a porovnat je s frekvencemi užitých \clq tajných znaků\crq}}.
+
+Porovnáváno bylo všech osmnáct českých překladů, přičemž analýza byla nastavena tak, aby byla započítána pouze písmena, aby byla ignorována rozdílná velikost písmen a aby \glslink{bigram}{bigram} \clq ch\crq byl považován za jedno písmeno.
+
+V takto nastavené analýze četnosti znaků bylo v testovaných textech nalezeno $69 368$ znaků, z toho však pouze $40$ znaků bylo unikátních (z české abecedy nebyly zastoupeny znaky \textit{Q} a \textit{W}). Nejčastěji se vyskytujícím znakem byl znak \textit{E}, který se vyskytl celkem $5530\times$. Následovaly znaky \textit{N}, \textit{A}, \textit{O}, a \textit{S}.
+
+Námi nalezené četnosti porovnáme s četnostmi uvedenými na stránkách czech-language.cz\footnote{Dostupné on-line z \url{http://www.czech-language.cz/alphabet/alph-prehled.html}}. Tato frekvenční tabulka byla vytvořena na základě analýzy $3 139 926$ znaků. Na Internetu i v literatuře je možné najít i další frekvenční tabulky pro češtinu\footnote{on-line např. \url{https://nlp.fi.muni.cz/web3/cs/FrekvenceSlovLemmat}, \url{http://www.sttmedia.com/characterfrequency-czech}, \url{http://www.cryptogram.org/cdb/words/frequency.html}, v literatuře např. \citetitle{Kraus1965} (viz \cite{Kraus1965}), částečně \citetitle{Tesitelova1987} \cite[str.~109-121]{Tesitelova1987}.}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/cetnost-znaku2}
+	\caption[Srovnání relativních četností výskytu znaků v analyzovaných překladech.]{Srovnání relativních četností výskytu znaků v analyzovaných překladech. \textit{Zdroj:~vlastní.}}
+	\label{fig:character-freq}
+\end{figure}
+
+Graf \ref{fig:character-freq} zachycuje poměr mezi relativními četnostmi výskytu jednotlivých znaků v analyzovaných překladech. V grafu vidíme, že naměřené hodnoty korespondují s hodnotami z referenční frekvenční tabulky. Nejvyšší odchylka se vyskytla u znaku \textit{O}, činí $2,32 \%$.
+
+\section{Porovnání četností slov}
+
+Zkoumání počtu výskytů jednotlivých slov v daném jazyce je typickou úlohou kvantitativní lingvistiky. Její výsledky mohou být použity při konstruování slovníků a jazykových učebnic, k identifikaci klíčových slov v textech, k poměřování mezi alternujícími slovy (např. \enquote{bychom} a \enquote{bysme}), k nalezení ustálených slovních spojení aj.\footnote{Zdroj: \url{https://wiki.korpus.cz/doku.php/pojmy:frekvence\#vyuziti_a_vyznam_frekvence}.}.
+
+To, kolikrát se které slovo vyskytuje, uvádějí tzv. frekvenční slovníky nebo seznamy. Pro češtinu existuje několik takových slovníků (\cite[str.~18]{Tesitelova1987}), např. \cite{Jelinek1961}, \cite{Tesitelova1980}, \url{https://ucnk.ff.cuni.cz/srovnani10.php}. Výsledky analýzy četnosti znaků budou porovnány s následujícími frekvenčními seznamy:
+\begin {table}[H]
+	\caption {Srovnání frekvenčních slovníků} \label{tab:title} 
+
+	\begin{center}
+		\begin{tabular}{{l|l|l|l}}
+		\hline
+		\bfseries \bfseries Název & \bfseries Rok publikace & \bfseries Zdroj & \bfseries Velikost zdrojového souboru [slova]\\
+		    \hline \hline
+		   Jelínek 1961    & 1961 & \cite{Jelinek1961}    &    1 623 527   \\\hline
+		   Těšitelová 1983 & 1983 & \cite{Tesitelova1980} &     540 000    \\\hline
+		   Čermák 2004     & 2004 & \cite{Cermak2004}     & 100 000 000    \\\hline
+		\end{tabular}
+	\end{center}
+	\label{tab:word-freq-lists}
+\end{table}
+
+V rámci ukázky analýzy četnosti slov budou předvedena dvě porovnání:
+\begin{enumerate}
+\item V českých překladech bude sledován počet slov se zaměřením na slova odkazující na \enquote{havrana} (tj. slova \enquote{havran} a \enquote{pták} + jejich tvary).
+\item České překlady budou porovnány s anglickým originálem. Porovnáván bude počet odkazů na havrana v originálu (anglická slova \enquote{raven} a \enquote{bird}) s českým \enquote{havran} a \enquote{pták} v jednotlivých překladech.
+\end{enumerate}
+
+\subsection{Analýza českých překladů}
+\label{chap:word-freq-list} 
+
+Analýza četnosti slov byla nastavena tak, aby byla slova porovnávána dle obsahu a aby byla ignorována velikost písmen. Vzhledem k tomu, že vyvinutý program nepodporuje žádný slovník tvarů slov, bylo nutné přidat do analýzy taková pravidla, aby byly i výskyty různých tvarů slov \enquote{havran} a \enquote{pták} připočteny k výskytům \glslink{lemma}{lemmat}. Pro slovo \enquote{havran} se jednalo o tvary \textit{havrana}, \textit{havrane}, \textit{havráně} a \textit{havrany}. Tvary slova \enquote{pták}, které se nachází v jednotlivých překladech, jsou: \textit{ptáka}, \textit{ptákem}, \textit{ptákovi}, \textit{ptáku} a \textit{ptáků}.
+
+Osmnáct testovaných překladů obsahuje celkem $16 091$ slov, z nichž bylo $3938$ slov unikátních. Nejčastěji se vyskytujícím slovem bylo slovo \enquote{v} ($425$ výskytů) následované slovy \enquote{se} (nalezeno $349\times$) a \enquote{jsem} ($331$ výskytů). \enquote{Havran} se se $173$ výskyty umístil na $7.$ místě, \enquote{pták} na místě $9.$, když byl nalezen $149\times$.
+
+Na obrázku \ref{fig:word-freq} je vyobrazeno porovnání relativních četností výskytu deseti nejčastějších slov v analyzovaných překladech s četnostmi pocházejícími z frekvenčních seznamů uvedených v tabulce \ref{tab:word-freq-lists}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/cetnost-slov}
+	\caption[Srovnání relativních četností výskytu 10 nejčastějších slov v analyzovaných překladech.]{Srovnání relativních četností výskytu 10 nejčastějších slov v analyzovaných překladech. \textit{Zdroj:~vlastní.}}
+	\label{fig:word-freq}
+\end{figure}
+
+V grafu vidíme, že relativní četnosti v analyzovaných překladech dosahují vyšších hodnot než ve frekvenčních seznamech. To je způsobeno jednak rozdílnou velikostí zkoumaného souboru textů a jednak vzájemnou podobností (a tím nižší variabilitou) českých překladů. 
+
+Vůbec nejčastějším slovem v českých překladech byla předložka \enquote{v}. Ta se v referenčních seznamech umístila dvakrát na čtvrtém (Jelínek 1961), třetím (Čermák 2004) a druhém (Těšitelová 1983) místě. \enquote{V} se nejčastěji vyskytuje v překladu Jaroslava Vrchlického z roku 1881 ($36\times$). Poměrně často se také vyskytuje v Reslerově překladu ($30$ výskytů). Tyto překlady jsou v testovaném souboru zastoupeny dvěma vydáními, a přestože se jednotlivé verze odlišují, slovo \enquote{v} je v nich zastoupeno nadprůměrně.
+
+Nadprůměrně je zastoupeno také slovo \enquote{jak}, kterému v Jelínkově seznamu patří 29. a v Čermákově dokonce až 36. místo. Nadprůměrně jsou zastoupeny také slova \enquote{havran} a \enquote{pták}, což pochopitelně souvisí s charakterem testovaného souboru. V tabulce \ref{tab:word-raven-bird-compare} je uvedeno pořadí výskytu slov \enquote{havran} a \enquote{pták} z \enquote{reprezentativnějších} seznamů\footnote{Ze seznamu Těšitelová 1983 má autor k dispozici pouze deset nejfrekventovanějších slov uvedených v \cite[str.~19]{Tesitelova1987}, proto není v tabulce uveden.}. 
+
+\begin {table}[H]
+	\caption {Srovnání pořadí výskytu slov \enquote{havran} a \enquote{pták}} \label{tab:title} 
+
+	\begin{center}
+		\begin{tabular}{{l||c|c}}
+		\hline
+		\bfseries  & \bfseries Pořadí v seznamu Jelínek 1961 & \bfseries Pořadí v seznamu Čermák 2004 \\
+		    \hline \hline
+		   \bfseries Havran    & 7895. &   5446.   \\\hline
+		   \bfseries Pták& 991. &     2295.    \\\hline
+		\end{tabular}
+	\end{center}
+	\label{tab:word-raven-bird-compare}
+\end{table}
+
+\subsection{Porovnání českých překladů s originálem}
+
+Pro porovnání českých překladů s originálem budou parametry analýzy nastaveny stejně jako při porovnání s frekvenčními seznamy v kapitole \ref{chap:word-freq-list}. Navíc budou zavedena dvě nová pravidla zodpovědná za nahrazení anglického \enquote{raven} českým \enquote{havran} a anglického \enquote{bird} českým \enquote{pták}. Tím bude usnadněno porovnání jednotlivých překladů s originálním textem.
+
+Na obrázku \ref{fig:word-freq-compare} je znázorněno srovnání četností výskytů slov \enquote{havran} (respektive \enquote{raven}) a pták (\enquote{bird}) v českých překladech a v originále. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/cetnost-slov-orig}
+	\caption[Srovnání četností výskytů slov \enquote{havran} a \enquote{pták} v originále a v 18 českých překladech.]{Srovnání četností výskytů slov \enquote{havran} a \enquote{pták} v originále a v 18 českých překladech. \textit{Zdroj:~vlastní.}}
+	\label{fig:word-freq-compare}
+\end{figure}
+
+V anglickém originálu se obě slova vyskytla desetkrát. Z českých překladů dosahuje stejných četností pouze překlad Jiřího Taufera. Ve Vrchlického překladu z roku 1881 najdeme \enquote{havrana} stejně jako v originále $10\times$, \enquote{pták} je však obsažen pouze devětkrát. Za povšimnutí stojí, že ve verzi vydané roku 1890 se \enquote{pták} vyskytuje již $10\times$, ovšem počet výskytů \enquote{havrana} klesl na osm. Od originálu o dva výskyty se lišící jsou i překlady Rudolfa Havla a Augustina Eugena Mužíka -- v obou se shodně nachází \enquote{havran} jedenáctkrát a \enquote{pták} devětkrát.
+
+\end{document}
