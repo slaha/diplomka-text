@@ -1,3 +1,4 @@
+% !TeX root = 70-experiment.tex
 \documentclass[dp.tex]{subfiles}
 \begin{document}
 \chapter{Praktická část}
@@ -7,7 +8,11 @@ Cílem diplomové práce je porovnání sledovaných charakteristik na různých
 
 \section{Porovnání četností znaků}
 
-Prvním porovnáním, které bylo v rámci praktické části realizováno, je srovnání četnosti znaků. Jak uvádí Jan Králík v \cite[str.~109]{Tesitelova1987}, \textit{\enquote{znalost míry užívání (frekvence) písmen stála u zrodu těsnopisných a telegrafních značek a dodnes tak úzce souvisí s ekonomikou záznamu a přenosu textových informací. Znalost frekvence písmen výrazně zasáhla i do uspořádání klávesnic u prvních psacích strojů sériově vyráběných; dodnes jsou proto psací stroje s latinkou vhodnější pro angličtinu, pro niž byly původně konstruovány, než pro kterýkoli jiný jazyk. Znalost frekvencí písmen se osvědčila i ve vojenství při dešifrování kódovaných zpráv: stačilo znát frekvence písmen v daném jazyce a porovnat je s frekvencemi užitých \clq tajných znaků\crq}}.
+Prvním porovnáním, které bylo v rámci praktické části realizováno, je srovnání četnosti znaků. Jak uvádí Jan Králík v \cite[str.~109]{Tesitelova1987}: 
+
+\begin{quote}
+Znalost míry užívání (frekvence) písmen stála u zrodu těsnopisných a telegrafních značek a dodnes tak úzce souvisí s ekonomikou záznamu a přenosu textových informací. Znalost frekvence písmen výrazně zasáhla i do uspořádání klávesnic u prvních psacích strojů sériově vyráběných; dodnes jsou proto psací stroje s latinkou vhodnější pro angličtinu, pro niž byly původně konstruovány, než pro kterýkoli jiný jazyk. Znalost frekvencí písmen se osvědčila i ve vojenství při dešifrování kódovaných zpráv: stačilo znát frekvence písmen v daném jazyce a porovnat je s frekvencemi užitých \clq tajných znaků\crq.
+\end{quote}
 
 Porovnáváno bylo všech osmnáct českých překladů, přičemž analýza byla nastavena tak, aby byla započítána pouze písmena, aby byla ignorována rozdílná velikost písmen a aby \glslink{bigram}{bigram} \clq ch\crq byl považován za jedno písmeno.
 
@@ -74,7 +79,8 @@ Vůbec nejčastějším slovem v českých překladech byla předložka \enquote
 Nadprůměrně je zastoupeno také slovo \enquote{jak}, kterému v Jelínkově seznamu patří 29. a v Čermákově dokonce až 36. místo. Nadprůměrně jsou zastoupeny také slova \enquote{havran} a \enquote{pták}, což pochopitelně souvisí s charakterem testovaného souboru. V tabulce \ref{tab:word-raven-bird-compare} je uvedeno pořadí výskytu slov \enquote{havran} a \enquote{pták} z \enquote{reprezentativnějších} seznamů\footnote{Ze seznamu Těšitelová 1983 má autor k dispozici pouze deset nejfrekventovanějších slov uvedených v \cite[str.~19]{Tesitelova1987}, proto není v tabulce uveden.}. 
 
 \begin {table}[H]
-	\caption {Srovnání pořadí výskytu slov \enquote{havran} a \enquote{pták}} \label{tab:title} 
+	\caption {Srovnání pořadí výskytu slov \enquote{havran} a \enquote{pták}}
+	\label{tab:srovnani-poradi-vyskytu-slov} 
 
 	\begin{center}
 		\begin{tabular}{{l||c|c}}
@@ -102,5 +108,82 @@ Na obrázku \ref{fig:word-freq-compare} je znázorněno srovnání četností v�
 \end{figure}
 
 V anglickém originálu se obě slova vyskytla desetkrát. Z českých překladů dosahuje stejných četností pouze překlad Jiřího Taufera. Ve Vrchlického překladu z roku 1881 najdeme \enquote{havrana} stejně jako v originále $10\times$, \enquote{pták} je však obsažen pouze devětkrát. Za povšimnutí stojí, že ve verzi vydané roku 1890 se \enquote{pták} vyskytuje již $10\times$, ovšem počet výskytů \enquote{havrana} klesl na osm. Od originálu o dva výskyty se lišící jsou i překlady Rudolfa Havla a Augustina Eugena Mužíka -- v obou se shodně nachází \enquote{havran} jedenáctkrát a \enquote{pták} devětkrát.
+
+\section{Agregace}
+\section{Asonance}
+\section{Aliterace}
+\section{Denotační analýza}
+\label{chap:denotation-analysis} 
+
+V rámci denotační analýzy byly etablovány hřeby pro poslední sloku všech osmnácti českých překladů. K omezení délky textů na pouze poslední sloku bylo přistoupeno zejména z důvodu složitosti takové analýzy. Jak uvádí Wimmer v \cite[str.~300]{Wimmer2003}: 
+
+\begin{quote}
+Treba poznamenať, že táto analýza je relatívne jednoduchá v krátkých textoch. Pri dlhých textoch bude pravdepodobne potrebné text najprv zakódovať, aby sa dal mechanicky spracovať, lebo pravdebodobnosť omylu stúpá od vety k vete.
+\end{quote}
+
+Na CD přiloženém k této diplomové práci jsou umístěny soubory obsahující jednak analyzované poslední sloky jednotlivých překladů a jednak samotné rozdělení těchto slok do hřebů. Jak bylo popsáno v kapitole \nameref{chap:app-denotation-analysis}, je možné tyto soubory použít k vlastní analýze. Elektronická příloha také obsahuje koincidenční a dererministicko-pravděpodobnostní grafy pro všechny překlady. Ty nejzajímavější jsou uvedeny přímo v této práci.
+
+\subsection{Parametr $\alpha$}
+
+Zásadní vliv na uspořádání výsledného grafu má zvolená hodnota hladiny významnosti $\alpha$. Výchozí hodnota hladiny významnosti je nastavena na $\alpha=0{,}1$, přičemž program umožňuje její hodnotu měnit v intervalu $\langle 0{,}001;1\rangle$ s krokem $0{,}001$.
+
+Pokud je zvolená hodnota $\alpha$ příliš nízká, obsahuje výsledný graf mnoho izolovaných vrcholů. Čím je naopak hodnota $\alpha$ vyšší, tím je vyšší i počet hran grafu. Pro zvolení vhodné hodnoty je třeba experimentovat. 
+
+Následující obrázky \ref{fig:denotation-resler-005}, \ref{fig:denotation-resler-007}, \ref{fig:denotation-resler-034}  zobrazují koincidenční grafy vytvořené na základě denotační analýzy poslední strofy Reslerova překladu. Pro všechna $\alpha \leq 0{,}5$ tvoří graf pouze izolované vrcholy ($0{,}5$ je tedy hodnota indexu nespojitosti). Při hodnotě $\alpha = 0{,}5$ dojde k vytvoření hrany mezi vrcholy $8$ a $9$. Při $\alpha = 0{,}7$ vznikne hrana i mezi vrcholy $6$ a $7$. K další redukci počtu komponent dojde při $\alpha = 0{,}17$, kdy dojde k propojení vrcholu $1$ s vrcholem $2$ a vrcholu $4$ s vrcholem $5$. Při $\alpha = 0{,}2$ se počet komponent sníží na $5$. V tu chvíli zbývají v grafu pouze dva izolované vrcholy -- $3$ a $10$. Při $\alpha = 0{,}34$ dojde k propojení vrcholu $3$ s komponentou tvořenou vrcholy $1$ a $2$. Poté v grafu zůstane jediný izolovaný vrchol -- $10$ -- k jehož propojení s jiným vrcholem nedojde, neboť index nespojitosti je roven $\infty$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-005}
+	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}05$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}05$. \textit{Zdroj:~vlastní.}}
+	\label{fig:denotation-resler-005}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-007}
+	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}07$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}07$. \textit{Zdroj:~vlastní.}}
+	\label{fig:denotation-resler-007}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-034}
+	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}34$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}34$. \textit{Zdroj:~vlastní.}}
+	\label{fig:denotation-resler-034}
+\end{figure}
+
+V tabulce \ref{tab:prehled-indexu-grafy} jsou uvedeny indexy nespojitosti, neizolovanosti a dosáhnutelnosti všech osmnácti analyzovaných překladů:
+
+\begin {table}[H]
+	\caption {Přehled indexy nespojitosti, neizolovanosti a dosáhnutelnosti} 
+	\label{tab:prehled-indexu-grafy} 
+
+	\begin{center}
+		\begin{tabular}{{l|r|r|r}}
+		\hline
+		\bfseries \bfseries Překlad & \textbf{Index nespojitosti} & \bfseries Index neizolovanosti & \bfseries Index dosáhnutelnosti\\
+		    \hline \hline
+		   V. K. Šembera     & $0{,}067$ & $0{,}333$  &    $0{,}333$  \\\hline
+		   J. Vrchlický 1881 & $0{,}067$ & $0{,}333$  &    $\infty$   \\\hline
+		   J. Vrchlický 1890 & $0{,}055$ & $\infty$   &    $\infty$   \\\hline
+		   A. E. Mužík       & $0{,}182$ & $\infty$   &    $\infty$   \\\hline
+		   K. Dostál-Lutinov & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
+		   V. Nezval         & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
+		   O. F. Babler      & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
+		   J. Taufer         & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
+		   E. Stoklas        & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
+		   D. Wagnerová      & $0{,}055$ & $0{,}364$  &    $\infty$   \\\hline
+		   R. Havel          & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
+		   J. B. Čapek       & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
+		   K. Resler 1948    & $0{,}050$ & $\infty$   &    $\infty$   \\\hline
+		   K. Resler 1956    & $0{,}067$ & $\infty$   &    $\infty$   \\\hline
+		   R. Černý          & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
+		   I. Slavík         & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
+		   S. Kadlec         & $0{,}067$ & $\infty$   &    $\infty$   \\\hline
+		   A. Bejblík        & $0{,}067$ & $\infty$   &    $\infty$   \\\hline
+		\end{tabular}
+	\end{center}
+	\label{tab:word-freq-lists}
+\end{table}
 
 \end{document}
