@@ -70,6 +70,12 @@
 \widowpenalty 10000
 \makeglossaries
 
+\let\oldquote\quote
+\let\oldendquote\endquote
+
+\renewenvironment{quote}[1][]{\oldquote\itshape,,}
+{''\oldendquote}
+
 \def\arraystretch{1.5} %výška řádku tabulky
 
 \captionsetup{belowskip=0pt,aboveskip=6pt}
