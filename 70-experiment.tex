@@ -33,7 +33,9 @@ Graf \ref{fig:character-freq} zachycuje poměr mezi relativními četnostmi výs
 
 Zkoumání počtu výskytů jednotlivých slov v daném jazyce je typickou úlohou kvantitativní lingvistiky. Její výsledky mohou být použity při konstruování slovníků a jazykových učebnic, k identifikaci klíčových slov v textech, k poměřování mezi alternujícími slovy (např. \enquote{bychom} a \enquote{bysme}), k nalezení ustálených slovních spojení aj.\footnote{Zdroj: \url{https://wiki.korpus.cz/doku.php/pojmy:frekvence\#vyuziti_a_vyznam_frekvence}.}.
 
-To, kolikrát se které slovo vyskytuje, uvádějí tzv. frekvenční slovníky nebo seznamy. Pro češtinu existuje několik takových slovníků (\cite[str.~18]{Tesitelova1987}), např. \cite{Jelinek1961}, \cite{Tesitelova1980}, \url{https://ucnk.ff.cuni.cz/srovnani10.php}. Výsledky analýzy četnosti znaků budou porovnány s následujícími frekvenčními seznamy:
+\sloppy
+To, kolikrát se které slovo vyskytuje, uvádějí tzv. frekvenční slovníky nebo seznamy. Pro češtinu existuje několik takových slovníků (\cite[str.~18]{Tesitelova1987}), v literatuře např. \cite{Jelinek1961}, \cite{Tesitelova1980}, on-line dostupné např. \url{https://ucnk.ff.cuni.cz/srovnani10.php}. Výsledky analýzy četnosti znaků budou porovnány s následujícími frekvenčními seznamy:
+
 \begin {table}[H]
 	\caption {Srovnání frekvenčních slovníků} \label{tab:title} 
 
@@ -115,13 +117,13 @@ V anglickém originálu se obě slova vyskytla desetkrát. Z českých překlad�
 \section{Denotační analýza}
 \label{chap:denotation-analysis} 
 
-V rámci denotační analýzy byly etablovány hřeby pro poslední sloku všech osmnácti českých překladů. K omezení délky textů na pouze poslední sloku bylo přistoupeno zejména z důvodu složitosti takové analýzy. Jak uvádí Wimmer v \cite[str.~300]{Wimmer2003}: 
+V rámci denotační analýzy byly etablovány hřeby pro čtrnáctou sloku všech osmnácti českých překladů. K omezení délky textů na pouze 14. sloku bylo přistoupeno zejména z důvodu složitosti takové analýzy. Jak uvádí Wimmer v \cite[str.~300]{Wimmer2003}: 
 
 \begin{quote}
 Treba poznamenať, že táto analýza je relatívne jednoduchá v krátkých textoch. Pri dlhých textoch bude pravdepodobne potrebné text najprv zakódovať, aby sa dal mechanicky spracovať, lebo pravdebodobnosť omylu stúpá od vety k vete.
 \end{quote}
 
-Na CD přiloženém k této diplomové práci jsou umístěny soubory obsahující jednak analyzované poslední sloky jednotlivých překladů a jednak samotné rozdělení těchto slok do hřebů. Jak bylo popsáno v kapitole \nameref{chap:app-denotation-analysis}, je možné tyto soubory použít k vlastní analýze. Elektronická příloha také obsahuje koincidenční a dererministicko-pravděpodobnostní grafy pro všechny překlady. Ty nejzajímavější jsou uvedeny přímo v této práci.
+Na CD přiloženém k této diplomové práci jsou umístěny soubory obsahující jednak analyzované čtrnácté sloky jednotlivých překladů a jednak samotné rozdělení těchto slok do hřebů. Jak bylo popsáno v kapitole \nameref{chap:app-denotation-analysis}, je možné tyto soubory použít k vlastní analýze. Elektronická příloha také obsahuje koincidenční a dererministicko-pravděpodobnostní grafy pro všechny překlady. Ty nejzajímavější jsou uvedeny přímo v této práci.
 
 \subsection{Parametr $\alpha$}
 
@@ -129,20 +131,13 @@ Zásadní vliv na uspořádání výsledného grafu má zvolená hodnota hladiny
 
 Pokud je zvolená hodnota $\alpha$ příliš nízká, obsahuje výsledný graf mnoho izolovaných vrcholů. Čím je naopak hodnota $\alpha$ vyšší, tím je vyšší i počet hran grafu. Pro zvolení vhodné hodnoty je třeba experimentovat. 
 
-Následující obrázky \ref{fig:denotation-resler-005}, \ref{fig:denotation-resler-007}, \ref{fig:denotation-resler-034}  zobrazují koincidenční grafy vytvořené na základě denotační analýzy poslední strofy Reslerova překladu. Pro všechna $\alpha \leq 0{,}5$ tvoří graf pouze izolované vrcholy ($0{,}5$ je tedy hodnota indexu nespojitosti). Při hodnotě $\alpha = 0{,}5$ dojde k vytvoření hrany mezi vrcholy $8$ a $9$. Při $\alpha = 0{,}7$ vznikne hrana i mezi vrcholy $6$ a $7$. K další redukci počtu komponent dojde při $\alpha = 0{,}17$, kdy dojde k propojení vrcholu $1$ s vrcholem $2$ a vrcholu $4$ s vrcholem $5$. Při $\alpha = 0{,}2$ se počet komponent sníží na $5$. V tu chvíli zbývají v grafu pouze dva izolované vrcholy -- $3$ a $10$. Při $\alpha = 0{,}34$ dojde k propojení vrcholu $3$ s komponentou tvořenou vrcholy $1$ a $2$. Poté v grafu zůstane jediný izolovaný vrchol -- $10$ -- k jehož propojení s jiným vrcholem nedojde, neboť index nespojitosti je roven $\infty$.
+Následující obrázky \ref{fig:denotation-resler-005}, \ref{fig:denotation-resler-007}, \ref{fig:denotation-resler-034}  zobrazují koincidenční grafy vytvořené na základě denotační analýzy čtrnácté strofy Reslerova překladu. Pro všechna $\alpha \leq 0{,}06$ tvoří graf pouze izolované vrcholy (hodnota indexu nespojitosti je tedy vyšší než $0{,}06$). Při hodnotě $\alpha = 0{,}07$ dojde k vytvoření hran mezi vrcholy (hřeby) $17$, $21$ a $22$. K další redukci počtu komponent dojde při zvýšení $\alpha$ z na $0{,}17$, kdy se počet komponent sníží z $28$ na $10$ (naopak počet hran vzroste ze tří na $42$). Při $\alpha = 0{,}2$ se počet komponent sníží na devět. V tu chvíli zbývají v grafu pouze dva izolované vrcholy -- $2$ a $7$. Při $\alpha = 0{,}34$ se počet komponent sníží na tři. Vrcholy $2$ a $7$ se stanou součástí komponenty K1 tvořenou vrcholy $1$ až $15$ (s výjimkou hřebu č. $10$). Při $\alpha = 0{,}5$ dojde k poslední redukci počtu komponent, kdy se propojí komponenty K1 a K2. Ke spojení těchto dvou komponent i přes zvyšování hodnoty $\alpha$ nedojde, neboť index dosažitelnosti je roven $\infty$.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-005}
-	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}05$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}05$. \textit{Zdroj:~vlastní.}}
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-017}
+	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}17$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}17$. \textit{Zdroj:~vlastní.}}
 	\label{fig:denotation-resler-005}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-007}
-	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}07$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}07$. \textit{Zdroj:~vlastní.}}
-	\label{fig:denotation-resler-007}
 \end{figure}
 
 \begin{figure}[H]
@@ -152,38 +147,120 @@ Následující obrázky \ref{fig:denotation-resler-005}, \ref{fig:denotation-res
 	\label{fig:denotation-resler-034}
 \end{figure}
 
-V tabulce \ref{tab:prehled-indexu-grafy} jsou uvedeny indexy nespojitosti, neizolovanosti a dosáhnutelnosti všech osmnácti analyzovaných překladů:
+\begin{figure}[H]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-05}
+	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}07$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}07$. \textit{Zdroj:~vlastní.}}
+	\label{fig:denotation-resler-007}
+\end{figure}
+
+V tabulce \ref{tab:prehled-indexu-grafy} jsou uvedeny indexy nespojitosti, neizolovanosti a dosažitelnosti všech osmnácti analyzovaných překladů:
 
 \begin {table}[H]
-	\caption {Přehled indexy nespojitosti, neizolovanosti a dosáhnutelnosti} 
+	\caption {Přehled indexů nespojitosti, neizolovanosti a dosažitelnosti} 
 	\label{tab:prehled-indexu-grafy} 
 
 	\begin{center}
-		\begin{tabular}{{l|r|r|r}}
+		\begin{tabular}{{l|r|r|r|c}}
 		\hline
-		\bfseries \bfseries Překlad & \textbf{Index nespojitosti} & \bfseries Index neizolovanosti & \bfseries Index dosáhnutelnosti\\
+
+		\multirow{2}{*}{\bfseries Překlad} &
+		\multicolumn{3}{c}{\bfseries Index} &
+		\multirow{2}{*}{\bfseries \parbox{3cm}{\centering Minimální počet komponent}} \\
+		\cline{2-4}
+			 & \bfseries nespojitosti & \bfseries neizolovanosti & \bfseries dosažitelnosti \\
 		    \hline \hline
-		   V. K. Šembera     & $0{,}067$ & $0{,}333$  &    $0{,}333$  \\\hline
-		   J. Vrchlický 1881 & $0{,}067$ & $0{,}333$  &    $\infty$   \\\hline
-		   J. Vrchlický 1890 & $0{,}055$ & $\infty$   &    $\infty$   \\\hline
-		   A. E. Mužík       & $0{,}182$ & $\infty$   &    $\infty$   \\\hline
-		   K. Dostál-Lutinov & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
-		   V. Nezval         & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
-		   O. F. Babler      & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
-		   J. Taufer         & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
-		   E. Stoklas        & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
-		   D. Wagnerová      & $0{,}055$ & $0{,}364$  &    $\infty$   \\\hline
-		   R. Havel          & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
-		   J. B. Čapek       & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
-		   K. Resler 1948    & $0{,}050$ & $\infty$   &    $\infty$   \\\hline
-		   K. Resler 1956    & $0{,}067$ & $\infty$   &    $\infty$   \\\hline
-		   R. Černý          & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
-		   I. Slavík         & $0{,}167$ & $\infty$   &    $\infty$   \\\hline
-		   S. Kadlec         & $0{,}067$ & $\infty$   &    $\infty$   \\\hline
-		   A. Bejblík        & $0{,}067$ & $\infty$   &    $\infty$   \\\hline
+		   V. K. Šembera     & $0{,}067$        & $0{,}333$       &    $0{,}5$    & 1 \\ \hline
+		   J. Vrchlický 1881 & $0{,}167$        & $0{,}4$         &    $0{,}667$  & 1 \\ \hline
+		   J. Vrchlický 1890 & $0{,}091$        & $0{,}182$       &    $\infty$   & 3 \\ \hline
+		   A. E. Mužík       & $0{,}018$        & $0{,}273$       &    $\infty$   & 3 \\ \hline
+		   K. Dostál-Lutinov & $0{,}067$        & $0{,}4$         &    $\infty$   & 2 \\ \hline
+		   V. Nezval         & $0{,}067$        & $0{,}5$         &    $\infty$   & 2 \\ \hline
+		   O. F. Babler      & $0{,}067$        & $0{,}5$         &    $\infty$   & 2 \\ \hline
+		   J. Taufer         & $0{,}167$        & $0{,}667$       &    $\infty$   & 2 \\ \hline
+		   E. Stoklas        & $0{,}067$        & $0{,}333$       &    $\infty$   & 3 \\ \hline
+		   D. Wagnerová      & $0{,}018$        & $0{,}273$       &    $\infty$   & 4 \\ \hline
+		   R. Havel          & $0{,}067$        & $0{,}4$         &    $\infty$   & 2 \\ \hline
+		   J. B. Čapek       & $0{,}067$        & $0{,}5$         &    $\infty$   & 2 \\ \hline
+		   K. Resler 1948    & $0{,}067$        & $0{,}333$       &    $\infty$   & 2 \\ \hline
+		   K. Resler 1956    & $0{,}067$        & $0{,}2$         &    $\infty$   & 3 \\ \hline
+		   R. Černý          & $0{,}067$        & $0{,}4$         &    $\infty$   & 2 \\ \hline
+		   I. Slavík         & $0{,}067$        & $0{,}4$         &    $\infty$   & 2 \\ \hline
+		   S. Kadlec         & $0{,}167$        & $0{,}4$         &    $\infty$   & 2 \\ \hline
+		   A. Bejblík        & $0{,}067$        & $0{,}333$       &    $0{,}5$    & 1 \\ \hline
+		   \bfseries Průměr  & $\approx 0{,}08$ & $\approx 0{,}38$&               &   \\ \hline
 		\end{tabular}
 	\end{center}
-	\label{tab:word-freq-lists}
 \end{table}
 
+Průměrná hodnota indexu nespojitosti je $\approx 0,08$, index neizolovanosti dosahuje průměrné hodnoty $\approx 0{,}38$. 
+Většina z indexů dosažitelnosti uvedených v tabulce \ref{tab:prehled-indexu-grafy} dosahuje hodnoty nekonečno. To znamená, že ať je hodnota $\alpha$ jakákoliv, nebude graf nikdy tvořen pouze jednou komponentou.
+
+G. Wimmer v \cite[str.~309]{Wimmer2003} uvádí: 
+
+\begin{quote}
+Tieto tri uvedené indexy sú pre daný text charakteristické a možno ich použiť priamo na porovnanie textov s približne rovnakým rozsahom\ldots
+\end{quote}
+
+Podmínka na stejný rozsah analyzovaných textů je splněna, neboť je analyzována vždy stejná strofa. Pokud bychom zkoumali, které překlady jsou si na základě indexů nespojitosti, neizolovanosti a dosažitelnosti nejbližší, dospěli bychom k těmto závěrům:
+
+Obecně lze říci, že jsou si jednotlivé překlady podobné. Ze všech osmnácti analyzovaných strof je pět překladů charakterizováno unikátními indexy: překlad Kamila Reslera vydaný roku 1948, překlady Jaroslava Vrchlického z let 1881 a 1890, překlad Svatoupluka Kadlece a překlad Jiřího Taufera. Hodnoty měřených indexů ostatních překladů již unikátní nejsou. V tabulce \ref{tab:prehled-stejne-indexy} jsou uvedeny skupiny překladů se stejnými indexy. O překladech v jedné skupině můžeme tvrdit, že jsou si vzájemně podobnější než překlady z jiných skupin.
+
+\begin {table}[H]
+	\caption {Přehled indexů nespojitosti, neizolovanosti a dosažitelnosti} 
+	\label{tab:prehled-stejne-indexy} 
+
+	\begin{center}
+		\begin{tabular}{{l|l}}
+		\hline
+
+		\bfseries \parbox{5.5cm}{\centering Index nespojitosti/ neizolovanosti/dosažitelnosti} &
+		\bfseries Překlady \\
+			\hline \hline
+			$0{,}018$/$0{,}273$/--                 & A. E. Mužík, D. Wagnerová                          \\ \hline
+			$0{,}067$/$0{,}333$/$0{,}5$            & V. K. Šembera, A. Bejblík                          \\ \hline
+			$0{,}067$/$0{,}333$/--                 & E. Stoklas, K. Resler 1948                         \\ \hline
+			$0{,}067$/$0{,}4$/--                   & K. Dostál-Lutinov, R. Havel, R. Černý, I. Slavík   \\ \hline
+			$0{,}067$/$0{,}5$/--                   & V. Nezval, O. F. Babler, J. B. Čapek               \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\subsection{Denotační charakteristiky textu}
+
+Mezi sledované denotační charakteristiky patří počet veršů $N_v$, počet denotačních elementů $L$, počet etablovaných hřebů $N_h$, kardinální číslo jádra $|\kern 2pt.\kern 2pt|$, kompaktnost textu $K$, centralizovanost $R$ a MacInthosův index $R_{rel}$.
+
+
+
+\begin {table}[H]
+	\caption {Přehled denotačních charakteristik} 
+	\label{tab:prehled-charakteristiky} 
+
+	\begin{center}
+		\begin{tabular}{{l|c|c|c|c|c|c|c}}
+		\hline
+
+		\bfseries Překlad & \bfseries $N_v$ & \bfseries $L$ & \bfseries $N_h$ & \bfseries \parbox[c][1.2cm]{4cm}{\centering $|\kern 2pt.\kern 2pt|$\\(jádrové hřeby)} & \bfseries $K$ & \bfseries $R$ & \bfseries $R_{rel}$ \\
+			\hline \hline
+		   V. K. Šembera     & $6$  & $55$ & $24$ & \parbox[c][1.2cm]{3cm}{\centering28\\(1 4 8 11 14 18)} & 0,57 & 0,073 & 0,74 \\ \hline
+		   J. Vrchlický 1881 & 6    & 50 & 29 & \parbox[c][1.2cm]{4cm}{\centering19\\(3 10 18 21 22)} & 0,43 & 0,056 & 0,78 \\ \hline
+		   J. Vrchlický 1890 & 11   & 51 & 34 & \parbox[c][1.2cm]{4cm}{\centering16\\(3 10 19 22 23 30)} & 0,34 & 0,039 & 0,82 \\ \hline
+		   A. E. Mužík       & 11   & 53 & 32 & \parbox[c][1.2cm]{4cm}{\centering21\\(2 11 13 16 30)} & 0,4  & 0,061 & 0,77 \\ \hline
+		   K. Dostál-Lutinov & 6    & 49 & 29 & \parbox[c][1.2cm]{4cm}{\centering20\\(2 4 7 8 10 14)} & 0,42 & 0,048 & 0,8  \\ \hline
+		   V. Nezval         & 6    & 56 & 38 & \parbox[c][1.2cm]{4cm}{\centering16\\(6 11 17 18 28 34)} & 0,33 & 0,035 & 0,83 \\ \hline
+		   O. F. Babler      & 6    & 58 & 30 & \parbox[c][1.2cm]{4cm}{\centering31\\(1 3 10 15 19 21 27)} & 0,49 & 0,061 & 0,77 \\ \hline
+		   J. Taufer         & 6    & 54 & 36 & \parbox[c][1.2cm]{4cm}{\centering18\\(1 5 12 19 33)} & 0,34 & 0,051 & 0,79 \\ \hline
+		   E. Stoklas        & 6    & 54 & 31 & \parbox[c][1.2cm]{4cm}{\centering23\\(5 8 10 12 14 17 29)} & 0,43 & 0,05  & 0,79 \\ \hline
+		   D. Wagnerová      & 11   & 55 & 32 & \parbox[c][1.2cm]{4cm}{\centering22\\(3 4 7 9 10 16 29)} & 0,43 & 0,053 & 0,78 \\ \hline
+		   R. Havel          & 6    & 55 & 31 & \parbox[c][1.2cm]{4cm}{\centering26\\(1 5 6 10 16 19 28)} & 0,44 & 0,057 & 0,77 \\ \hline
+		   J. B. Čapek       & 6    & 47 & 29 & \parbox[c][1.2cm]{4cm}{\centering19\\(1 3 5 11 14 20)} & 0,39 & 0,048 & 0,8  \\ \hline
+		   K. Resler 1948    & 6    & 54 & 30 & \parbox[c][1.2cm]{4cm}{\centering22\\(1 2 10 12 27)} & 0,45 & 0,064 & 0,76 \\ \hline
+		   K. Resler 1956    & 6    & 59 & 31 & \parbox[c][1.2cm]{4cm}{\centering26\\(1 2 6 10 13 28)} & 0,48 & 0,066 & 0,76 \\ \hline
+		   R. Černý          & 6    & 58 & 35 & \parbox[c][1.2cm]{4cm}{\centering22\\(2 3 5 11 18 24 31)} & 0,4  & 0,044 & 0,8  \\ \hline
+		   I. Slavík         & 6    & 54 & 35 & \parbox[c][1.2cm]{4cm}{\centering17\\(3 8 10 19 24 28 32)} & 0,36 & 0,036 & 0,82 \\ \hline
+		   S. Kadlec         & 6    & 60 & 33 & \parbox[c][1.2cm]{4cm}{\centering26\\(1 4 6 10 17 25 30)} & 0,46 & 0,057 & 0,77 \\ \hline
+		   A. Bejblík*       & 6    & 55 & 30 & \parbox[c][1.2cm]{4cm}{\centering27\\(2 5 8 11 15 16 17 20 28)} & 0,46 & 0,05  & 0,79 \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
 \end{document}
