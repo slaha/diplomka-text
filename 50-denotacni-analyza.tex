@@ -10,7 +10,7 @@ Denotační analýza patří mezi analýzy referenčního typu, neboť jejím sm
 Při denotační analýze nejprve text rozdělíme do hřebů. Na základě zvolených kritérií je třeba slova zařadit do příslušných hřebů. Tato kritéria nejsou doposud pevně určena. Vytvoření kritérií tak, aby pokryla všechny případy, které mohou nastat, je velmi komplexní úkol. Je však vhodné vytvořit si vlastní soubor těchto kritérií tak, aby pokrýval případy, které se vyskytují ve zkoumaných textech. Tím bude zachována stejná metodika pro všechny texty a následné porovnávání výsledků tak nebude zkresleno rozdílnými pravidly, jež byly při rozdělování použity.
 
 Při tvorbě kritérií je možné inspirovat se pravidly, které uvádí Altman v \cite{Wimmer2003} na straně 298:
-\begin{quote}
+\begin{oldquote}
 \begin{itemize}
 \item Podstatná jména:
 \begin{enumerate}
@@ -42,49 +42,70 @@ Při tvorbě kritérií je možné inspirovat se pravidly, které uvádí Altman
 \end{enumerate}
 \item Některé fráze mohou tvořit jeden element (např.\uv{nikdy víc}), jiné zase mohou odkazovat na jiný nesložený element (např. \uv{černý pták} znamená vlastně \uv{havran}).
 \end{itemize}
-\end{quote}
+\end{oldquote}
 
 V případě ručního dělení textu do hřebů je vhodné připravit text tak, že každému denotačnímu elementu je přiděleno pořadové číslo. Obsahuje-li slovo více denotačních elementů, jsou jejich pořadová čísla oddělena svislou čarou \uv{|}. Tato úprava je znázorněna na první sloce překladu Havrana od Ivana Slavíka.
 
 \begin{samepage}
 \begin{Verbatim}[commandchars=+\[\]]
- 1|2   3   4    5       6   7|8   9|10   11   12
-Bylo pusto o půlnoci, když jsem hloubal bez pomoci,
+ 1|2   3   4    5       6      7|8       9    10
+Bylo pusto o půlnoci, když +underline[jsem hloubal] bez pomoci,
 
- 13|14   15    16   17   18     19     20
+ 11|12   13    14   15   16     17     18
 luštil marně živou mocí staré svazky kajícné,
 
- 21|22   23|24  25|26   27   28  29 30  31     32
-nedřímal jsem, nebděl  ani, když tu ťuk ťuk znenadání
+    19|20      21|22    23  24   25  26  27   28
++underline[nedřímal jsem], nebděl  ani, když tu ťuk ťuk znenadání
 
- 33|34       35         36     37  38  39
-ozvalo se zaklepání, zaklepání a  víc  ne.
+  29|30      31         32     33  34  35
++underline[ozvalo se] zaklepání, zaklepání a  víc  ne.
 
- 40  41  42|43 44 45|46  47     48       49
-„Kdo mě shání, co chce  toto zaklepání kajícné?
+ 36  37  38|39  40 41|42  43     44       45
+„Kdo mě  shání, co chce  toto zaklepání kajícné?
 
-50|51  52  53  54  55  56 57
+46|47  48  49  50  51  52 53
 Je     to host a  nic víc ne.“
 \end{Verbatim}
 \end{samepage}
 
-Pokud by analyzovaný text obsahoval denotační element složený z více slov (například výše vzpomínané \uv{nikdy víc}), bylo by tomuto denotačnímu elementu v upraveném textu přiřazeno pouze jedno pořadové číslo a celý denotační element by byl podtrhnut:
-\begin{Verbatim}[commandchars=+\[\]]
-50|51   52        53
-Praví havran +underline[+uv[Nikdy víc.]]
-\end{Verbatim}
-
-V první sloce se nachází 56 denotačních elementů, které je třeba rozdělit do jednotlivých hřebů. Při ručním dělení je vhodné psát jednotlivé hřeby pod sebe v pořadí, v jakém se vyskytly v textu včetně jejich pořadového čísla. Nutno podotknout, že dělení textu do hřebů je časově náročná činnost, jejíž složitost narůstá s délkou analyzovaného textu.
+V první sloce se nachází 53 denotačních elementů, které je třeba rozdělit do jednotlivých hřebů. Při ručním dělení je vhodné psát jednotlivé hřeby pod sebe v pořadí, v jakém se vyskytly v textu včetně jejich pořadového čísla a informace o tom, k čemu se daný hřeb vztahuje. Nutno podotknout, že dělení textu do hřebů je časově náročná činnost, jejíž složitost narůstá s délkou analyzovaného textu.
 
 Software, který vznikl v rámci této diplomové práce, obsahuje snadno ovladatelné uživatelské rozhraní, které dělení textu do hřebů co možná nejvíce usnadňuje.
 
+Pro první strofu Slavíkova překladu můžeme etablovat následující hřeby:
+
+\begin {table}[H]
+	\caption {Hřeby etablované pro první strofu překladu Ivana Slavíka} 
+	\label{tab:hreby-1-strofa-slavik} 
+
+	\begin{center}
+		\begin{tabular}{|p{10cm}|c|c|}
+		\hline 
+		\bfseries Hřeb & \bfseries Rozsah & \bfseries Počet \\ \hline
+		\textbf{6 já} [(hloub)al jsem 8, l(ušti)l 12, (nedříma)l jsem 20, (nebdě)l 22, mě 37], \textbf{25 zaklepání} [(ozva)lo se 30, zaklepání 31, zaklepání 32, (chc)e 42, zaklepání 44] 
+		& 5 & 2 \\ \hline
+		
+		\textbf{1 pusto} [(byl)o 2, pusto 3], \textbf{2 být} [bylo 1, je 46], \textbf{5 když} [když 6, když 24], \textbf{27 a} [a 33, a 50], \textbf{28 víc} [víc 34, víc 52], \textbf{29 ne} [ne 35, ne 53], \textbf{30 kdo} [kdo 36, (shán)í 39], \textbf{18 kajícný} [kajícné 18, kajícné 45], \textbf{23 ťuk} [ťuk 26, ťuk 27], \textbf{34 to} [toto 43, to 48], \textbf{35 host} [(je) 47, host 49] 
+		& 2 & 11\\ \hline
+		
+		\textbf{3 o} [o 4], \textbf{4 půlnoc} [půlnoci 5], \textbf{7 hloubat} [hloubal jsem 7], \textbf{8 bez} [bez 9], \textbf{9 pomoc} [pomoci 10], \textbf{10 luštit} [luštil 11], \textbf{11 marně} [marně 13], \textbf{14 živou} [živou 14], \textbf{15 moc} [mocí 15], \textbf{16 starý} [staré 16], \textbf{17 svazek} [svazky 17], \textbf{19 dřímat} [nedřímal jsem 19], \textbf{20 bdít} [nebděl 21], \textbf{21 ani} [ani 23], \textbf{22 tu} [tu 25], \textbf{24 znenadání} [znenadání 28], \textbf{26 ozývat} [ozvalo se 29], \textbf{31 shánět} [shání 38], \textbf{32 co} [co 40], \textbf{33 chtít} [chce 41], \textbf{36 nic} [nic 51]
+		& 1 & 21 \\ \hline
+
+		\end{tabular} 
+	\end{center}
+\end{table}
 \subsection{Další typy hřebů}
 Hřeby, které vznikly analýzou textu, je možné transformovat na
 \begin{enumerate}
 \item \textbf{Množinový hřeb}\\
-Množinový hřeb je takový hřeb, v němž se uvedou pouze unikátní denotační elementy. Vyskytují-li se v hřebu denotační elementy související s deklinací, jsou seskupeny do kategorie např. \uv{1. osoba singuláru}, \uv{2. osoba singuláru} atd.
+Množinový hřeb (značen $\{\kern 2pt.\kern 2pt\}$) je takový hřeb, v němž se uvedou pouze unikátní denotační elementy. Vyskytují-li se v hřebu denotační elementy související s deklinací, jsou seskupeny do kategorie např. pro hřeb číslo $25$ by množinový hřeb vypadal
+
+$\text{zaklepání} = \{\kern 2pt \text{zaklepání, 3. osoba singuláru} \kern 2pt\}$.
+
 \item \textbf{Poziční hřeb}\\
-V pozičním hřebu jsou denotační elementy znázorněny pouze svým pořadovým číslem.
+Je značen $\langle \kern 2pt.\kern 2pt\rangle$. V pozičním hřebu jsou denotační elementy znázorněny pouze svým pořadovým číslem. Pro hřeb 6 \enquote{já} by poziční hřeby vypadal
+
+$\text{já} = \langle \kern 2pt \text{8, 12, 20, 22, 37} \kern 2pt\rangle$.
 \end{enumerate}
 
 \section{Charakteristiky}
@@ -94,15 +115,16 @@ Texty zachycují určitou skutečnost, kterou čtenář při jejich čtení \uv{
 Denotační analýza zkoumá text právě z tohoto hlediska -- jak spolu jednotlivé v textu se vyskytující elementy souvisí. Na základě denotační analýzy lze odvodit následující charakteristiky textu.
 
 \subsection{Jádro textu}
-Jádro textu obsahuje ty hřeby, v nichž se vyskytují nejméně dva odlišné kmeny\footnote{Kmenem se v lingvistice označuje ta část slova, která se v různých tvarech téhož slova (u flektivních slovních druhů) nemění. Mnohdy bývá totožná s kořenem (morfémem nesoucím základní významovou (lexikální) část slova. \url{http://cs.wikipedia.org/wiki/Kmen_(mluvnice)} }.
+Jádro textu obsahuje ty hřeby, v nichž se vyskytují nejméně dva odlišné kmeny\footnote{Kmenem se v lingvistice označuje ta část slova, která se v různých tvarech téhož slova (u flektivních slovních druhů) nemění. Mnohdy bývá totožná s kořenem (morfémem nesoucím základní významovou (lexikální) část slova. \url{http://cs.wikipedia.org/wiki/Kmen_(mluvnice)} }. Do jádra textu první strofy Slavíkova překladu tedy patří hřeby \uv{1 pusto}, \uv{6 já}, \uv{25 zaklepání}, \uv{30 kdo}, \uv{35 host}.
 
 \subsection{Velikost hřebu}
-Velikost (též rozsah) hřebu je definována jako počet elementů v daném hřebu. Velikost hřebu %TODO sem dát hřeb
-HŘEB je $X$.
+Velikost (též rozsah) hřebu je definována jako počet elementů v daném hřebu. Velikost hřebů vytvořených z textu první strofy překladu Ivana Slavíka je uvedena ve druhém sloupci tabulky \ref{tab:hreby-1-strofa-slavik}.
 
 \subsection{Kardinální číslo jádra}
-Kardinální číslo jádra se značí $|\kern 2pt.\kern 2pt|$. Je dáno součtem velikostí hřebů, které jsou součástí jádra textu.
-
+Kardinální číslo jádra se značí $|\kern 2pt.\kern 2pt|$. Je dáno součtem velikostí hřebů, které jsou součástí jádra textu. Pro analyzovanou strofu platí
+\begin{equation}
+	|\kern 2pt.\kern 2pt| = 2 + 5 + 5 + 2 + 2 = 16.
+\end{equation}
 \subsection{\uv{Lokálnost} jádrových hřebů}
 \uv{Lokálnost} jádrových hřebů (značena $T$) zobrazuje dominantnost určitých hřebů v textu.  Jedná se o poměr velikosti hřebu ke kardiálnímu číslo jádra:
 \begin{equation}
@@ -110,9 +132,11 @@ T_\text{(hřeb)}=\frac{\text{velikost hřebu}}{|\kern 5pt.\kern 5pt|}.
 \end{equation}
 Viz \cite[str. 302]{Wimmer2003}. 
 
+Její hodnota je pro jádrové hřeby \uv{6 já} a \uv{25 zaklepání} $5 / 16 = 0{,}3125$, pro zbylé jádrové hřeby $2 / 16 = 0{,}125$.
+
 \subsection{Deterministické jádro}
-%TODO sem dát hřeb "zaklepání"
-Deterministické jádro souvisí s problematikou  \glslink{tema_rema}{tématu a rématu}. Do deterministického jádra patří všechny hřeby, které na sebe odkazují. Například vidíme, že se ve hřebu \uv{zaklepání} nachází slovo \uv{(ozva)lo}. V deterministickém jádru proto bude obsažen jak hřeb \uv{zaklepání}, tak hřeb \uv{ozvat}.
+
+Deterministické jádro souvisí s problematikou  \glslink{tema_rema}{tématu a rématu}. Do deterministického jádra patří všechny hřeby, které na sebe odkazují. Například vidíme, že se ve hřebu \uv{$25$ zaklepání} [(ozva)lo se 30, zaklepání 31, zaklepání 32, (chc)e 42, zaklepání 44] nachází denotační element [(ozva)lo se 30]. V deterministickém jádru proto bude obsažen jak hřeb \uv{$25$ zaklepání}, tak hřeb \uv{$26$ ozývat}, který obsahuje element [ozvalo se 29].
 
 
 \subsection{Kompaktnost textu}
@@ -126,6 +150,12 @@ kde
       L & \text{ je počet denotačních pozic v textu.}
 \end{align*}     
 
+Pro první strofu Slavíkova překladu bychom tedy dostali
+
+\begin{equation}
+K=\frac{1-\frac{N}{L}}{1-\frac{1}{L}} = \frac{1-\frac{34}{53}}{1-\frac{1}{53}}=0,365.
+\end{equation}
+
 \subsection{Centralizovanost textu}
 Centralizovanost textu ($R$) vyjadřuje sílu, jakou se denotace koncentruje na centrální hřeby. Je závislá na počtu výskytů jednotlivých hřebů. Spočítá se (viz \cite[str. 303]{Wimmer2003}) jako
 \begin{equation}
@@ -135,7 +165,7 @@ kde
 \begin{align*}
       \abs{H_i} & \text{ je velikost hřebu,}\\
       f_i & \text{ je počet hřebů s velikostí \abs{H_i},}\\
-      n&=\abs{H_i}\times f_i.
+      n&=\sum{ \abs{H_i}\times f_i }.
 \end{align*}     
 
 Pomocí MacIntoshova indexu je možné spočítat relativní centralizovanost textu. Vzorec výpočtu MacIntoshova indexu je definován v \cite[str. 304]{Wimmer2003} jako
@@ -143,6 +173,16 @@ Pomocí MacIntoshova indexu je možné spočítat relativní centralizovanost te
 R_{rel}=\frac{1-\sqrt{R}}{1-\frac{1}{\sqrt{n}}}.
 \end{equation}
 
+Pro výpočet centralizovanosti textu na základě hřebů uvedených v tabulce \ref{tab:hreby-1-strofa-slavik} dostaneme:
+\begin{equation}
+\begin{aligned}
+\sum{ \abs{H_i}^2 \times f_i} &= 5^2 \times 2 + 2^2 \times 11 + 1^2 \times 21 = 115,\\
+n &=  5 \times 2 + 2 \times 11 + 1 \times 21 = 53,\\
+n^2 &= 2756,\\
+R &=\frac{115}{2756} = 0{,}042,\\
+R_{rel} &= \frac{1-\sqrt{0{,}042}}{1-\frac{1}{\sqrt{53}}} = 0{,}92.
+\end{aligned}
+\end{equation}
 \subsection{Difuze hřebu}
 Jedná se o relativní rozdíl mezi prvním a posledním výskytem slova z jednoho hřebu v textu. Z toho vyplývá, že počítat difuze má smysl pouze pro hřeby o velikosti alespoň $2$.
 
@@ -150,7 +190,13 @@ Vztah pro výpočet difuze hřebu ($D_{\text{hřeb}}$) je dána jako:
 \begin{equation}
 D_\text{hřeb}=\frac{\max{\langle\text{hřeb}\rangle}-\min{\langle\text{hřeb}\rangle}}{\text{velikost hřebu}},
 \end{equation}
-viz \cite[str. 304]{Wimmer2003}.
+viz \cite[str. 304]{Wimmer2003}. Difuze hřebu \uv{6 já} se tedy vypočítá jako
+
+\begin{equation}
+D_\text{já}=\frac{37 - 8}{5} = 5{,}8.
+\end{equation}\textbf{}
+
+
 \subsection{Rozšířené jádro textu}
 Rozšířené jádro je charakteristické pro difuzi textu. Patří do něj všechny hřeby, jejichž difuze je menší nebo rovna nejvyšší difuzi jádrového hřebu, přičemž jsou vynechány všechny předložky, spojky, zájmena a citoslovce.
 
