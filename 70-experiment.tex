@@ -44,9 +44,9 @@ To, kolikrát se které slovo vyskytuje, uvádějí tzv. frekvenční slovníky 
 		\hline
 		\bfseries \bfseries Název & \bfseries Rok publikace & \bfseries Zdroj & \bfseries Velikost zdrojového souboru [slova]\\
 		    \hline \hline
-		   Jelínek 1961    & 1961 & \cite{Jelinek1961}    &    1 623 527   \\\hline
-		   Těšitelová 1983 & 1983 & \cite{Tesitelova1980} &     540 000    \\\hline
-		   Čermák 2004     & 2004 & \cite{Cermak2004}     & 100 000 000    \\\hline
+		   Jelínek     & 1961 & \cite{Jelinek1961}    &    1 623 527   \\\hline
+		   Těšitelová  & 1983 & \cite{Tesitelova1980} &     540 000    \\\hline
+		   Čermák      & 2004 & \cite{Cermak2004}     & 100 000 000    \\\hline
 		\end{tabular}
 	\end{center}
 	\label{tab:word-freq-lists}
@@ -76,9 +76,9 @@ Na obrázku \ref{fig:word-freq} je vyobrazeno porovnání relativních četnost�
 
 V grafu vidíme, že relativní četnosti v analyzovaných překladech dosahují vyšších hodnot než ve frekvenčních seznamech. To je způsobeno jednak rozdílnou velikostí zkoumaného souboru textů a jednak vzájemnou podobností (a tím nižší variabilitou) českých překladů. 
 
-Vůbec nejčastějším slovem v českých překladech byla předložka \enquote{v}. Ta se v referenčních seznamech umístila dvakrát na čtvrtém (Jelínek 1961), třetím (Čermák 2004) a druhém (Těšitelová 1983) místě. \enquote{V} se nejčastěji vyskytuje v překladu Jaroslava Vrchlického z roku 1881 ($36\times$). Poměrně často se také vyskytuje v Reslerově překladu ($30$ výskytů). Tyto překlady jsou v testovaném souboru zastoupeny dvěma vydáními, a přestože se jednotlivé verze odlišují, slovo \enquote{v} je v nich zastoupeno nadprůměrně.
+Vůbec nejčastějším slovem v českých překladech byla předložka \enquote{v}. Ta se v referenčních seznamech vždy umístila do čtvrtého místa. Ve frekvenčním seznamu \textit{Jelínek 1961} skončila na čtvrtém místě, v seznamu \textit{Čermák 2004} se umístila na třetím místě a ve frekvenčním seznamu \textit{Těšitelová 1983} skončila dokonce druhá. \enquote{V} se nejčastěji vyskytuje v překladu Jaroslava Vrchlického z roku 1881 ($36\times$), se $34$ výskyty následuje Vrchlického překlad z roku 1890. Na třetím místě figuruje překlad Dagmar Wagnerové ($33$ výskytů). Následují Reslerovy překlady z let 1948 ($32$ výskytů) a 1956 ($30$ výskytů). Oba překlady Vrchlického a Šembery se umístily do pátého místa. Přestože se od sebe jednotlivé verze odlišují, slovo \enquote{v} je v každé z nich zastoupeno nadprůměrně.
 
-Nadprůměrně je zastoupeno také slovo \enquote{jak}, kterému v Jelínkově seznamu patří 29. a v Čermákově dokonce až 36. místo. Nadprůměrně jsou zastoupeny také slova \enquote{havran} a \enquote{pták}, což pochopitelně souvisí s charakterem testovaného souboru. V tabulce \ref{tab:word-raven-bird-compare} je uvedeno pořadí výskytu slov \enquote{havran} a \enquote{pták} z \enquote{reprezentativnějších} seznamů\footnote{Ze seznamu Těšitelová 1983 má autor k dispozici pouze deset nejfrekventovanějších slov uvedených v \cite[str.~19]{Tesitelova1987}, proto není v tabulce uveden.}. 
+Nadprůměrně je zastoupeno také slovo \enquote{jak}, kterému v Jelínkově seznamu patří 29. a v Čermákově dokonce až 36. místo. Nadprůměrně jsou zastoupeny také slova \enquote{havran} a \enquote{pták}, což pochopitelně souvisí s charakterem testovaného souboru. V tabulce \ref{tab:word-raven-bird-compare} je uvedeno pořadí výskytu slov \enquote{havran} a \enquote{pták} v seznamech, které vznikly na základě analýzy větších a variabilnějších souborů textu\footnote{Ze seznamu Těšitelová 1983 má autor k dispozici pouze deset nejfrekventovanějších slov uvedených v \cite[str.~19]{Tesitelova1987}, proto není v tabulce uveden.}. 
 
 \begin {table}[H]
 	\caption {Srovnání pořadí výskytu slov \enquote{havran} a \enquote{pták}}
@@ -109,9 +109,29 @@ Na obrázku \ref{fig:word-freq-compare} je znázorněno srovnání četností v�
 	\label{fig:word-freq-compare}
 \end{figure}
 
-V anglickém originálu se obě slova vyskytla desetkrát. Z českých překladů dosahuje stejných četností pouze překlad Jiřího Taufera. Ve Vrchlického překladu z roku 1881 najdeme \enquote{havrana} stejně jako v originále $10\times$, \enquote{pták} je však obsažen pouze devětkrát. Za povšimnutí stojí, že ve verzi vydané roku 1890 se \enquote{pták} vyskytuje již $10\times$, ovšem počet výskytů \enquote{havrana} klesl na osm. Od originálu o dva výskyty se lišící jsou i překlady Rudolfa Havla a Augustina Eugena Mužíka -- v obou se shodně nachází \enquote{havran} jedenáctkrát a \enquote{pták} devětkrát.
+V anglickém originálu se obě slova vyskytla desetkrát. Z českých překladů dosahuje stejných četností pouze překlad Jiřího Taufera. Ve Vrchlického překladu z roku 1881 najdeme \enquote{havrana} stejně jako v originále $10\times$, \enquote{pták} je však obsažen pouze devětkrát. Za povšimnutí stojí, že ve verzi vydané roku 1890 se \enquote{pták} vyskytuje již $10\times$, ovšem počet výskytů \enquote{havrana} klesl na osm. Od originálu o dva výskyty se lišící jsou i překlady Rudolfa Havla a Augustina Eugena Mužíka -- v obou se shodně nachází \enquote{havran} jedenáctkrát a \enquote{pták} devětkrát. Naopak nejméně podobný originálu je překlad Vratislava Kazimíra Šembery -- v jeho překladu se \enquote{havran} vyskytl $16\times$, naopak \enquote{pták} pouze třikrát.
 
 \section{Agregace}
+
+Analýzu agregace je možné provést jak pro jeden, tak pro všechny otevřené texty. Analyzovány jsou veršové páry pro vzdálenosti od jednoho do deseti veršů. Analýza začíná vytvořením množin $A$ a $B$ pro všechny verše analyzované básně. Poté je báseň procházena od prvního do posledního verše. Aktuální verš je považován za pivot. Od pivotu jsou vypočítány velikosti průniků množin $A_{pivot}$ a $B_{pivot}$ s množinami následujících veršů $A_{pivot + x}$  s $B_{pivot + x}$. 
+
+Tyto údaje jsou v průběhu analýzy pouze uloženy, jejich vyhodnocení 
+%(jako výpočty podobností $S_{1,x}$, aproximované hodnoty $\hat{S}_{x}$ atd.)
+probíhá až později při zobrazení výsledků. Na obrázku \ref{fig:agregace-vrchlicky-1890} je zobrazen report z agregace Vrchlického překladu z roku 1890. V tabulce jsou zobrazeny hodnoty podobnosti $\overline{S}_i$ vypočítané jako průměr ze všech hodnot pro daný posun $L_i$ a aproximované hodnoty $\hat{S}_i$, které byly vypočítány metodou nejmenších čtverců.
+
+Do grafu pod tabulkou jsou na ose $x$ vyneseny hodnoty $L_i$, osa $y$ zachycuje hodnoty  $\overline{S}_i$ a $\hat{S}_i$. V grafu jsou zakresleny jak průměrné hodnoty $\overline{S}_i$, tak křivka aproximující naměřené hodnoty. V reportu je také uvedena hodnota koeficientu determinace $D$, která udává podíl rozptylu závislé proměnné, který se podařilo aproximací vysvětlit.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/aggregation_vrchlicky_1890}
+	\caption[Agregace pro Vrchlického překlad z roku 1890]{Agregace pro Vrchlického překlad z roku 1890. \textit{Zdroj:~vlastní.}}
+	\label{fig:agregace-vrchlicky-1890}
+\end{figure}
+
+Pro všechny z osmnácti analyzovaných překladů je možné pozorovat klesající podobnost veršů vzhledem k jejich rostoucí vzdálenosti. Každý z překladů však vykazoval odchylku od tohoto trendu, a to v závislosti na struktuře básně. V překladech ctících délku strofy originálu (tj. šest veršů v jedné strofě) byly naměřené hodnoty $\overline{S}_6$ výrazně vyšší než aproximované hodnoty $\hat{S}_6$. Pro překlady D.~Wagnerové, A.~E.~Mužíka a J.~Vrchlického z roku 1890, jejichž strofy jsou tvořeny jedenácti verši, byla odlišná vzdálenost $L_2$, což ukazuje i obrázek \ref{fig:agregace-vrchlicky-1890}.
+
+Pro ani jeden z analyzovaných překladů se nepodařilo naměřené hodnoty dostatečně přesně aproximovat. Koeficienty determinace byly vyšší u překladů se strofami tvořenými jedenácti verši. Nejvyššího koeficientu determinace $D$ bylo dosaženo u překladu Jaroslava Vrchlického z roku 1890 ($D = 0,504$), následoval překlad D.~Wagnerové s $D = 0,391$ a Mužíkův překlad, u nějž byla hodnota $D$ rovna $0,307$. Z ostatních překladů byla pouze u překladu K.~Reslera z roku 1956 hodnota $D$ vyšší něž $0,1$ (konkrétně $0,106$). Hodnoty $D$ se u ostatních překladů pohybovaly pod hranicí $0,1$.
+
 \section{Asonance}
 \section{Aliterace}
 \section{Denotační analýza}
