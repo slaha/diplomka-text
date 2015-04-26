@@ -115,11 +115,11 @@ V anglickém originálu se obě slova vyskytla desetkrát. Z českých překlad�
 
 Analýzu agregace je možné provést jak pro jeden, tak pro všechny otevřené texty. Analyzovány jsou veršové páry pro vzdálenosti od jednoho do deseti veršů. Analýza začíná vytvořením množin $A$ a $B$ pro všechny verše analyzované básně. Poté je báseň procházena od prvního do posledního verše. Aktuální verš je považován za pivot. Od pivotu jsou vypočítány velikosti průniků množin $A_{pivot}$ a $B_{pivot}$ s množinami následujících veršů $A_{pivot + x}$  s $B_{pivot + x}$. 
 
-Tyto údaje jsou v průběhu analýzy pouze uloženy, jejich vyhodnocení 
-%(jako výpočty podobností $S_{1,x}$, aproximované hodnoty $\hat{S}_{x}$ atd.)
-probíhá až později při zobrazení výsledků. Na obrázku \ref{fig:agregace-vrchlicky-1890} je zobrazen report z agregace Vrchlického překladu z roku 1890. V tabulce jsou zobrazeny hodnoty podobnosti $\overline{S}_i$ vypočítané jako průměr ze všech hodnot pro daný posun $L_i$ a aproximované hodnoty $\hat{S}_i$, které byly vypočítány metodou nejmenších čtverců.
+Tyto údaje jsou v průběhu analýzy pouze uloženy, jejich vyhodnocení probíhá až později při zobrazení výsledků. Na obrázku \ref{fig:agregace-vrchlicky-1890} je zobrazen report z agregace Vrchlického překladu z roku 1890. V tabulce jsou zobrazeny hodnoty podobnosti $\overline{S}_i$ vypočítané jako průměr ze všech hodnot pro daný posun $L_i$ a aproximované hodnoty $\hat{S}_i$, které byly vypočítány metodou nejmenších čtverců.
 
-Do grafu pod tabulkou jsou na ose $x$ vyneseny hodnoty $L_i$, osa $y$ zachycuje hodnoty  $\overline{S}_i$ a $\hat{S}_i$. V grafu jsou zakresleny jak průměrné hodnoty $\overline{S}_i$, tak křivka aproximující naměřené hodnoty. V reportu je také uvedena hodnota koeficientu determinace $D$, která udává podíl rozptylu závislé proměnné, který se podařilo aproximací vysvětlit.
+Pod tabulkou je uvedena aproximační funkce $S$, která je použita pro vyjádření tzv. \textit{křivky fonické podobnosti veršů}. Ta vyjadřuje závislost fonické podobnosti veršů $S$ na jejich vzájemné vzdálenosti $L$ \cite[str.~78]{Wimmer2003}. Pod aproximační funkcí $S$ je uvedena hodnota koeficientu determinace $D$, která udává podíl rozptylu závislé proměnné, který se podařilo aproximací vysvětlit. Na základě hodnoty koeficientu determinace $D$ je možné předběžně přijmout hypotézu, že aproximační funkce $S$ vhodně vyjadřuje závislost fonické podobnosti veršů v závislosti na jejich vzdálenost \cite[str.~79]{Wimmer2003}. 
+
+Do grafu pod tabulkou jsou na ose $x$ vyneseny hodnoty $L_i$, osa $y$ zachycuje hodnoty  $\overline{S}_i$ a $\hat{S}_i$. V grafu jsou zakresleny jak průměrné hodnoty $\overline{S}_i$, tak křivka aproximující naměřené hodnoty. 
 
 \begin{figure}[H]
 	\centering
@@ -133,6 +133,20 @@ Pro všechny z osmnácti analyzovaných překladů je možné pozorovat klesají
 Pro ani jeden z analyzovaných překladů se nepodařilo naměřené hodnoty dostatečně přesně aproximovat. Koeficienty determinace byly vyšší u překladů se strofami tvořenými jedenácti verši. Nejvyššího koeficientu determinace $D$ bylo dosaženo u překladu Jaroslava Vrchlického z roku 1890 ($D = 0,504$), následoval překlad D.~Wagnerové s $D = 0,391$ a Mužíkův překlad, u nějž byla hodnota $D$ rovna $0,307$. Z ostatních překladů byla pouze u překladu K.~Reslera z roku 1956 hodnota $D$ vyšší něž $0,1$ (konkrétně $0,106$). Hodnoty $D$ se u ostatních překladů pohybovaly pod hranicí $0,1$.
 
 \section{Asonance}
+
+Analýza asonance patří mezi analýzy, které mohou být prováděny pouze nad všemi otevřenými texty. Program umožňuje testování dvou hypotéz $H_0$:
+\begin{enumerate}
+\item $H_0$: Střední hodnoty jsou vzhledem k různým posunům stejné.
+\item $H_0$: Střední hodnoty jsou vzhledem ke konstantnímu posunu stejné.
+\end{enumerate}
+Obě hypotézy jsou podrobně popsány v kapitole \ref{chap:app_asonance}.
+
+Pro testování českých překladů je možné testovat pouze první z hypotéz, neboť testování druhé hypotézy vyžaduje rozdělení analyzovaných textů na jednotlivé výběry. Druhá hypotéza $H_0$ najde uplatnění například při srovnání různojazyčných překladů. 
+
+První z hypotéz testuje, zda se v analyzovaných textech liší asonance pro první různé posuny. Testovány jsou posuny o jeden až patnáct vokálů, přičemž maximální posun může být i snížen, pokud v některém z testovaných textů není možné realizovat požadovaný počet posunů.
+
+
+
 \section{Aliterace}
 \section{Denotační analýza}
 \label{chap:denotation-analysis} 
