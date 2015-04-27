@@ -1,7 +1,7 @@
 % !TeX root = 70-experiment.tex
 \documentclass[dp.tex]{subfiles}
 \begin{document}
-\chapter{Praktická část}
+\chapter{Analýza}
 \label{chap:experiment} 
 
 Cílem diplomové práce je porovnání sledovaných charakteristik na různých českých překladech básně Havran. České překlady byly vydány nakladatelstvím Odeon v knize \citetitle{Poe1990}. Pro realizaci praktické části této diplomové práce budou použity překlady uvedené v knize, a to včetně dvou překladů (Vrchlického překlad vydaný roku 1881 v časopisu Lumír a čtvrté vydání překladu Kamilla Reslera vydaném Josefem Ciprou roku 1956) uvedených v komentáři Rudolfa Havla.
@@ -141,13 +141,83 @@ Analýza asonance patří mezi analýzy, které mohou být prováděny pouze nad
 \end{enumerate}
 Obě hypotézy jsou podrobně popsány v kapitole \ref{chap:app_asonance}.
 
-Pro testování českých překladů je možné testovat pouze první z hypotéz, neboť testování druhé hypotézy vyžaduje rozdělení analyzovaných textů na jednotlivé výběry. Druhá hypotéza $H_0$ najde uplatnění například při srovnání různojazyčných překladů. 
+Pro testování českých překladů Havrana dává smysl provést test pouze první z hypotéz, neboť testování druhé hypotézy vyžaduje rozdělení analyzovaných textů na jednotlivé výběry (i když je samozřejmě možné rozdělit české překlady do jednotlivých výběrů např. podle data publikace). Druhá hypotéza $H_0$ najde uplatnění spíše při srovnání různojazyčných překladů, větších básnických souborů a podobně.
 
-První z hypotéz testuje, zda se v analyzovaných textech liší asonance pro první různé posuny. Testovány jsou posuny o jeden až patnáct vokálů, přičemž maximální posun může být i snížen, pokud v některém z testovaných textů není možné realizovat požadovaný počet posunů.
+První z hypotéz testuje, zda se v analyzovaných textech liší asonance pro různé posuny. Testovány jsou posuny o jeden až patnáct vokálů, přičemž maximální posun může být i snížen, pokud je některý z testovaných textů tak krátký, že v něm není možné realizovat požadovaný počet posunů.
 
+Naměřené hodnoty asonance jsou následně zobrazeny v reportu. Ukázku reportu pro české překlady je možné si prohlédnout v \hyperref[appendix:asonance]{Příloze B}. Hodnoty pro jednotlivé texty jsou zobrazeny v tabulce \enquote{Výsledky asonance}. Ta je ve výchozím stavu skryta. Následuje sekce zobrazující informace o Bartlettově testu. Bartlettův test je použit pro testování shody rozptylů. Hypotézy Bartlettova testu zní $H_0: \sigma^2_1 = \sigma^2_2 = \dots = \sigma^2_n$ proti $H_A: non H_0$.
 
+Další sekce obsahuje jednu z metod pro analýzu rozptylu. Není-li nulová hypotéza Bartlettovým testem zamítnuta, jedná se o \textit{Anovu}. Při zamítnutí $H_0$ v Bartlettově testu je použit \textit{Kruskallův-Wallisův test}.
+
+Nulová hypotéza pro Anovu je dána jako $H_0: \mu_1 = \mu_2 = \dots = \mu_n$, alternativní hypotéza $H_A$ jako $H_A: non H_0$. Hypotéza testovaná Kruskallovým-Wallisovým testem zní $H_0: F_1(x) = F_2(x) = \dots = F_n(x) \textit{ pro všechna x}$. Naproti ní stojí alternativní hypotéza $H_A: non H_0$. Jak Anova tak Kruskallův-Wallisův test testují, zda se mezi jednotlivými posuny nacházejí takové, které se významně liší.
+
+V případě zamítnutí $H_0$ v jednom z testů analýzy rozptylu je v reportu zobrazena sekce obsahující lišící se posuny. Ty jsou zjišťovány Schéffeho metodou. Sekce obsahuje jak tabulku s konkrétními hodnotami testovacího kritéria, tak slovně vypsané lišící se posuny.
+
+V českých překladech Havrana se významně lišilo šestnáct dvojic uvedených v tabulce \ref{tab:asonance-lisici-se}.
+\begin {table}[H]
+	\caption {Přehled lišících se asonančních posunů v českých překladech} 
+	\label{tab:asonance-lisici-se} 
+
+	\begin{center}
+		\begin{tabular}{|l|l|l|l|}
+		\hline Posun o 1 a o 7   & Posun o 3 a o 7 & Posun o 5 a o 14 & Posun o 8 a o 11  \\ 
+		\hline Posun o 1 a o 8   & Posun o 3 a o 8 & Posun o 7 a o 11 & Posun o 8 a o 12  \\ 
+		\hline Posun o 1 a o 14  & Posun o 5 a o 7 & Posun o 8 a o 9  & Posun o 8 a o 13  \\ 
+		\hline Posun o 2 a o 8   & Posun o 5 a o 8 & Posun o 8 a o 10 & Posun o 11 a o 14 \\ 
+		\hline 
+		\end{tabular} 
+	\end{center}
+\end{table}
 
 \section{Aliterace}
+
+Asonance spolu s denotační analýzou patří mezi ty analýzy, které mohou být provedeny pouze na jednom textu. Při analýze samotné se pouze shromáždí podklady pro další zpracování, žádné výpočty nejsou během analyzování prováděny.
+
+Při analýze jsou postupně procházeny všechny verše analyzované básně. Každý verš je rozdělen na jednotlivá slova a z každého slova je jeho první písmeno zařazeno mezi počáteční písmena daného verše, přičemž je uchována i informace, kolikrát se to které písmeno v rámci analyzovaného verše vyskytlo. Na konci zpracování daného verše jsou odstraněna ta počáteční písmena, která se vyskytla méně než dvakrát.
+
+Report z analýzy aliterace obsahuje tabulku, jejíž každý řádek reprezentuje jeden verš analyzované básně. Pro každý verš jsou uvedeny fonémy, které v daném verši aliterovaly, a počet slov daného verše. Ve čtvrtém sloupci tabulky je uveden počet slov, které začínají aliteračními fonémy. V předposledním sloupečku je uvedena pravděpodobnost výskytu nalezené aliterace. Poslední sloupeček uvádí tzv. \textit{aliterační charakter} definovaný v \cite[str.~60]{Wimmer2003} jako
+
+\[KA = \left\{
+  \begin{array}{lr}
+    100 \times [ \alpha - P( \xi \geq x)],& \text{ pro } \alpha >  P( \xi \geq x)\\
+    0,& \text{ pro } \alpha \leq  P( \xi \geq x)
+  \end{array}
+\right.
+\]
+
+Nad tabulkou je zobrazen \textit{aliterační charakter básně} daný jako průměr všech aliteračních charakterů jednotlivých veršů. Výpočet hodnot $KA$ je možné ovlivnit volbou hladiny významnosti $\alpha$ z intervalu $\langle 0{,}01; 1 \rangle$.
+
+Na obrázku \ref{fig:alliteration} je zobrazen začátek reportu z analýzy aliterace pro originální text E. A. Poea The Raven.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/alliteration}
+	\caption[Výsledek analýzy aliterace pro prvních 11 veršů originálního textu The Raven E.A. Poea]{Výsledek analýzy aliterace pro prvních 11 veršů originálního textu The Raven E.A. Poea. \textit{Zdroj:~vlastní.}}
+	\label{fig:alliteration}
+\end{figure}
+
+Tabulka \ref{tab:alliteration-compare} obsahuje srovnání aliterace pro analyzované české překlady při $\alpha = 0{,}05$. Překlady jsou v tabulce seřazeny vzestupně dle hodnoty $KA$. Strofy překladů Mužík, Vrchlický 1890 a Wagnerová jsou tvořeny jedenácti verši namísto šesti, jako je tomu u originálního textu a ostatních překladů. Pro srovnání: $KA_{\text{original}} = 3,79759$.
+
+\begin {table}[H]
+	\caption {Aliterační charakter $KA$ českých překladů při $\alpha = 0{,}05$}
+	\label{tab:alliteration-compare} 
+
+	\begin{center}
+		\begin{tabular}{{lr||lr||lr}}
+			\hline
+
+			\bfseries Text & \bfseries $KA_{\text{báseň}}$ & \bfseries Text & \bfseries $KA_{\text{báseň}}$ & \bfseries Text & \bfseries $KA_{\text{báseň}}$ \\
+				\hline \hline
+				Mužík          & $1{,}58133$ & Resler 1956 & $3{,}33302$  & Šembera        & $3{,}57143$ \\ \hline
+				Vrchlický 1890 & $1{,}76623$ & Taufer      & $3{,}36161$  & Dostál-Lutinov & $3{,}58246$ \\ \hline
+				Wagnerová      & $1{,}98075$ & Resler 1948 & $3{,}48301$  &	Vrchlický 1881 & $3{,}6469$  \\ \hline
+				Čapek          & $3{,}0997$  & Babler      & $3{,}49542$  & Kadlec         & $3{,}6601$  \\ \hline
+				Nezval         & $3{,}14763$ & Slavík      & $3{,}5302$   & Stoklas        & $3{,}87856$ \\ \hline
+				Havel          & $3{,}28966$ & Černý       & $3{,}56506$  & Bejblík        & $3{,}99667$ \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
 \section{Denotační analýza}
 \label{chap:denotation-analysis} 
 
@@ -183,7 +253,7 @@ Následující obrázky \ref{fig:denotation-resler-005}, \ref{fig:denotation-res
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-017}
+	\includegraphics[max width=\textwidth,height=150px,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-017}
 	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}17$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}17$. \textit{Zdroj:~vlastní.}}
 	\label{fig:denotation-resler-005}
 \end{figure}

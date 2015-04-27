@@ -1,9 +1,19 @@
 \documentclass[dp.tex]{subfiles}
 \begin{document}
+
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}
+{0pt}{0ex}{0ex}
+\titlespacing*{\section}
+{0pt}{3ex}{1ex}
+
 %První příloha nebude v obsahu
 \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 
 \chapter{Analyzované překlady}
+\label{appendix:preklady}
 %teď musíme do obsahu dostat odkaz na Přílohy
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 \addcontentsline{toc}{chapter}{Přílohy}
@@ -11,9 +21,6 @@
 \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 
 V této příloze je uveden originální text Havrana Edgara Allana Poea a seznam analyzovaných českých překladů. U každého překladu je uvedena stránka, na které je možné daný překlad najít v \cite{Poe1990}, a text čtrnácté strofy, který byl použit v kapitole \ref{chap:denotation-analysis}. Kompletní znění básní je k dispozici na CD přiloženém k této práci.
-
-\titlespacing*{\section}
-{0pt}{3ex}{1ex}
 
 \section*{E. A. Poe}
 
@@ -138,6 +145,7 @@ Praví havran: „Nikdy již!“
 
 \section*{E. Stoklas}
 \citetitle{Poe1990}, strana~125
+\begin{samepage}
 \\\textbf{Text čtrnácté strofy}
 \begin{verse}
 Tajemně tu vzduch se zhustil, kadidla proud vonný vústil,
@@ -147,6 +155,7 @@ anděl klid a mír ti dává - zapomnění Lory tak!
 Pij, ó pij to zapomnění, zhosť se mrtvé Lory tak!“
 Havran řekl: „Nikterak.“
 \end{verse}
+\end{samepage}
 
 \section*{D. Wagnerová}
 \citetitle{Poe1990}, strana~130
@@ -191,6 +200,7 @@ Havran: „Stokrát ztraceno.“
 
 \section*{K. Resler (1948)}
 \citetitle{Poe1990}, strana~145
+\begin{samepage}
 \\\textbf{Text čtrnácté strofy}
 \begin{verse}
 Nenadálý závan vůně vyvstal jako z rajské tůně,
@@ -200,9 +210,11 @@ abys po tak dlouhé době došel klidu, ztlumil svár,
 zbyl se touhy po Lenoře, ztlumil svého srdce svár.“
 Havran krákl: „Marnost - zmar.“
 \end{verse}
+\end{samepage}
 
 \section*{K. Resler (1956)}
 \citetitle{Poe1990}, strana~193
+\begin{samepage}
 \\\textbf{Text čtrnácté strofy}
 \begin{verse}
 Nenadálý závan vůně vyvstal jako z rajské tůně,
@@ -212,6 +224,7 @@ abys po tak dlouhé době došel klidu, ztlumil svár,
 zbyl se touhy po Lenoře, ztlumil svého srdce svár.“
 Havran krákl: „Marnost - zmar.“
 \end{verse}
+\end{samepage}
 
 \section*{R. Černý}
 \citetitle{Poe1990}, strana~149
@@ -262,5 +275,14 @@ omamný mok opiový na tvou lásku k Tereze;
 pij, ach pij ten nápoj na tvou lichou lásku k Tereze;
 Havran řekl: Marno vše.
 \end{verse}
-\chapter{Second appendix}
+
+\chapter{Ukázka výsledku analýzy asonance}
+\label{appendix:asonance}
+\begin{figure}[H]
+	\centering
+	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/assonance}
+	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}07$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}07$. \textit{Zdroj:~vlastní.}}
+	\label{fig:denotation-resler-007}
+\end{figure}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
 \end{document}
