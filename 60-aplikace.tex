@@ -459,4 +459,38 @@ Panel dále obsahuje zaškrtávací volbu \enquote{Povolit automatické rozmíst
 
 Třetí a poslední funkcionalita, kterou panel nabízí, je uložení grafu do souboru PNG.
 
+\section{Implementace denotační analýzy}
+
+Implementace denotační analýzy byla největším a nejtěžším úkolem, který byl během vývoje aplikace realizován. Denotační analýza sestává ze dvou částí:
+\begin{itemize}
+\item dělení textu do hřebů,
+\item zobrazení výsledků denotační analýzy včetně grafu.
+\end{itemize}
+
+I když to nemusí být na první pohled zřejmé, implementace dělení textu do hřebů si vyžádala delší čas a byla náročnější než implementace části druhé. Při dělení textu jsou využívány dvě poměrně komplexní datové struktury (DS), které budou podrobně popsány níže. První je uživateli graficky zobrazena v levé části okna a představuje analyzovaný text s jednotlivými denotačními elementy. Druhá reprezentuje jednotlivé etablované hřeby včetně denotačních elementů, které byly do daného hřebu zařazeny. 
+
+Obě tyto struktury navíc umožňují serializaci a deserializaci do/ze souboru. Implementována byla serializace do textového souboru do formátu vycházejícího z \acrshort{csv}. Výhodou tohoto řešení je, že uživatel může nezávisle na aplikaci soubor otevřít a upravit. Při vývoji aplikace (ale i při realizaci praktické části této práce) přišla tato vlastnost vhod, neboť se nejednou stalo, že data byla vyexportována tak, že nemohla být opětovně načtena. Ručním zásahem se podařilo uložený soubor opravit a tak zachránit rozdělanou práci.
+
+V následujícím textu budou popsány implementační detaily denotační analýzy z pohledu datových struktur. Vytváření grafického uživatelského rozhraní na základě těchto datových struktur prezentováno nebude. Popsané datové struktury jsou implementovány jak v knihovně \texttt{compLing}, tak v modulu grafického uživatelského rozhraní. V tom byly rozšířeny zejména o funkce nutné ke grafické reprezentaci. Příloha \ref{appendix:class-diagram} obsahuje \acrshort{uml} diagramy tříd denotační analýzy jak v modulu uživatelského rozhraní, tak v knihovně \texttt{compLing}.
+
+\subsection{Implementace v knihovně \texttt{compLing}}
+
+
+
+\subsection{Implementace v modulu uživatelského rozhraní}
+
+Datové struktury vytvořené v rámci modulu uživatelského grafického rozhraní rozšiřují výše popsané \acrshort{ds} knihovny \texttt{compLing} zejména o vlastnosti nutné k propojení s \acrshort{gui}. Jedná se typicky o zapouzdření (encapsulation) původní datové struktury do struktury nové.
+
+Z hlediska hierarchie modulu grafického rozhraní je nejvýše postavenou třídou v rámci denotační analýzy třída \texttt{GuiDenotationAnalysis}. Ta je zodpovědná za propojení \acrshort{gui} s datovým modelem (\acrshort{gui} $\leftrightarrow$ akce uživatele $\leftrightarrow$ datový model $\leftrightarrow$ \acrshort{gui}). Konstruktoru třídy \texttt{GuiDenotationAnalysis} je předán pracovní text (\texttt{WorkingText}). Na jeho základě je vytvořen datový model denotační analýzy:
+
+Základ \acrshort{ds} denotační analýzy tvoří třída \texttt{GuiDenotationModel}, která implementuje  rozhraní \texttt{Csv<GuiDenotationModel>}. Rozhraní \texttt{Csv<T>} je generické a definuje metody potřebné pro uložení a načtení objektu typu \texttt{T} z, resp. do, souboru. Kromě toho \texttt{GuiDenotationModel} obsahuje reference na dvě další datové struktury: 
+\begin{itemize}
+\item \texttt{GuiDenotationPoemModel}, který představuje analyzovaný text a v něm vytvořené denotační elementy;
+\item \texttt{GuiDenotationSpikesModel} reprezentující etablované hřeby a do nich zařazené denotační elementy.
+\end{itemize}
+
+Obě dvě tyto třídy implementují rozhraní \texttt{Csv}, díky kterému mohou být uloženy do souboru.
+
+Třída \texttt{GuiDenotationAnalysis} dále obsahuje kolekci \texttt{GuiDenotationWord}. Třída \texttt{GuiDenotationWord} zapouzdřuje objekt \texttt{DenotationWord} a poskytuje metody, které jsou volány z kontextového menu jednotlivých slov analyzovaného textu (viz \ref{chap:app-denotation-analysis}).
+
 \end{document}
