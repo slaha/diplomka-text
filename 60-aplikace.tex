@@ -475,7 +475,25 @@ V následujícím textu budou popsány implementační detaily denotační anal�
 
 \subsection{Implementace v knihovně \texttt{compLing}}
 
+Objekt zapouzdřující v knihovně \texttt{compLing} denotační analýzu je typu \texttt{IDenotation}, což je rozhraní (interface). To přináší výhodu v tom, že by jeho implementace mohla být snadno změněna bez vlivu na ostatní části programu. Rozhraní \texttt{IDenotation} je včetně své implementace třídou \texttt{Denotation} zobrazeno formou třídního diagramu v příloze \ref{appendix:class-diagram} na obrázku \ref{fig:gui-idenotation-class-diagram}. Diagram tříd níže popsaných datových struktur je možné si prohlédnout taktéž v příloze \ref{appendix:class-diagram} na obrázku \ref{fig:compling-denotation-class-diagram}.
 
+Třída \texttt{Denotation} implementuje metody definované rozhraním \texttt{IDenotation}. Do jejího konstruktoru je argumentem předána analyzovaná báseň typu \texttt{Poem}. Na jejím základě je vytvořena \texttt{DenotationPoem}. Ta obsahuje kolekci slov analyzované básně (\texttt{DenotationWord}). 
+
+Třída \texttt{Denotation} dále obsahuje referenci na třídu type \texttt{HrebsHolder}, což je třída zodpovědná za práci s etablovanými hřeby. Hřeby (představované třídou \texttt{Hreb}) jsou drženy v kolekci typu tabulka. Jejím klíčem je číslo představující identifikátor hřebu. Hodnotou je pak konkrétní instance třídy \texttt{Hreb}. \texttt{HrebsHolder} si navíc udržuje nejvyšší číslo doposud vytvořeného hřebu, které je použito při vytváření hřebu nového.
+
+Výpočty spojené s denotační analýzou jsou implementovány třídou \texttt{DenotationMath}. Tato třída neobsahuje žádné vlastnosti, jsou do ní soustředěny pouze metody pro výpočty kompaktnosti, centralizovanosti, MacInthoshova indexu, indexů nespojitosti a neizolovanosti,~\ldots Výpočet indexu dosažitelnosti je oproti jiným výpočtům komplexnější, a proto jej má na starost vlastní třída \texttt{ReachabilityIndexMath}.
+
+U každého slova \texttt{DenotationWord} jsou kromě slova samotného uloženy i informace o jeho pořadí v básni, dále číslo verše a strofy, v nichž se v básni nachází. \texttt{DenotationWord} dále obsahuje dva seznamy:
+\begin{itemize}
+\item Seznam \texttt{joinedWords}, v němž jsou uložena slova, se kterými je dané slovo spojeno pomocí volby \keys{Sloučit s [\ldots]}. Je-li tento seznam prázdný, není slovo spojeno se žádným jiným slovem.
+\item Seznam \texttt{denotationElements} obsahující denotační elementy daného slova. Jejich počet je ovlivnitelný volbami \keys{Přidat denotační element} a \keys{Odebrat denotační element}. Na začátku analýzy je každému slovu přiřazen právě jeden denotační element.
+\end{itemize}
+
+Slovo může být v z denotační analýzy vynecháno. Informace o tom, zda je konkrétní \texttt{DenotationWord} ignorováno, je držena v proměnné \texttt{ignored} typu \texttt{boolean}. Pro každé slovo je také držena informace o tom, zda je samo spojeno s nějakým jiným slovem (tzn., zda se nachází v seznamu \texttt{joinedWords} některého jiného slova). Tato informace je držena v proměnné typu \texttt{boolean} pojmenované \texttt{joined}.
+
+Třída \texttt{Hreb} uchovává číslo hřebu a množinu slov (\texttt{DenotationWord}), která byla do daného hřebu zařazena. Číslo hřebu může být pouze sníženo, a to v případě, že je smazán hřeb s nižším číslem. Ke zvýšení čísla hřebu dojít nemůže, neboť třída \texttt{HrebsHolder} zajišťuje, že číslo nového hřebu je vyšší než číslo všech existujících hřebů.
+
+Informaci o tom, který denotační element patří do kterého hřebu, nese třída \texttt{DenotationElement}. Na začátku analýzy je každému slovu (\texttt{DenotationWord}) přiřazen jeden denotační element. Každý objekt \texttt{DenotationElement} je pevně spojen s jedním slovem. Dále je u každého denotačního elementu uloženo jeho číslo, hřeb, do kterého je denotační element zařazen (může být i \texttt{null}, pokud do žádného hřebu zařazen není). Pokud do hřebu patří pouze část denotačního elementu, je tato informace také uložena.
 
 \subsection{Implementace v modulu uživatelského rozhraní}
 
