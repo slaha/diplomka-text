@@ -2,7 +2,7 @@
 \begin{document}
 \chapter{Aplikace}
 
-V rámci této diplomové práce byla vytvořena aplikace umožňující uživateli snadné provádění dříve zmíněných testů a analýz. Aplikace je tvořena dvěma moduly:
+V rámci této diplomové práce byla vytvořena aplikace umožňující uživateli snadné provádění testů a analýz uvedených v kapitole~\ref{chap:denotacni_analyza}. Aplikace je tvořena dvěma moduly:
 \begin{itemize}
 \item knihovnou obstarávající analýzu textů,
 \item modulem obsahujícím grafické uživatelské rozhraní -- \acrshort{gui}.
@@ -25,7 +25,7 @@ Prvním z těchto modulů měla být knihovna, která bude provádět samotnou a
 
 Druhý modul měl tuto knihovnu využívat a poskytnout k ní uživatelsky přívětivé grafické rozhraní (tzv. \acrshort{gui}). Grafické rozhraní mělo umožnit uživateli otevřít textový soubor (případně více souborů), provést na něm za pomoci modulu knihovny požadovanou analýzu a zobrazit její výsledky. Důležitým požadavkem na modul grafického rozhraní byla možnost exportu vstupních dat do souboru \acrshort{csv}. 
 
-V rámci tohoto modulu pro mě zůstala stěžejní multiplatformnost a snadná rozšiřitelnost. Vzhledem k tomu, že cílem bylo vytvořit jednoduchý frontend \footnote{Frontend je software poskytující uživatelské rozhraní k jiným nástrojům. Samotný frontend žádnou činnost neprovádí, k práci jsou využívány nástroje, k nimž zprostředkovává přístup.}, nepředpokládal jsem, že by aplikace mohla být pomalá. Od automatizovaného testování jsem upustil, počítal jsem pouze s testováním uživatelským.
+V rámci tohoto modulu pro mě zůstala stěžejní multiplatformnost a snadná rozšiřitelnost. Vzhledem k tomu, že cílem bylo vytvořit jednoduchý frontend \footnote{Frontend je software poskytující uživatelské rozhraní k jiným nástrojům. Samotný frontend žádnou činnost neprovádí, k práci jsou využívány nástroje, k nimž zprostředkovává přístup.}, nepředpokládal jsem, že by aplikace mohla být pomalá. Od automatizovaného testování jsem upustil, počítal jsem pouze s~testováním uživatelským.
 
 Vzhledem k požadavkům (multiplatformnost obou modulů, rychlost modulu knihovny) sestávala moje prvotní představa z modulu knihovny napsaném v jazyce C (případně C++) a modulu uživatelského rozhraní napsaném v některém vyšším programovacím jazyce, přičemž jsem uvažoval zejména o interpretovaných jazycích jako Python či Ruby. 
 
@@ -46,21 +46,21 @@ Vzhledem ke svým zkušenostem s jednotlivými jazyky jsem se nakonec rozhodl pr
 
 \section{Knihovna \texttt{compLing}}
 
-Modul knihovny jsem pojmenoval \enquote{compLing}. Název vychází z anglického \enquote{\textbf{comp}utational \textbf{ling}uistics}, což je označení pro matematickou lingvistiku. Knihovna umožňuje provádět výše zmíněné analýzy textu. 
+Modul knihovny jsem pojmenoval \enquote{compLing}. Název vychází z anglického \enquote{\textbf{comp}utational \textbf{ling}uistics}, což je označení pro matematickou lingvistiku. Knihovna implementuje analýzy textu popsané v kapitole \ref{chap:denotacni_analyza}. 
 
 \sloppy
-K vytvoření objektu knihovny se používá statická metoda \texttt{ CompLing\#getInstance(String)}, jejímž parametrem je text, který má být analyzován. Tento text nesmí být hodnoty \texttt{null}. Třída \texttt{CompLing} obsahuje dvě vnitřní třídy:
+K vytvoření objektu knihovny se používá jedna statická metoda \texttt{ CompLing\allowbreak\#getInstance(String)}, jejímž parametrem je text, který má být analyzován. Tento text nesmí být hodnoty \texttt{null}. Třída \texttt{CompLing} obsahuje dvě vnitřní třídy:
 \begin{enumerate}
 %	\item \texttt{GeneralAnalysis},;
 	\item \texttt{PoemAnalysis}.
 \end{enumerate}
 
-Tyto třídy zapouzdřují příbuzné typy analýz. Třída \texttt{GeneralAnalysis} poskytuje přístup k analýze četnosti znaků (metodou \texttt{ICharacterFrequency characterFrequency()}) a slov (metodou \texttt{IWordFrequency wordFrequency()}). 
+Tyto třídy zapouzdřují příbuzné typy analýz. Třída \texttt{GeneralAnalysis} poskytuje přístup k~analýze četnosti znaků (metodou \texttt{ICharacterFrequency characterFrequency()}) a slov (metodou \texttt{IWordFrequency wordFrequency()}). 
 
 \sloppy
-Třída \texttt{PoemAnalysis} umožňuje přístup k analýzám agregace (metoda \texttt{IAggregation aggregation()}), aliterace (metoda \texttt{IAlliteration alliteration()}), asonance (metoda \texttt{IAssonance assonance(String[])}) a denotační analýze (metoda \texttt{IDenotation denotationAnalysis()}).
+Třída \texttt{PoemAnalysis} umožňuje přístup k výsledkům analýz agregace (metoda \texttt{IAggregation aggregation()}), aliterace (metoda \texttt{IAlliteration alliteration()}), asonance (metoda \texttt{IAssonance assonance(String[])}) a k denotační analýze (metoda \texttt{IDenotation denotationAnalysis()}).
 
-Všechny metody mají jako návratový typ deklarovaná rozhraní. Díky tomu je možné změnit implementaci jednotlivých analýz bez toho, aby se změnilo \acrshort{api} knihovny. Stejně tak implementace jednotlivých analýz jsou deklarovány jako objekty implementující příslušné rozhraní. Obojí je viditelné na následujícím diagramu tříd:
+Všechny metody mají jako návratový typ deklarovaná rozhraní. To umožňuje změnit implementaci jednotlivých analýz beze změny \acrshort{api} knihovny. I knihovna \texttt{CompLing} je pomocí rozhraní odstíněna od konkrétních implementací jednotlivých analýz. Obojí je znázorněno v~diagramu tříd na obrázku \ref{fig:compling-core-class}:
 
 \begin{figure}[h!]
 	\centering
@@ -99,7 +99,7 @@ Hlavní okno je rozděleno do čtyř částí:
 	\item aktuální text.
 \end{enumerate}
 
-Menu aplikace obsahuje tři položky -- \menu{Soubor}, \menu{Analýza} a \menu{Aplikace}. V menu \menu{Soubor} se nacházejí položky pro vytvoření nového prázdného panelu, otevření souboru, uložení aktuálního textu a ukončení aplikace. Menu \menu{Analýza} zpřístupňuje jednotlivé type analýz (kvantitativní, fonické, denotační). V případě, že není otevřen žádný text, je tato položka neaktivní. V menu \menu{Aplikace} se skrývají dvě položky -- \menu{Nastavení} a \menu{O aplikaci}. Položka \menu{Nastavení} vyvolá dialog, který umožňuje upravit velikost písma v aplikaci a změnit vzhled grafů, jež jsou vytvořeny při denotační analýze.
+Menu aplikace obsahuje tři položky -- \menu{Soubor}, \menu{Analýza} a \menu{Aplikace}. V menu \menu{Soubor} se nacházejí položky pro vytvoření nového prázdného panelu, otevření souboru, uložení aktuálního textu a ukončení aplikace. Menu \menu{Analýza} zpřístupňuje jednotlivé type analýz (kvantitativní, fonické, denotační). V případě, že není otevřen žádný text, je tato položka neaktivní. V menu \menu{Aplikace} se skrývají dvě položky --- \menu{Nastavení} a \menu{O aplikaci}. Položka \menu{Nastavení} vyvolá dialog, který umožňuje upravit velikost písma v aplikaci a změnit vzhled grafů, jež jsou vytvořeny při denotační analýze.
 
 Panel nástrojů poskytuje rychlý přístup k nejčastěji využívaným funkcím. Těmi jsou otevírání textů, analýza aktuálního textu a analýza všech otevřených textů. Po kliknutí na tlačítko \menu{Analýza jednoho textu} nebo \menu{Hromadná analýza} je zobrazeno menu pro výběr konkrétního typu analýzy. Obě tato tlačítka jsou neaktivní, není-li otevřen žádný text.
 
@@ -109,7 +109,7 @@ Napravo od těchto panelů je zobrazen právě aktivní text. Nad i pod textem j
 
 \section{Práce s aplikací}
 
-Tato kapitola obsahuje popis funkcí aplikace včetně ukázek, jak tyto funkce využívat. Přestože se aplikace snaží být co nejvíce uživatelsky přívětivá, ne všechny funkce mohou být na první pohled zcela zřejmé.
+Tato sekce obsahuje popis funkcí aplikace včetně ukázek, jak tyto funkce využívat. Přestože se aplikace snaží být co nejvíce uživatelsky přívětivá, ne všechny funkce mohou být na první pohled zcela zřejmé.
 
 \subsection{Spuštění aplikace}
 
@@ -140,9 +140,9 @@ V případě, že Java nainstalovaná není, je třeba ji nejprve stáhnou z int
 
 Po spuštění je zobrazeno hlavní okno grafického uživatelského rozhraní aplikace. Protože zatím není otevřen žádný text, je funkcionalita programu omezena o možnost provádění analýz. Pro to, aby se analyzování zpřístupnilo, je třeba vytvořit nový nebo otevřít existující text.
 
-Pro vytvoření nového prázdného textu je třeba pomocí tlačítka \menu{\ding{58}} nejprve vytvořit nový panel (eventuálně je možné pro vytvoření panelu použít menu \menu[,]{Soubor,Nový prázdný panel}). Aplikace poté vyzve k zadání jména pro nový text. Jméno textu nemůže zůstat prázdné. Do nového panelu je možné vepsat nebo vložit vlastní text. Ten může být uložen buď pomocí menu \menu[,]{Soubor,Uložit}, nebo přes kontextové menu, které je vyvoláno po kliknutí pravým tlačítkem myši na panel.
+Pro vytvoření nového prázdného textu je třeba pomocí tlačítka \menu{\ding{58}} nejprve vytvořit nový panel (eventuálně je možné pro vytvoření panelu použít menu \menu[,]{Soubor,Nový prázdný panel}). Aplikace poté vyzve k zadání jména pro nový text. Jméno textu nemůže zůstat prázdné. Do \mbox{nového} panelu je možné vepsat nebo vložit vlastní text. Ten může být uložen buď pomocí menu \menu[,]{Soubor,Uložit}, nebo přes kontextové menu, které je vyvoláno po kliknutí pravým tlačítkem myši na panel.
 
-Další možností je otevřít již existující textový soubor (soubor s příponou \texttt{txt}). To je možné provést buď pomocí menu \menu[,]{Soubor,Otevřít}, nebo tlačítkem \menu{Otevřít soubor} na panelu nástrojů. Po zvolení jedné z možností se zobrazí dialog pro výběr souboru. Je možné otevřít více textů najednou označením více souborů pomocí klávesy \keys{\ctrl} a levého tlačítka myši. Pro každý z otevřených souborů je vytvořen nový panel, který je pojmenován stejně jako otevíraný soubor.
+Další možností je otevřít již existující textový soubor (soubor s příponou \texttt{txt}). To je možné provést buď pomocí menu \menu[,]{Soubor,Otevřít}, nebo tlačítkem \menu{Otevřít soubor} na panelu nástrojů. Po zvolení jedné z možností se zobrazí dialog pro výběr souboru. Je možné otevřít více textů najednou označením více souborů pomocí klávesy \keys{\ctrl} a levého tlačítka myši. Pro každý z~otevřených souborů je vytvořen nový panel, který je pojmenován stejně jako otevíraný soubor.
 
 Je-li text změněn, objeví se za jeho jménem na panelu znak \texttt{*}. Změněný text je možné uložit (buď v kontextovém menu vyvolaném kliknutím pravého tlačítka myši na panel nebo v menu \menu{Soubor}), případně jej lze, je-li text načten ze souboru, znovu načíst a vrátit jej tak do původní podoby. Tato možnost je přístupná přes kontextové menu příslušného panelu (\menu[,]{klik pravým tlačítkem na panel,Nahrát znovu}).
 
@@ -265,20 +265,30 @@ Výsledkem takto nastavené analýzy bude tato tabulka četnosti znaků:
 	\end{tabular} 
 \end{table} 
 
-Výsledek analýzy je zobrazen v novém okně. Obsahuje informace o analýze, jako je seznam analyzovaných textů, počet všech znaků, počet unikátních znaků, nejčastěji se vyskytující znak a informaci o tom, zda je analyzovaný výběr se zvolenou směrodatnou odchylkou reprezentativní (na základě Kubáčkova vzorce%TODO odkaz na vzorec
-). 
+Výsledek analýzy je zobrazen v novém okně. Obsahuje informace o analýze, jako je seznam analyzovaných textů, počet všech znaků, počet unikátních znaků, nejčastěji se vyskytující znak a informaci o tom, zda je analyzovaný výběr se zvolenou směrodatnou odchylkou na základě Kubáčkova vzorce (\ref{eq:kubacek}, viz \cite[str.~22]{Wimmer2003}) reprezentativní:
+
+\begin{equation}
+\label{eq:kubacek}
+N = \frac{1}{r^2} \prod_{x=1}^{k} p_x^{\frac{1}{k-1}},
+\end{equation}
+kde 
+\begin{align*}
+      p_x & \text{ je relativní frekvence výskytu entity $x$,}\\
+      r   & \text{ je průměrná směrodatná odchylka odhadů $p_i$ (může být určena dopředu),}\\
+      k   & \text{ je počet entit.}
+\end{align*}   
 
 Pod souhrnem se nachází tabulka četností znaků. Ta obsahuje jednak sloupec s relativními četnostmi každého znaku a jednak sloupec s absolutními četnostmi pro každý analyzovaný text. Tabulku je možné seřadit dle libovolného sloupce kliknutím na jeho název.
 
 Výsledek analýzy dále obsahuje dva grafy. První z nich zobrazuje četnosti jednotlivých znaků. Výchozím typem grafu je graf koláčový. Po kliknutí levým tlačítkem se typ grafu změní na sloupcový, který zobrazuje absolutní četnosti výskytu znaků. Dalším kliknutím levým tlačítkem myši se změní zobrazované hodnoty z absolutních na relativní. Další kliknutím je opět zobrazen původní koláčový graf.
 
-Druhý graf má smysl zejména při analýze více textů. Zobrazuje porovnání výskytů zvolených znaků v jednotlivých analyzovaných textech. Do srovnání je možné přidat všechny z nalezených znaků.
+Druhý graf má smysl zejména při analýze více textů. Zobrazuje porovnání výskytů zvolených znaků v jednotlivých analyzovaných textech. Do srovnání je možné přidat všechny z~nalezených znaků.
 
 \subsection{Analýza četnosti slov}
 
 Stejně jako analýza četnosti znaků může být i analýza četnosti slov prováděna jak na jednom, tak více textech najednou. Analyzovat četnost slov lze buď z menu \menu[,]{Analýza,Analýza četnosti slov} nebo z nástrojového panelu pomocí tlačítek \menu[,]{Analýza jednoho textu}, případně \menu[,]{Hromadná analýza}.
 
-Před tím, než analýza začne, je možné nastavit její parametry pomocí dialogu \ref{fig:gui-word-analysis-dialog}:
+Předtím než analýza začne, je možné nastavit její parametry pomocí dialogu \ref{fig:gui-word-analysis-dialog}:
 \begin{figure}[H]
 \centering
 \includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-word-analysis-dialog}
@@ -293,12 +303,12 @@ Aplikace podporuje dva způsoby, jak počítat četnost slov:
 \item dle délky slova (ve znacích).
 \end{enumerate}
 
-To, jaký způsob má být použit je možné zvolit v nabídce \keys{Typ analýzy}. Další volbou je možnost ignorovat rozdílnou velikost písmen. Ve výchozím nastavení je tato volba vypnuta, což znamená, že například ve verši
+Způsob, který má být použit, je možné zvolit v nabídce \keys{Typ analýzy}. Další volbou je možnost ignorovat rozdílnou velikost písmen. Ve výchozím nastavení je tato volba vypnuta, což znamená, že například ve verši
 
 \begin{verse}
 \enquote{Sám a sám tak havran sedí,\ldots}
 \begin{flushright}
-\textit{(Havran -- překlad Rudolf Havel)}
+\textit{(Havran ---překlad Rudolf Havel)}
 \end{flushright}
 \end{verse}
 
@@ -337,13 +347,13 @@ Posledním grafem v reportu je sloupcový graf \enquote{Srovnání četností}. 
 
 \subsection{Aliterace}
 
-Aliterace je analýza, která může být vykonána pouze na jednom textu. Je možné ji vyvolat v menu \menu[,]{Analýza, Aliterace}, nebo z panelu nástrojů tlačítkem \menu[,]{Analýza jednoho textu, Aliterace}. Analýza aliterace neumožňuje žádné nastavení, výsledek analýzy je okamžitě zobrazen. 
+Aliterace je analýza, která může být vykonána pouze na jednom textu. Je možné ji vyvolat v~menu \menu[,]{Analýza, Aliterace}, nebo z~panelu nástrojů tlačítkem \menu[,]{Analýza jednoho textu, Aliterace}. Analýza aliterace neumožňuje žádné nastavení, výsledek analýzy je okamžitě zobrazen. 
 
-Ve výsledném reportu je zobrazen aliterační charakter básně $\mathit{KA}$ na dané hladině významnosti $\alpha$ (tu lze libovolně měnit). Report dále obsahuje tabulku, v níž je uvedena aliterace (aliterační fonémy, délka verše, počet jednotlivých aliterací, pravděpodobnost dané aliterace a aliterační charakter verše) pro každý verš analyzované básně.
+Ve výsledném reportu je zobrazen aliterační charakter básně $\mathit{KA}$ na dané hladině významnosti $\alpha$ (tu lze libovolně měnit). Report obsahuje tabulku, v níž je uvedena aliterace (aliterační fonémy, délka verše, počet jednotlivých aliterací, pravděpodobnost dané aliterace a aliterační charakter verše) pro každý verš analyzované básně.
 	
 \subsection{Asonance}
 \label{chap:app_asonance}
-Na rozdíl od aliterace je asonance analýza, která může být vykonána pouze na všech otevřených textech. Analýza asonance je umístěna v menu \menu[,]{Analýza, Asonance}, případně je dostupná z panelu nástrojů \menu[,]{Hromadná analýza, Asonance}. Před analýzou samotnou je třeba zvolit parametry analýzy:
+Na rozdíl od aliterace je asonance analýza, která může být vykonána pouze na všech otevřených textech. Analýza asonance je umístěna v menu \menu[,]{Analýza, Asonance}, případně je dostupná z~panelu nástrojů \menu[,]{Hromadná analýza, Asonance}. Před analýzou samotnou je třeba zvolit parametry analýzy:
 \begin{itemize}
 \item testovací hypotézu $H_0$,
 \item množinu vokálů.
@@ -358,7 +368,7 @@ Na rozdíl od aliterace je asonance analýza, která může být vykonána pouze
 
 V rámci asonance je možné testovat dvě rozdílné hypotézy $H_0$:
 \begin{description}
-\item[Střední hodnoty jsou vzhledem k různým posunům stejné] Na všech textech je provedena asonance pro posuny o jeden až patnáct vokálů. Testované skupiny jsou vytvořeny automaticky -- co posun to skupina. V případě zamítnutí nulové hypotézy jsou nalezeny posuny, které se od sebe významně liší. 
+\item[Střední hodnoty jsou vzhledem k různým posunům stejné] Na všech textech je provedena asonance pro posuny o jeden až patnáct vokálů. Testované skupiny jsou vytvořeny automaticky -- co posun, to skupina. V případě zamítnutí nulové hypotézy jsou nalezeny posuny, které se od sebe významně liší. 
 
 \item[Střední hodnoty jsou vzhledem ke konstantnímu posunu stejné] Nejprve je zvolen posun, pro nějž bude testována shoda středních hodnot. V dalším kroku je třeba texty rozdělit do jednotlivých skupin. Lze tak porovnat asonance například u různých autorů či jazyků. K rozdělení otevřených textů do skupin slouží dialog, který je otevřen po kliknutí na tlačítko \keys{OK} v dialogu nastavení asonance:
 \begin{figure}[H]
@@ -393,7 +403,7 @@ Na horním okraji okna je umístěn nástrojový panel, který obsahuje tlačít
 
 Prostřední část okna je rozdělena na dva sloupce, z nichž levý obsahuje analyzovaný text včetně očíslovaných denotačních elementů a v pravém sloupci je umístěna tabulka s vytvořenými hřeby (na obrázku \ref{fig:gui-denotation-window} nejsou zatím žádné hřeby vytvořeny). Nad tabulkou se nachází tlačítka pro vytvoření nového hřebu a smazání vybraného hřebu. 
 
-V pravém dolním rohu se nachází tlačítka \keys{Cancel} a \keys{Hotovo}. Tlačítkem \keys{Cancel} je možné zavřít okno pro dělení textu (přitom je uživatel upozorněn, že zavřením okna přijde o rozdělanou práci a je mu nabídnuta možnost rozpracované rozdělení uložit). Tlačítko \keys{Hotovo} je neaktivní, dokud nejsou všechny denotační elementy roztříděny do hřebů. Po kliknutí na něj je zobrazen dialog, ve kterém uživatel může hotové rozdělení uložit (aby jej příště mohl opět otevřít a použít). Nakonec je okno pro dělení textu do hřebů uzavřeno a místo něj se zobrazí okno s výsledky denotační analýzy na základě vytvořeného rozdělení.
+V pravém dolním rohu se nachází tlačítka \keys{Cancel} a \keys{Hotovo}. Tlačítkem \keys{Cancel} je možné zavřít okno pro dělení textu (přitom je uživatel upozorněn, že zavřením okna přijde o rozdělanou práci a je mu nabídnuta možnost rozpracované rozdělení uložit). Tlačítko \keys{Hotovo} je neaktivní, dokud nejsou všechny denotační elementy roztříděny do hřebů. Po kliknutí na něj je zobrazen dialog, ve kterém uživatel může hotové rozdělení uložit (aby jej příště mohl opět otevřít a použít). Nakonec je okno pro dělení textu do hřebů uzavřeno a místo něj se zobrazí okno s~výsledky denotační analýzy na základě vytvořeného rozdělení.
 
 \subsubsection{Dělení do hřebů}
 
@@ -428,7 +438,7 @@ Kontextové menu obsahuje různý počet položek v závislosti na aktuálním s
 		\begin{verse}
 		\enquote{Už aby se rozednilo; marně bych tu hledal dílo,\ldots}
 		\begin{flushright}
-		\textit{(Havran -- překlad Ivan Slavík)}
+		\textit{(Havran --- překlad Ivan Slavík)}
 		\end{flushright}
 		\end{verse}
 
@@ -441,11 +451,11 @@ Poté, co je rozdělování dokončeno, je zpřístupněno tlačítko \keys{Hoto
 
 Analýza dále obsahuje sekci, v níž je zobrazena difuze hřebů a poziční hřeby. Tyto sekce jsou ve výchozím stavu sbaleny.
 
-Níže je zobrazena sekce \enquote{Jádro textu}. Aplikace sama vytvořila jádro textu ze hřebů, které obsahují alespoň dva denotační elementy. Pokud některý z vybraných hřebů do jádra textu nepatří, je možné jej z jádra odstranit kliknutím na něj levým tlačítkem myši. Tím se hřeb přesune do podsekce \enquote{Hřeby mimo jádro}. V případě, že by do jádra patřil hřeb nacházející se v podsekci \enquote{Hřeby mimo jádro}, lze ho jej mezi jaderné hřeby zařadit opět kliknutím levým tlačítkem myši. Poslední podsekce je \enquote{Tematičnost jádrových hřebů}, v níž je pro každý jádrový hřeb zobrazena jeho tematičnost. 
+Níže je zobrazena sekce \enquote{Jádro textu}. Aplikace sama vytvořila jádro textu ze hřebů, které obsahují alespoň dva denotační elementy. Pokud některý z vybraných hřebů do jádra textu nepatří, je možné jej z jádra odstranit kliknutím na něj levým tlačítkem myši. Tím se hřeb přesune do podsekce \enquote{Hřeby mimo jádro}. V případě, že by do jádra patřil hřeb nacházející se v~podsekci \enquote{Hřeby mimo jádro}, lze ho jej mezi jaderné hřeby zařadit opět kliknutím levým tlačítkem myši. Poslední podsekce je \enquote{Tematičnost jádrových hřebů}, v níž je pro každý jádrový hřeb zobrazena jeho tematičnost. 
 
 Další sekcí je sekce \enquote{Rozšířené jádro textu}. V té jsou na základě vytvořeného jádra textu zobrazeny hřeby patřící do rozšířeného jádra.
 
-Výsledný report denotační analýzy uzavírají sekce týkající se grafů -- \enquote{Koincidence} a \enquote{Graf}. Aplikace pracuje s rámcem koincidence stanoveným jako verš. Sekce \enquote{Koincidence} zahrnuje dvě podsekce:
+Výsledný report denotační analýzy uzavírají sekce týkající se grafů --- \enquote{Koincidence} a \enquote{Graf}. Aplikace pracuje s rámcem koincidence stanoveným jako verš. Sekce \enquote{Koincidence} zahrnuje dvě podsekce:
 \begin{enumerate}
 \item \enquote{Báseň jako pořadová čísla hřebů} obsahuje přepis básně, kde jsou namísto slov zobrazena pořadová čísla hřebů. 
 \item \enquote{Tabulka koincdence} zobrazuje v tabulce koincidence pro všechny páry veršů. Nad tabulkou je umístěn výběr základního verše.
@@ -455,7 +465,7 @@ Poslední sekcí je sekce \enquote{Graf}. V té se, jak název napovídá, nach�
 
 Typ grafu je možné změnit z koincidenčního na deterministicko-pravděpodobností. K tomu slouží tlačítka \keys{Graf koincidence} a \keys{Deterministický graf} nacházející se pod volbou kritické hodnoty $\alpha$. 
 
-Panel dále obsahuje zaškrtávací volbu \enquote{Povolit automatické rozmístění grafu}. Je-li automatické rozmístění povoleno, jsou vrcholy grafu rozmístěny automaticky tak, aby se hrany co nejméně překrývaly. Protože výsledky automatického rozmístění nebývají 100\%, je vhodné volbu povolit při změně kritické hodnoty $\alpha$, poté zakázat a rozmístění vrcholů dokončit ručně. Při povolení funkce jsou vrcholy vždy rozmístěny znovu.
+Panel dále obsahuje zaškrtávací volbu \enquote{Povolit automatické rozmístění grafu}. Je-li automatické rozmístění povoleno, jsou vrcholy grafu rozmístěny automaticky tak, aby se hrany co nejméně překrývaly. Protože výsledky automatického rozmístění nebývají stoprocentní, je vhodné volbu povolit při změně kritické hodnoty $\alpha$, poté zakázat a rozmístění vrcholů dokončit ručně. Při povolení funkce jsou vrcholy vždy rozmístěny znovu.
 
 Třetí a poslední funkcionalita, kterou panel nabízí, je uložení grafu do souboru PNG.
 
@@ -467,7 +477,7 @@ Implementace denotační analýzy byla největším a nejtěžším úkolem, kte
 \item zobrazení výsledků denotační analýzy včetně grafu.
 \end{itemize}
 
-I když to nemusí být na první pohled zřejmé, implementace dělení textu do hřebů si vyžádala delší čas a byla náročnější než implementace části druhé. Při dělení textu jsou využívány dvě poměrně komplexní datové struktury (DS), které budou podrobně popsány níže. První je uživateli graficky zobrazena v levé části okna a představuje analyzovaný text s jednotlivými denotačními elementy. Druhá reprezentuje jednotlivé etablované hřeby včetně denotačních elementů, které byly do daného hřebu zařazeny. 
+I když to nemusí být na první pohled zřejmé, implementace dělení textu do hřebů si vyžádala delší čas a byla náročnější než implementace části druhé. Při dělení textu jsou využívány dvě poměrně komplexní datové struktury (DS), které budou ještě později podrobně popsány. První je uživateli graficky zobrazena v levé části okna a představuje analyzovaný text s jednotlivými denotačními elementy. Druhá reprezentuje jednotlivé etablované hřeby včetně denotačních elementů, které byly do daného hřebu zařazeny. 
 
 Obě tyto struktury navíc umožňují serializaci a deserializaci do/ze souboru. Implementována byla serializace do textového souboru do formátu vycházejícího z \acrshort{csv}. Výhodou tohoto řešení je, že uživatel může nezávisle na aplikaci soubor otevřít a upravit. Při vývoji aplikace (ale i při realizaci praktické části této práce) přišla tato vlastnost vhod, neboť se nejednou stalo, že data byla vyexportována tak, že nemohla být opětovně načtena. Ručním zásahem se podařilo uložený soubor opravit a tak zachránit rozdělanou práci.
 

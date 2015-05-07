@@ -3,7 +3,7 @@
 \chapter{Denotační analýza}
 \label{chap:denotacni_analyza}
 
-Denotační analýza patří mezi analýzy referenčního typu, neboť jejím smyslem je rozložení textu na jednotky (slova, fráze, \ldots) a rozdělení těchto jednotek do skupin zvaných \textbf{hřeby}. Ty jsou pojmenovány po svém objeviteli L. Hřebíčkovi. Každý hřeb spolu sdružuje jednotky, které mezi sebou z hlediska významu souvisí. Hřeb tedy sdružuje všechny jednotky vztahující se k jednomu a tomu samému subjektu. Například při analýze jakéhokoliv překladu básně Havran bude při denotační analýze nalezen hřeb, který bude sdružovat jednotky související s havranem.
+Denotační analýza patří mezi analýzy referenčního typu, neboť jejím smyslem je rozložení textu na jednotky (slova, fráze, \ldots) a rozdělení těchto jednotek do skupin zvaných \textbf{hřeby}. Ty jsou pojmenovány po svém objeviteli L. Hřebíčkovi. Každý hřeb spolu sdružuje jednotky, které mezi sebou z hlediska významu souvisí. Hřeb tedy sdružuje všechny jednotky vztahující se k~jednomu a tomu samému subjektu. Například při analýze jakéhokoliv překladu básně Havran bude při denotační analýze nalezen hřeb, který bude sdružovat jednotky související s havranem.
 
 \section{Dělení textu do hřebů}
 
@@ -25,7 +25,7 @@ Při tvorbě kritérií je možné inspirovat se pravidly, které uvádí Altman
 \item Slovesný \glslink{slovesnyvid}{vid} je irelevantní.
 \item Nedokonavé a dokonavé sloveso s předponou je možno rozlišovat nebo nerozlišovat v závislosti na významu.
 \item Analytické formy tvoří jeden celek, i když jsou od sebe oddělené.
-\item Pozitivní a negativní tvar slovesa jsou identické.
+\item Pozitivní a negativní tvary slovesa jsou identické.
 \end{enumerate}
 \item Přídavná jména:
 \begin{enumerate}
@@ -46,7 +46,6 @@ Při tvorbě kritérií je možné inspirovat se pravidly, které uvádí Altman
 
 V případě ručního dělení textu do hřebů je vhodné připravit text tak, že každému denotačnímu elementu je přiděleno pořadové číslo. Obsahuje-li slovo více denotačních elementů, jsou jejich pořadová čísla oddělena svislou čarou \uv{|}. Analytické formy sloves (např. \enquote{hloubal jsem}) tvoří pouze jeden denotační element. Víceslovné elementy je pro přehlednost vhodné podtrhnout. Tato úprava je znázorněna na první sloce překladu Havrana od Ivana Slavíka.
 
-\begin{samepage}
 \begin{Verbatim}[commandchars=+\[\]]
  1|2   3   4    5       6      7|8       9    10
 Bylo pusto o půlnoci, když +underline[jsem hloubal] bez pomoci,
@@ -66,9 +65,8 @@ luštil marně živou mocí staré svazky kajícné,
 46|47  48  49  50  51  52 53
 Je     to host a  nic víc ne.“
 \end{Verbatim}
-\end{samepage}
 
-V první sloce se nachází 53 denotačních elementů, které je třeba rozdělit do jednotlivých hřebů. Při ručním dělení je vhodné psát jednotlivé hřeby pod sebe v pořadí, v jakém se vyskytly v textu včetně jejich pořadového čísla a informace o tom, k čemu se daný hřeb vztahuje. Slovesa typicky obsahují více denotačních elementů -- jeden pro základní tvar slovesa, ostatní odkazují na entity v textu. Například sloveso \enquote{luštil} obsahuje dva denotační elementy (11 a 12). Element s číslem 11 odkazuje na infinitiv slovesa a jako takový je zařazen do hřebu 10. Koncovka \enquote{l} však odkazuje na vypravěče, a proto je zařazena do hřebu číslo 6. Do závorek () je v takovém případě vepsána ta část  elementu, která do hřebu nepatří, ale je s ním spojena.
+V první sloce se nachází 53 denotačních elementů, které je třeba rozdělit do jednotlivých hřebů. Při ručním dělení je vhodné psát jednotlivé hřeby pod sebe v pořadí, v jakém se vyskytly v textu včetně jejich pořadového čísla a informace o tom, k čemu se daný hřeb vztahuje. Slovesa typicky obsahují více denotačních elementů --- jeden pro základní tvar slovesa, ostatní odkazují na entity v textu. Například sloveso \enquote{luštil} obsahuje dva denotační elementy (11 a 12). Element s číslem 11 odkazuje na infinitiv slovesa a jako takový je zařazen do hřebu 10. Koncovka \enquote{l} však odkazuje na vypravěče, a proto je zařazena do hřebu číslo 6. Do závorek $(\quad )$ je v takovém případě vepsána ta část  elementu, která do hřebu nepatří, ale je s ním spojena.
 
 Nutno podotknout, že dělení textu do hřebů je časově náročná činnost, jejíž složitost narůstá s délkou analyzovaného textu. Software, který vznikl v rámci této diplomové práce, obsahuje snadno ovladatelné uživatelské rozhraní, které dělení textu do hřebů co možná nejvíce usnadňuje.
 
@@ -98,21 +96,21 @@ Pro první strofu Slavíkova překladu můžeme etablovat následující hřeby:
 Hřeby, které vznikly analýzou textu, je možné transformovat na
 \begin{enumerate}
 \item \textbf{Množinový hřeb}\\
-Množinový hřeb (značen $\{\kern 2pt.\kern 2pt\}$) je takový hřeb, v němž se uvedou pouze unikátní denotační elementy. Vyskytují-li se v hřebu denotační elementy související s deklinací, jsou seskupeny do kategorie např. pro hřeb číslo $25$ by množinový hřeb vypadal
+Množinový hřeb (značen $\{\kern 2pt.\kern 2pt\}$) je takový hřeb, v němž se uvedou pouze unikátní denotační elementy. Vyskytují-li se v hřebu denotační elementy související s deklinací, jsou seskupeny do kategorie. Například pro hřeb číslo $25$ bychom vytvořili množinový hřeb
 
 $\text{zaklepání} = \{\kern 2pt \text{zaklepání, 3. osoba singuláru} \kern 2pt\}$.
 
 \item \textbf{Poziční hřeb}\\
-Je značen $\langle \kern 2pt.\kern 2pt\rangle$. V pozičním hřebu jsou denotační elementy znázorněny pouze svým pořadovým číslem. Pro hřeb 6 \enquote{já} by poziční hřeby vypadal
+Je značen $\langle \kern 2pt.\kern 2pt\rangle$. V pozičním hřebu jsou denotační elementy znázorněny pouze svým pořadovým číslem. Poziční hřeb šestého hřebu \enquote{já} můžeme určit jako
 
 $\text{já} = \langle \kern 2pt \text{8, 12, 20, 22, 37} \kern 2pt\rangle$.
 \end{enumerate}
 
 \section{Charakteristiky}
 
-Texty zachycují určitou skutečnost, kterou čtenář při jejich čtení \uv{rekonstruuje}. Skutečnost je v textu zachycena formou pojmů. Aby čtenář text pochopil tak, jak autor zamýšlel, je třeba, aby byl v textu zachycen vztah mezi různými pojmy.
+Texty zachycují určitou skutečnost, kterou čtenář při jejich čtení \uv{rekonstruuje}. Skutečnost je v~textu zachycena formou pojmů. Aby čtenář text pochopil v souladu s úvahami autora, je třeba, aby byl v textu zachycen vztah mezi různými pojmy.
 
-Denotační analýza zkoumá text právě z tohoto hlediska -- jak spolu jednotlivé v textu se vyskytující elementy souvisí. Na základě denotační analýzy lze odvodit následující charakteristiky textu.
+Denotační analýza zkoumá text právě z tohoto hlediska --- sleduje, jak spolu jednotlivé v~textu se vyskytující elementy souvisí. Při denotační analýze mohou být určovány následující charakteristiky:
 
 \subsection{Jádro textu}
 Jádro textu obsahuje ty hřeby, v nichž se vyskytují nejméně dva odlišné kmeny\footnote{Kmenem se v lingvistice označuje ta část slova, která se v různých tvarech téhož slova (u flektivních slovních druhů) nemění. Mnohdy bývá totožná s kořenem (morfémem nesoucím základní významovou (lexikální) část slova. \url{http://cs.wikipedia.org/wiki/Kmen_(mluvnice)} }. Do jádra textu první strofy Slavíkova překladu tedy patří hřeby \uv{1 pusto}, \uv{6 já}, \uv{25 zaklepání}, \uv{30 kdo}, \uv{35 host}.
@@ -132,7 +130,7 @@ T_\text{(hřeb)}=\frac{\text{velikost hřebu}}{|\kern 5pt.\kern 5pt|}.
 \end{equation}
 Viz \cite[str. 302]{Wimmer2003}. 
 
-Její hodnota je pro jádrové hřeby \uv{6 já} a \uv{25 zaklepání} $5 / 16 = 0{,}3125$, pro zbylé jádrové hřeby $2 / 16 = 0{,}125$.
+Hodnota lokálnosti jádrových hřebů pro jádrové hřeby \uv{6 já} a \uv{25 zaklepání} je $T_\text{(já)} = T_\text{(zaklepání)} = 5 / 16 = 0{,}3125$, pro zbylé jádrové hřeby $T_\text{(pusto)} = T_\text{(kdo)} = T_\text{(host)} = 2 / 16 = 0{,}125$.
 
 \subsection{Deterministické jádro}
 
@@ -153,7 +151,7 @@ kde
 Pro první strofu Slavíkova překladu bychom tedy dostali
 
 \begin{equation}
-K=\frac{1-\frac{N}{L}}{1-\frac{1}{L}} = \frac{1-\frac{34}{53}}{1-\frac{1}{53}}=0,365.
+K=\frac{1-\frac{N}{L}}{1-\frac{1}{L}} = \frac{1-\frac{34}{53}}{1-\frac{1}{53}}=0{,}365.
 \end{equation}
 
 \subsection{Centralizovanost textu}
@@ -203,7 +201,7 @@ Rozšířené jádro je charakteristické pro difuzi textu. Patří do něj vše
 \subsection{Koincidence}
 Koincidence je definována jako výskyt dvou hřebů v jedné vymezené části textu (verš, věta, sloka, \ldots). Koincidence je považována za:
 \begin{description}
-\item[náhodnou,] pokud pravděpodobnost výskytu daných dvou hřebu je dostatečně vysoka,
+\item[náhodnou,] pokud pravděpodobnost výskytu daných dvou hřebu je dostatečně vysoká,
 \item[signifikantní,] v případě, že pravděpodobnost tohoto výskytu je malá.
 \end{description}
 
@@ -239,7 +237,7 @@ V teorii grafů je za souvislý považován takový graf, ve kterém pro každé
 
 Souvislost charakterizuje, jak hustá je síť hran v grafu. Z lingvistického hlediska naznačuje míru koncentrace zachycené reality. Ziegler a Altman používají v \cite{ZieglerAltmann2002} dvě míry souvislosti:
 
-\textit{Relativní míra souvislost}, která se vypočítá jako
+\textit{Relativní míra souvislosti}, která se vypočítá jako
 \begin{equation}
 \kappa_\textit{rel}^\alpha=\frac{n-k}{n-1},
 \end{equation}
@@ -247,7 +245,7 @@ Souvislost charakterizuje, jak hustá je síť hran v grafu. Z lingvistického h
 kde
 \begin{align*}
 	n & \text{ je počet hřebů,}\\
-	k & \text{ je počet komponent grafu.}\\
+	k & \text{ je počet komponent grafu.}
 \end{align*}  
 \textit{Relativní cyklomatické číslo}, které bere v potaz také počet hran $m$. Vypočítá se jako
 \begin{equation}
@@ -267,7 +265,7 @@ d_\textit{rel}=\frac{2m}{n(n-1)}.
 \subsection{Vzdálenost v grafu}
 Vzdálenost mezi dvěma vrcholy $x$ a $y$ (označena jako $d(x,y)$) je v teorii grafů vyjádřena jako nejmenší počet hran, po nichž je možné přejít z $x$ do $y$. Nejsou-li vrcholy $x$ a $y$ vůbec spojeny, je $d(x,y)=\infty$.
 
-V jednotlivých komponentách grafu je možné vypočítat vzdálenosti mezi všemi dvojicemi vrcholů v dané komponentě. Největší vzdálenost, kterou je možné z  vrcholu $x$ dosáhnout v rámci jeho komponenty, je nazývána \textit{excentricita vrcholu}. Je definována na straně 313 v \cite{Wimmer2003} jako
+V jednotlivých komponentách grafu je možné vypočítat vzdálenosti mezi všemi dvojicemi vrcholů v dané komponentě. Největší vzdálenost, kterou je možné z  vrcholu $x$ dosáhnout v~rámci jeho komponenty, je nazývána \textit{excentricita vrcholu}. Je definována na straně 313 v \cite{Wimmer2003} jako
 \begin{equation}
 e(x)=\max_{y \in K} d(x,y).
 \end{equation}
@@ -279,7 +277,7 @@ dm(G)=\max_{x \in K} e(x),
 
 viz \cite[str. 315]{Wimmer2003}.
 
-Diametr komponenty vyjadřuje denotační šířku -- šířku úseku reality, kterou autor konstruoval jako souvislý celek. Vrcholy s nejmenší excentricitou jsou nazývány centrem komponenty. V jedné komponentě se může nacházet více center.
+Diametr komponenty vyjadřuje denotační šířku --- šířku úseku reality, kterou autor konstruoval jako souvislý celek. Vrcholy s nejmenší excentricitou jsou nazývány centrem komponenty. V jedné komponentě se může nacházet více center.
 Centrální index udává sílu asociace mezi hřeby. Je dán v \cite[str. 315]{Wimmer2003} jako
 \begin{equation}
 \bar{d}=\frac{z(K)}{n_K (n_K-1)},
