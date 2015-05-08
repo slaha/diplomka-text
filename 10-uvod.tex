@@ -9,9 +9,32 @@
 
 %Jako \textit{matematická lingvistika} je označována pomezní disciplína spojující lingvistiku, matematiku a informatiku. Matematická lingvistika se začala formovat v padesátých letech dvacátého století. Za její počátek bývá uváděn VIII. mezinárodní lingvistický kongres konaný roku 1957 v Oslu. Nicméně k prvním spojením jazykovědy s matematikou docházelo již dříve, a to zejména v rámci metod kvantitativních soustředěných na pojem \textit{frekvence}. 
 
-%S rozvojem výpočetní techniky ve druhé polovině dvacátého století docházelo ke stále většímu využití počítačů ve všech oborech lidské činnosti. Ani matematická lingvistika nebyla výjimkou. \textit{Počítačová lingvistika} (též \textit{strojová}, anglicky \textit{computational linguistics}) je jednou z disciplín matematické lingvistiky. Počítačová lingvistika využívá poznatků kvantitativní i algebraické lingvistiky, k jejichž aplikaci je využíváno počítačů. \textit{Zdroj: \cite{Cerny1996}}.
 
-%Charakteristiky použité k určování autorství v rámci bakalářské práce nebudou v této práci popisovány. Jejich podrobný popis je obsažen v původní bakalářské práci, případně ve zmiňovaném článku. V diplomové práci budou čtenáři podrobně seznámeni s denotační analýzou. Popsán bude také vytvořený počítačový program umožňující provádění analýz textu, a to jak z technického, tak uživatelského pohledu. Poslední kapitola je pak zaměřena na samotnou analýzu a porovnání osmnácti českých překladů Poeova Havrana.
 
-Nový úvod: popsat obsah této DP.
+
+
+%Nový úvod: popsat obsah této DP.
+S rozvojem výpočetní techniky ve druhé polovině dvacátého století docházelo ke stále většímu využití počítačů ve všech oborech lidské činnosti. Počítače přinesly změnu nejen v rámci každodenního života, ale i v metodách vědeckého výzkumu. Ani lingvistika nebyla výjimkou. \textit{Počítačová lingvistika} (též \textit{strojová}, anglicky \textit{computational linguistics}) je jednou z disciplín matematické lingvistiky. Počítačová lingvistika využívá poznatků kvantitativní i algebraické lingvistiky a k jejich aplikaci používá právě počítačů. 
+
+Počítačová lingvistika se zaměřuje na zpracování přirozeného jazyka na počítači. Typickou úlohou počítačové lingvistiky je strojový překlad, nicméně existují i další úlohy, kterými se počítačová lingvistika zabývá, jako jsou rozpoznávání a syntéza řeči, vyhledávání informací a odpovídání na otázky (v tomto směru je velmi úspěšná společnost IBM, jejíž počítač Watson dokázal v lednu 2011 porazit lidské soupeře v americké obdobě hry Riskuj!), dále například korektura textu a další.
+
+Porozumění přirozenému jazyku je dle mého názoru jedním ze stěžejních úkolů informačních technologií jako celku. Při objemu informací, jaké lidstvo produkuje, není v lidských silách udržet o jednotlivých publikacích a jejich obsahu přehled. Cestou by mohlo být strojové zpracování informací a jejich uložení a následné vyhledávání v nich. K tomu, aby se z jednotlivých slov stal smysluplný text, musí spolu jednotlivá slova souviset. Aby počítač textu \enquote{porozumněl} a dokázal jej vyhodnotit, musí tyto souvislosti rozeznávat.
+
+\vspace*{-0.47cm}
+\begin{flushright}
+\textit{Zdroj: \cite{Cerny1996}, \cite{Cerny1998}}.
+\end{flushright}
+
+
+Tato diplomová práce se zabývá aplikací vybraných metod a modelů matematické lingvistiky na české překlady básně Havran Edgara Allana Poea. Stěžejním tématem práce je \textit{denotační analýza}. Jedná se o sémiotickou analýzu, kdy je text rozdělen na jednotky odkazující v textu i ve skutečnosti na to samé. Denotační analýza uvažovaná v této práci však vyžaduje uživatelský vstup pro dělení na související jednotky textu. Jedním z možných výstupů denotační analýzy je síťový graf znázorňující, jak spolu jednotlivé části textu souvisí.
+
+Dalšími sledovanými jevy jsou četnosti znaků a slov a fonické jevy: asonance, aliterace a agregace. Některé typy analýz je možné před analýzou samotnou nastavit a ovlivnit tak jejich průběh. 
+
+Součástí práce je také speciálně vyvinutý počítačový program, který umožňuje provádět zvolené typy analýz a v přehledných výstupech zobrazuje jejich výsledky. Z každého výstupu je možné exportovat naměřené hodnoty a ty poté zpracovat v jiných specializovanějších nástrojích. Většina reportů výsledků není jen statická, ale umožňuje také měnit některé parametry analýzy, případně porovnávat jednotlivé analyzované texty.
+
+V první kapitole diplomové práce budou čtenáři podrobně seznámeni s denotační analýzou včetně všech příslušných charakteristik a grafů, které je možné na jejím základě vytvořit. Všechny uvedené charakteristiky jsou v rámci denotační analýzy počítány vytvořeným programem.
+
+Další kapitola představuje vytvořený počítačový program, s jehož pomocí je možné provádět zmíněné typy analýz. Aplikace je popsána jak z uživatelského, tak technického hlediska. Ačkoli bylo cílem vytvořit co možná nejjednodušeji ovladatelný program, mohou být některé funkce pro neznalé uživatele obtížněji pochopitelné.
+
+Třetí kapitola je zaměřena prakticky. Popsané typy analýz jsou za pomoci vytvořeného programu aplikovány na analyzované texty. Výsledky jednotlivých analýz jsou porovnány buď mezi sebou nebo (tam, kde to dává smysl) s výsledky stejných analýz provedených na jiných souborech. To se týká například měření frekvence znaků, což je jeden z typických úkolů matematické lingvistiky, a jako takový byl proveden jinými lingvisty dávno před touto diplomovou prací. V rámci některých analýz jsou jednotlivé české překlady porovnávány s~anglickým originálem (například četnost slov \enquote{havran} a \enquote{pták}, aliterace, \ldots).
 \end{document}
