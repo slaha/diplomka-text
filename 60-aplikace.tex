@@ -14,7 +14,7 @@ Velkou výhodu Javy, jak napovídá i její motto \enq{write once, run anywhere}
 
 \section{Architektura aplikace}
 
-Na začátku vývoje bylo třeba zvolit architekturu budoucí aplikace. Po předešlých zkušenostech z oblasti vývoje softwaru jsem se rozhodl pro dva relativně nezávislé moduly, neboť čím je program jednodušší, tím méně je náchylný k chybám. 
+Na začátku vývoje bylo třeba zvolit architekturu budoucí aplikace. Po předešlých zkušenostech z~oblasti vývoje softwaru jsem se rozhodl pro dva relativně nezávislé moduly, neboť čím je program jednodušší, tím méně je náchylný k chybám. 
 
 Prvním z těchto modulů měla být knihovna, která bude provádět samotnou analýzu textu. Tato knihovna musela být z důvodu co nejvyšší spolehlivosti důkladně otestována. Dalšími požadavky byly:
 \begin{itemize}
@@ -343,7 +343,7 @@ V případě analýzy dle délky slova, je pod tabulkou četností zobrazena dal
 
 V reportu je dále zobrazen graf zastoupení jednotlivých slov (resp. délek slov). Výchozí je graf koláčový, který se kliknutím levým tlačítkem myši změní na graf sloupcový, v němž jsou zobrazeny absolutní četnosti výskytů. Dalším kliknutím se na osu $y$ vynesou relativní četnosti. Vzhledem k tomu, že slov v textu bývá obsaženo mnoho, mohou být grafy nepřehledné. Proto je možné zredukovat počet zobrazených dat pouze na ta slova, která se vyskytla alespoň $n\text{krát}$. Program umožňuje graf zvětšovat nebo zmenšovat dle potřeby. K tomu slouží tlačítka \keys{Zvětšit graf} respektive \keys{Zmenšit graf}. Kliknutím pravým tlačítkem myši na graf je vyvoláno kontextové menu, které umožňuje graf zkopírovat do schránky, uložit nebo vytisknout. Dále je možné graf přiblížit nebo oddálit. To znamená, že velikost grafu zůstane zachována, ale zmenší (resp. zvětší) se viditelný rozsah na ose $y$.
 
-Posledním grafem v reportu je sloupcový graf \enquote{Srovnání četností}. V něm je možné zobrazit zvolená slova (délky slov) a porovnat tak četnost daných slov ve všech analyzovaných textech. I u tohoto grafu je přes pravé tlačítko myši přístupné kontextové menu, které umožňuje s grafem dále manipulovat.
+Posledním grafem v reportu je sloupcový graf \enquote{Srovnání četností}. V něm je možné zobrazit zvolená slova (délky slov) a porovnat tak četnost daných slov ve všech analyzovaných textech. I~u~tohoto grafu je přes pravé tlačítko myši přístupné kontextové menu, které umožňuje s grafem dále manipulovat.
 
 \subsection{Aliterace}
 
@@ -370,7 +370,7 @@ V rámci asonance je možné testovat dvě rozdílné hypotézy $H_0$:
 \begin{description}
 \item[Střední hodnoty jsou vzhledem k různým posunům stejné] Na všech textech je provedena asonance pro posuny o jeden až patnáct vokálů. Testované skupiny jsou vytvořeny automaticky -- co posun, to skupina. V případě zamítnutí nulové hypotézy jsou nalezeny posuny, které se od sebe významně liší. 
 
-\item[Střední hodnoty jsou vzhledem ke konstantnímu posunu stejné] Nejprve je zvolen posun, pro nějž bude testována shoda středních hodnot. V dalším kroku je třeba texty rozdělit do jednotlivých skupin. Lze tak porovnat asonance například u různých autorů či jazyků. K rozdělení otevřených textů do skupin slouží dialog, který je otevřen po kliknutí na tlačítko \keys{OK} v dialogu nastavení asonance:
+\item[Střední hodnoty jsou vzhledem ke konstantnímu posunu stejné] Nejprve je zvolen posun, pro nějž bude testována shoda středních hodnot. V dalším kroku je třeba texty rozdělit do jednotlivých skupin. Lze tak porovnat asonance například u různých autorů či jazyků. K~rozdělení otevřených textů do skupin slouží dialog, který je otevřen po kliknutí na tlačítko \keys{OK} v dialogu nastavení asonance:
 \begin{figure}[H]
 \centering
 \includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-60-aplikace/gui-asonance-settings-groups}
@@ -509,7 +509,7 @@ Informaci o tom, který denotační element patří do kterého hřebu, nese tř
 
 Datové struktury vytvořené v rámci modulu uživatelského grafického rozhraní rozšiřují výše popsané \acrshort{ds} knihovny \texttt{compLing} zejména o vlastnosti nutné k propojení s \acrshort{gui}. Jedná se typicky o zapouzdření (encapsulation) původní datové struktury do struktury nové.
 
-Z hlediska hierarchie modulu grafického rozhraní je nejvýše postavenou třídou v rámci denotační analýzy třída \texttt{GuiDenotationAnalysis}. Ta je zodpovědná za propojení \acrshort{gui} s datovým modelem (\acrshort{gui} $\leftrightarrow$ akce uživatele $\leftrightarrow$ datový model $\leftrightarrow$ \acrshort{gui}). Konstruktoru třídy \texttt{GuiDenotationAnalysis} je předán pracovní text (\texttt{WorkingText}). Na jeho základě je vytvořen datový model denotační analýzy:
+Z hlediska hierarchie modulu grafického rozhraní je nejvýše postavenou třídou v rámci denotační analýzy třída \texttt{GuiDenotationAnalysis}. Ta je zodpovědná za propojení \acrshort{gui} s~datovým modelem (\acrshort{gui} $\leftrightarrow$ akce uživatele $\leftrightarrow$ datový model $\leftrightarrow$ \acrshort{gui}). Konstruktoru třídy \texttt{GuiDenotationAnalysis} je předán pracovní text (\texttt{WorkingText}). Na jeho základě je vytvořen datový model denotační analýzy:
 
 Základ \acrshort{ds} denotační analýzy tvoří třída \texttt{GuiDenotationModel}, která implementuje  rozhraní \texttt{Csv<GuiDenotationModel>}. Rozhraní \texttt{Csv<T>} je generické a definuje metody potřebné pro uložení a načtení objektu typu \texttt{T} z, resp. do, souboru. Kromě toho \texttt{GuiDenotationModel} obsahuje reference na dvě další datové struktury: 
 \begin{itemize}

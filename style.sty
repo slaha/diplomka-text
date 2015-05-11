@@ -4,6 +4,7 @@
 \usepackage{csquotes}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{palatino}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -35,11 +36,12 @@
 \usepackage{subfig}
 \usepackage{enumitem}
 
+
 \author{Jan Šlahora}
 \title{Matematická lingvistika a překlady básně\\E.A. Poea Havran}
 \date{}
 
-\renewcommand*\rmdefault{ppl}
+%\renewcommand*\rmdefault{ppl}
 
 \pagestyle{plain}
 
@@ -62,7 +64,7 @@
 	 }% 
 }%
 
-\newcommand{\KA}{{\rm KA}}
+\newcommand{\KA}{${K\!A}$ }
 
 % nastavit odsazení 
 \setlength{\bibhang}{0pt}
@@ -82,3 +84,6 @@
 \def\arraystretch{1.5} %výška řádku tabulky
 
 \captionsetup{belowskip=0pt,aboveskip=6pt}
+
+\input{glyphtounicode}
+\pdfgentounicode=1
