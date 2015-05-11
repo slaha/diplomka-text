@@ -1,0 +1,15 @@
+str.9 výèet pojmù 
+?doplnit høeb
+
+všiml jsem si, že v textu na str. 15 uvádíte že høeb je na památku høebíèka, avšak bez citace
+objevil jsem na to odkaz v èlánku - navrhuji doplnit jeho citaci
+Doina Tatar, Mihaiela Lupea and Gabriel Altmann:
+Hreb-like analysis of Eminescu’s poems.
+Glottometrics 28, 2014, s. 37-55
+v tomto èlánku se píše že samotný Høebíèek používal pojem sentence  aggregate ... ? vìtný agregát
+
+
+48^3,4 dìlená slova na dvou øádcích pod sebou ...budou zavedena/zavedeme
+48^8,9 dìlená slova na dvou øádcích pod sebou ...?\mbox{havrana}
+59 pol [7] vyd. / vydání ... zmeni radkovy zlom, nyni radek presahuje pravy okraj
+60^5 k~dispozici

@@ -477,7 +477,7 @@ Implementace denotační analýzy byla největším a nejtěžším úkolem, kte
 \item zobrazení výsledků denotační analýzy včetně grafu.
 \end{itemize}
 
-I když to nemusí být na první pohled zřejmé, implementace dělení textu do hřebů si vyžádala delší čas a byla náročnější než implementace části druhé. Při dělení textu jsou využívány dvě poměrně komplexní datové struktury (DS), které budou ještě později podrobně popsány. První je uživateli graficky zobrazena v levé části okna a představuje analyzovaný text s jednotlivými denotačními elementy. Druhá reprezentuje jednotlivé etablované hřeby včetně denotačních elementů, které byly do daného hřebu zařazeny. 
+I když to nemusí být na první pohled zřejmé, implementace dělení textu do hřebů si vyžádala delší čas a byla náročnější než implementace části druhé. Při dělení textu jsou využívány dvě poměrně komplexní datové struktury (DS), které budou ještě později podrobně popsány. První je uživateli graficky zobrazena v levé části okna a představuje analyzovaný text s jednotlivými denotačními elementy. Druhá reprezentuje jednotlivé etablované hřeby včetně \mbox{denotačních} elementů, které byly do daného hřebu zařazeny. 
 
 Obě tyto struktury navíc umožňují serializaci a deserializaci do/ze souboru. Implementována byla serializace do textového souboru do formátu vycházejícího z \acrshort{csv}. Výhodou tohoto řešení je, že uživatel může nezávisle na aplikaci soubor otevřít a upravit. Při vývoji aplikace (ale i při realizaci praktické části této práce) přišla tato vlastnost vhod, neboť se nejednou stalo, že data byla vyexportována tak, že nemohla být opětovně načtena. Ručním zásahem se podařilo uložený soubor opravit a tak zachránit rozdělanou práci.
 
@@ -491,7 +491,7 @@ Třída \texttt{Denotation} implementuje metody definované rozhraním \texttt{I
 
 Třída \texttt{Denotation} dále obsahuje referenci na třídu type \texttt{HrebsHolder}, což je třída zodpovědná za práci s etablovanými hřeby. Hřeby (představované třídou \texttt{Hreb}) jsou drženy v kolekci typu tabulka. Jejím klíčem je číslo představující identifikátor hřebu. Hodnotou je pak konkrétní instance třídy \texttt{Hreb}. \texttt{HrebsHolder} si navíc udržuje nejvyšší číslo doposud vytvořeného hřebu, které je použito při vytváření hřebu nového.
 
-Výpočty spojené s denotační analýzou jsou implementovány třídou \texttt{DenotationMath}. Tato třída neobsahuje žádné vlastnosti, jsou do ní soustředěny pouze metody pro výpočty kompaktnosti, centralizovanosti, MacInthoshova indexu, indexů nespojitosti a neizolovanosti,~\ldots Výpočet indexu dosažitelnosti je oproti jiným výpočtům komplexnější, a proto jej má na starost vlastní třída \texttt{ReachabilityIndexMath}.
+Výpočty spojené s denotační analýzou jsou implementovány třídou \texttt{DenotationMath}. Tato třída neobsahuje žádné vlastnosti, jsou do ní soustředěny pouze metody pro \mbox{výpočty} kompaktnosti, centralizovanosti, MacInthoshova indexu, indexů nespojitosti a neizolovanosti,~\ldots Výpočet indexu dosažitelnosti je oproti jiným výpočtům komplexnější, a proto jej má na starost vlastní třída \texttt{ReachabilityIndexMath}.
 
 U každého slova \texttt{DenotationWord} jsou kromě slova samotného uloženy i informace o jeho pořadí v básni, dále číslo verše a strofy, v nichž se v básni nachází. \texttt{DenotationWord} dále obsahuje dva seznamy:
 \begin{itemize}
