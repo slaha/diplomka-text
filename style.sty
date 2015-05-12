@@ -87,3 +87,9 @@
 
 \input{glyphtounicode}
 \pdfgentounicode=1
+
+%If you need to get the float to be centered on a floats-only page, you should add the following instructions to your preamble.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpbot}{0pt}
+\makeatletter
