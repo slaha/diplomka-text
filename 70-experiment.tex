@@ -249,7 +249,7 @@ Zásadní vliv na uspořádání výsledného grafu má zvolená hodnota hladiny
 
 Pokud je zvolená hodnota $\alpha$ příliš nízká, obsahuje výsledný graf mnoho izolovaných vrcholů. Čím je naopak hodnota $\alpha$ vyšší, tím je vyšší i počet hran grafu. Pro zvolení vhodné hodnoty je třeba experimentovat. 
 
-Následující obrázky \ref{fig:denotation-resler-005}, \ref{fig:denotation-resler-007}, \ref{fig:denotation-resler-034}  zobrazují koincidenční grafy vytvořené na základě denotační analýzy čtrnácté strofy Reslerova překladu. Pro všechna $\alpha \leq 0{,}06$ tvoří graf pouze izolované vrcholy (hodnota indexu nespojitosti je tedy vyšší než $0{,}06$). Při hodnotě $\alpha = 0{,}07$ dojde k~vytvoření hran mezi vrcholy (hřeby) $17$, $21$ a $22$. K další redukci počtu komponent dojde při zvýšení $\alpha$ z na $0{,}17$, kdy se počet komponent sníží z $28$ na $10$ (naopak počet hran vzroste ze tří na $42$). Při $\alpha = 0{,}2$ se počet komponent sníží na devět. V tu chvíli zbývají v grafu pouze dva izolované vrcholy -- $2$ a $7$. Při $\alpha = 0{,}34$ se počet komponent sníží na tři. Vrcholy $2$ a $7$ se stanou součástí komponenty K1 tvořenou vrcholy $1$ až $15$ (s výjimkou hřebu č. $10$). Při $\alpha = 0{,}5$ dojde k poslední redukci počtu komponent, kdy se propojí komponenty K1 a K2. Ke spojení těchto dvou komponent i přes zvyšování hodnoty $\alpha$ nedojde, neboť index dosažitelnosti je roven $\infty$.
+Následující obrázky \ref{fig:denotation-resler-005}, \ref{fig:denotation-resler-007}, \ref{fig:denotation-resler-034}  zobrazují koincidenční grafy vytvořené na základě denotační analýzy čtrnácté strofy Reslerova překladu. Pro všechna $\alpha \leq 0{,}06$ tvoří graf pouze \mbox{izolované} vrcholy (hodnota indexu nespojitosti je tedy vyšší než $0{,}06$). Při hodnotě $\alpha = 0{,}07$ dojde k~vytvoření hran mezi vrcholy (hřeby) $17$, $21$ a $22$. K další redukci počtu komponent dojde při zvýšení $\alpha$ z na $0{,}17$, kdy se počet komponent sníží z $28$ na $10$ (naopak počet hran vzroste ze tří na $42$). Při $\alpha = 0{,}2$ se počet komponent sníží na devět. V tu chvíli zbývají v grafu pouze dva izolované vrcholy -- $2$ a $7$. Při $\alpha = 0{,}34$ se počet komponent sníží na tři. Vrcholy $2$ a $7$ se stanou součástí komponenty K1 tvořenou vrcholy $1$ až $15$ (s výjimkou hřebu č. $10$). Při $\alpha = 0{,}5$ dojde k poslední redukci počtu komponent, kdy se propojí komponenty K1 a K2. Ke spojení těchto dvou komponent i přes zvyšování hodnoty $\alpha$ nedojde, neboť index dosažitelnosti je roven $\infty$.
 
 V příloze \ref{appendix:grafy} jsou umístěny grafy pro vybrané analyzované texty. Příloha obsahuje jak koincidenční, tak deterministicko-pravděpodobnostní grafy pro $\alpha = 0{,}2$. Grafy všech analyzovaných textů jsou umístěny na CD přiloženém k~této práci.
 
@@ -262,14 +262,14 @@ V příloze \ref{appendix:grafy} jsou umístěny grafy pro vybrané analyzované
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-034}
+	\includegraphics[max width=\textwidth,height=160px,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-034}
 	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}34$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}34$. \textit{Zdroj:~vlastní.}}
 	\label{fig:denotation-resler-034}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[max width=\textwidth,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-05}
+	\includegraphics[max width=\textwidth,height=180px,keepaspectratio=true]{imgs-70-prakticka/denotation-resler-05}
 	\caption[Koincidenční graf Reslerova překladu pro $\alpha = 0{,}5$.]{Koincidenční graf Reslerova překladu pro $\alpha = 0{,}5$. \textit{Zdroj:~vlastní.}}
 	\label{fig:denotation-resler-007}
 \end{figure}

@@ -10,7 +10,7 @@ V rámci této diplomové práce byla vytvořena aplikace umožňující uživat
 
 Oba moduly jsou naprogramovány v programovacím jazyce Java. Pro spuštění aplikace je proto potřeba nejprve nainstalovat běhové prostředí Java Virtual Machine \footnote{Dostupné z \url {https://java.com/en/download}}. Součástí přílohy této diplomové práce je CD, na kterém je mimo jiné i spustitelná verze aplikace ve formátu JAR.
 
-Velkou výhodu Javy, jak napovídá i její motto \enq{write once, run anywhere}, je její multiplatformnost. To znamená, že v Javě napsaná aplikace bude bez úprav spustitelná na všech platformách, pro něž je dostupná Java Virtual Machine. 
+Velkou výhodu Javy, jak napovídá i její motto \enq{write once, run anywhere}, je její multiplatformnost. To znamená, že v Javě napsaná aplikace je bez úprav spustitelná na všech \mbox{platformách}, pro něž je dostupná Java Virtual Machine. 
 
 \section{Architektura aplikace}
 
@@ -323,9 +323,9 @@ Poslední možností, jak ovlivnit výsledek analýzy četnosti znaků, je vytvo
 \label{fig:gui-word-analysis-rules-dialog}
 \end{figure}
 
-Dialog umožňuje vytvoření pravidel dvou typů. Hledané slovo (\enquote{pták}) je možné buď ignorovat (tzn., že je při analýze přeskočeno a výsledcích se vůbec neobjeví), nebo nahradit slovem jiným. V tomto případě bude výskyt slova \enquote{pták} přičten k počtu výskytů slova \enquote{havran}.
+Dialog umožňuje vytvoření pravidel dvou typů. Hledané slovo (\enquote{pták}) je možné buď ignorovat (tzn., že je při analýze přeskočeno a výsledcích se vůbec neobjeví), nebo nahradit \mbox{slovem} jiným. V tomto případě bude výskyt slova \enquote{pták} přičten k počtu výskytů slova \enquote{havran}.
 
-Zaškrtávací tlačítko \keys{Pouze přesné shody} umožňuje ovlivnit, jak bude analýza probíhat v případě, že hledané slovo je prefixem právě analyzovaného slova (například slovo \enquote{\textbf{pták}u} začíná hledaným slovem \enquote{pták}). V případě, kdy nebude zaškrtnuto tlačítko \keys{Pouze přesné shody}, bude ve slově \enquote{\textbf{pták}u} část \enquote{pták} nahrazena slovem \enquote{havran}. Do zpracování analýzy tedy vstoupí slovo \enquote{\textbf{havran}u}. Pokud by byla zvolena volba \keys{Pouze přesné shody}, nebylo by nahrazení na slovo \enquote{ptáku} aplikováno a do analýzy by vstoupilo nezměněné slovo \enquote{ptáku}.
+Zaškrtávací tlačítko \keys{Pouze přesné shody} umožňuje ovlivnit, jak bude analýza probíhat v případě, že hledané slovo je prefixem právě analyzovaného slova (například slovo \enquote{\textbf{pták}u} \mbox{začíná} hledaným slovem \enquote{pták}). V případě, kdy nebude zaškrtnuto tlačítko \keys{Pouze přesné shody}, bude ve slově \enquote{\textbf{pták}u} část \enquote{pták} nahrazena slovem \enquote{havran}. Do zpracování analýzy tedy vstoupí slovo \enquote{\textbf{havran}u}. Pokud by byla zvolena volba \keys{Pouze přesné shody}, nebylo by nahrazení na slovo \enquote{ptáku} aplikováno a do analýzy by vstoupilo nezměněné slovo \enquote{ptáku}.
 
 
 Výsledkem analýzy četnosti slov je report obsahující jednak souhrnné informace o analyzovaných textech a jednak detailní přehled zobrazený buď formou tabulky, nebo grafu. Souhrn obsahuje informace jako celkový počet nalezených slov, nejčastěji se vyskytující slovo (délka slova) atd. V reportu je dále uvedena tabulka četností jednotlivých slov (resp. jejich délek). Tato tabulka je ve výchozím stavu sbalena, což indikuje ikona za nadpisem \enquote{Tabulka četností výskytu slov} (příp. \enquote{Výskyt slov dle délky slova}):
@@ -442,7 +442,7 @@ Kontextové menu obsahuje různý počet položek v závislosti na aktuálním s
 		\end{flushright}
 		\end{verse}
 
-	složené sloveso \enquote{hledal bych}. V tomto případě program nabídne sloučení \enquote{bych} se slovem \enquote{tu}, což není požadovaný výsledek. Řešením je proto slovo \enquote{bych} ignorovat a chovat se, jako by se o složené sloveso nejednalo (jak je vidět i na obrázku \ref{fig:gui-denotation-window}). Obdobná situace nastala i ve verši desátém.
+	složené sloveso \enquote{hledal bych}. V tomto případě program nabídne sloučení \enquote{bych} se slovem \enquote{tu}, což není požadovaný výsledek. Řešením je proto slovo \enquote{bych} ignorovat a \mbox{chovat} se, jako by se o složené sloveso nejednalo (jak je vidět i na obrázku \ref{fig:gui-denotation-window}). Obdobná situace nastala i ve verši desátém.
 \end{description}
 
 Pomocí kontextového menu je třeba rozdělit do hřebů všechny denotační elementy, které jsou v básni vytvořeny. Dokud není každý denotační element zařazen do hřebu, nedovolí aplikace pokračovat. Výhodné je průběžně ukládat stav rozdělování, aplikace sama rozdělanou práci periodicky neukládá.
@@ -477,7 +477,7 @@ Implementace denotační analýzy byla největším a nejtěžším úkolem, kte
 \item zobrazení výsledků denotační analýzy včetně grafu.
 \end{itemize}
 
-I když to nemusí být na první pohled zřejmé, implementace dělení textu do hřebů si vyžádala delší čas a byla náročnější než implementace části druhé. Při dělení textu jsou využívány dvě poměrně komplexní datové struktury (DS), které budou ještě později podrobně popsány. První je uživateli graficky zobrazena v levé části okna a představuje analyzovaný text s jednotlivými denotačními elementy. Druhá reprezentuje jednotlivé etablované hřeby včetně \mbox{denotačních} elementů, které byly do daného hřebu zařazeny. 
+I když to nemusí být na první pohled zřejmé, implementace dělení textu do hřebů si \mbox{vyžádala} delší čas a byla náročnější než implementace části druhé. Při dělení textu jsou využívány dvě poměrně komplexní datové struktury (DS), které budou ještě později podrobně popsány. První je uživateli graficky zobrazena v levé části okna a představuje analyzovaný text s jednotlivými denotačními elementy. Druhá reprezentuje jednotlivé etablované hřeby včetně \mbox{denotačních} elementů, které byly do daného hřebu zařazeny. 
 
 Obě tyto struktury navíc umožňují serializaci a deserializaci do/ze souboru. Implementována byla serializace do textového souboru do formátu vycházejícího z \acrshort{csv}. Výhodou tohoto řešení je, že uživatel může nezávisle na aplikaci soubor otevřít a upravit. Při vývoji aplikace (ale i při realizaci praktické části této práce) přišla tato vlastnost vhod, neboť se nejednou stalo, že data byla vyexportována tak, že nemohla být opětovně načtena. Ručním zásahem se podařilo uložený soubor opravit a tak zachránit rozdělanou práci.
 
